@@ -9,7 +9,7 @@ const int libdanh_version_major = 0;
 const int libdanh_version_minor = 0;
 const int libdanh_release = 6;
 
-const char* libdanh_version = "0.0.6 2011-03-15 #1";
+const char* libdanh_version = "0.0.6 2011-03-15 #2";
 
 /* functions */
 
