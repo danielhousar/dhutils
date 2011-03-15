@@ -2,4 +2,7 @@
 
 Danhutils is set of miscelaneous utilities, mostly using Libdanh library.
 
+Libdanh is general purpose C library with various functions. Libdanh is
+shipped with Danhutils.
+
 
