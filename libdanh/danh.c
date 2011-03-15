@@ -21,18 +21,18 @@ double str_to_double_dh(char* str){
 	double retval = 0.0;
 	double helpval = 0.0;
 	int char_count = 0;
-
-	while (str && str[char_count] != 0)
-		char_count++;
-
-	int numbers[100];
-
-	int position = char_count - 1;
 	int i = 0;
 	int j = 0;
 	int index = 0;
 	double divider = 1.0;
+	int numbers[100];
+	int position;
 
+	while (str && str[char_count] != 0)
+		char_count++;
+
+	position = char_count - 1;
+	
 	while (i <= position){
 		numbers[i] = str[i] - 48;
 		i++;
