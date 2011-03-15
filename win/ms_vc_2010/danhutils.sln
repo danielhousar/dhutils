@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual C++ Express 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quadequi", "quadequi\quadequi.vcxproj", "{FDF35D1B-3629-426C-9829-FD15B0001AF5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{366DDD98-43FF-4539-AF98-0DD710497F7F} = {366DDD98-43FF-4539-AF98-0DD710497F7F}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libdanh", "libdanh\libdanh.vcxproj", "{366DDD98-43FF-4539-AF98-0DD710497F7F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FDF35D1B-3629-426C-9829-FD15B0001AF5}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FDF35D1B-3629-426C-9829-FD15B0001AF5}.Debug|Win32.Build.0 = Debug|Win32
+		{FDF35D1B-3629-426C-9829-FD15B0001AF5}.Release|Win32.ActiveCfg = Release|Win32
+		{FDF35D1B-3629-426C-9829-FD15B0001AF5}.Release|Win32.Build.0 = Release|Win32
+		{366DDD98-43FF-4539-AF98-0DD710497F7F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{366DDD98-43FF-4539-AF98-0DD710497F7F}.Debug|Win32.Build.0 = Debug|Win32
+		{366DDD98-43FF-4539-AF98-0DD710497F7F}.Release|Win32.ActiveCfg = Release|Win32
+		{366DDD98-43FF-4539-AF98-0DD710497F7F}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
