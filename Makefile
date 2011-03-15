@@ -25,8 +25,9 @@ quadequi: libdanh
 .PHONY: clean install uninstall
 
 clean:
-	rm -f ./*/*.o
+	rm -f */*.o
 	rm -f bin/*.so
+	rm -f bin/quadequi
 
 install:
 	mkdir -p $(DESTDIR)$(LIBDIR)/
