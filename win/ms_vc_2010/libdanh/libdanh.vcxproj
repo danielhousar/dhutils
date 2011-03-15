@@ -77,10 +77,6 @@
     <ClCompile Include="..\..\..\libdanh\danh.c" />
     <ClCompile Include="..\..\..\libdanh\math.c" />
   </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\..\include\danh.h" />
-    <ClInclude Include="..\..\..\include\danhmath.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

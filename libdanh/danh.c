@@ -9,7 +9,7 @@ const int libdanh_version_major = 0;
 const int libdanh_version_minor = 0;
 const int libdanh_release = 6;
 
-const char* libdanh_version = "0.0.6 2011-03-15 #2";
+const char* libdanh_version = "0.0.6 2011-03-15";
 
 /* functions */
 
@@ -22,9 +22,8 @@ double str_to_double_dh(char* str){
 	double helpval = 0.0;
 	int char_count = 0;
 
-	while (str && str[char_count] != 0){
+	while (str && str[char_count] != 0)
 		char_count++;
-	}
 
 	int numbers[100];
 
