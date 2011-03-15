@@ -1,0 +1,12 @@
+prefix=/usr
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+bindir=${exec_prefix}/bin
+includedir=${prefix}/include
+sysconfdir=${prefix}/etc
+
+Name: libdanh
+Description: Dan.h's personal library
+Version: 0.0.6
+Cflags: -I${includedir}/libdanh
+Libs: -L${libdir} -ldanh
