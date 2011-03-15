@@ -27,6 +27,7 @@ double str_to_double_dh(char* str){
 	}
 
 	int numbers[100];
+
 	int position = char_count - 1;
 	int i = 0;
 	int j = 0;
