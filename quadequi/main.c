@@ -1,8 +1,8 @@
 
 #include <stdio.h>
 #include <string.h>
-#include <libdanh/danh.h>
-#include <libdanh/danhmath.h>
+#include "../include/danh.h"
+#include "../include/danhmath.h"
 
 int quadequi_release = 0;
 int quadequi_revision = 0;

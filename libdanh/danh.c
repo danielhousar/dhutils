@@ -21,9 +21,11 @@ double str_to_double_dh(char* str){
 	double retval = 0.0;
 	double helpval = 0.0;
 	int char_count = 0;
+
 	while (str && str[char_count] != 0){
 		char_count++;
 	}
+
 	int numbers[100];
 	int position = char_count - 1;
 	int i = 0;
