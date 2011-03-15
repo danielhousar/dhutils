@@ -18,19 +18,15 @@ objs:
 
 clean:
 	rm -f *.o
-	rm -f *.so
-	rm -f *.so.0
 
 install: libdanh.so
 	mkdir -p $(DESTDIR)$(LIBDIR)/
-	cp -a libdanh.so $(DESTDIR)$(LIBDIR)/
-	ln -sf libdanh.so libdanh.so.0
-	cp -a libdanh.so.0 $(DESTDIR)$(LIBDIR)/
+	cp -a ../bin/libdanh.so $(DESTDIR)$(LIBDIR)/
 	mkdir -p $(DESTDIR)$(LIBDIR)/pkgconfig/
-	cp -f libdanh.pc $(DESTDIR)$(LIBDIR)/pkgconfig/
+	cp -f ../libdanh.pc $(DESTDIR)$(LIBDIR)/pkgconfig/
 	mkdir -p $(DESTDIR)$(INCLUDEDIR)/libdanh
-	cp -f include/danhmath.h $(DESTDIR)$(INCLUDEDIR)/libdanh/
-	cp -f include/danh.h $(DESTDIR)$(INCLUDEDIR)/libdanh/
+	cp -f ../include/danhmath.h $(DESTDIR)$(INCLUDEDIR)/libdanh/
+	cp -f ../include/danh.h $(DESTDIR)$(INCLUDEDIR)/libdanh/
 
 uninstall:
 	rm -f $(LIBDIR)/libdanh.*
