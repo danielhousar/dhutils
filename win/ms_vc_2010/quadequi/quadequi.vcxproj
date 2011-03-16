@@ -77,6 +77,11 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\quadequi\main.c" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\libdanh\libdanh.vcxproj">
+      <Project>{366ddd98-43ff-4539-af98-0dd710497f7f}</Project>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
