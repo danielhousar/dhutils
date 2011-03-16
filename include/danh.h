@@ -13,6 +13,7 @@
 const int libdanh_version_major;
 const int libdanh_version_minor;
 const int libdanh_release;
+const int libdanh_revision;
 
 const char* libdanh_version;
 
