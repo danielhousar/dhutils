@@ -1,4 +1,7 @@
 
+CC=gcc
+CFLAGS=-march=native -mtune=native -O3
+
 all: binary
 
 .PHONY: binary objs

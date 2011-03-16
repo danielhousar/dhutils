@@ -6,9 +6,6 @@ LIBDIR=$(PREFIX)/lib
 INCLUDEDIR=$(PREFIX)/include
 SYSCONFDIR=/etc
 
-CC=gcc
-CFLAGS=-march=native -mtune=native -O3
-
 SUBDIRS=libdanh quadequi
 
 all: subdirs
@@ -39,3 +36,9 @@ install:
 	cp -f include/danh.h $(DESTDIR)$(INCLUDEDIR)/libdanh/
 	mkdir -p $(DESTDIR)$(BINDIR)/
 	cp -f bin/quadequi $(DESTDIR)$(BINDIR)/
+
+uninstall:
+	rm -f $(DESTDIR)$(LIBDIR)/libdanh.so
+	rm -f $(DESTDIR)$(LIBDIR)/pkgconfig/libdanh.pc
+	rm -f $(DESTDIR)$(BINDIR)/quadequi
+	rm -rf $(DESTDIR)$(INCLUDEDIR)/libdanh
