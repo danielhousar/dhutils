@@ -10,12 +10,19 @@
 #define LIBDANH_VERSION_MINOR 0
 #define LIBDANH_RELEASE 7
 
+//#ifdef _WIN32
+//__declspec( dllexport ) const int libdanh_version_major;
+//__declspec( dllexport ) const int libdanh_version_minor;
+//__declspec( dllexport ) const int libdanh_release;
+//__declspec( dllexport ) const int libdanh_revision;
+//__declspec( dllexport ) const char* libdanh_version;
+//#else
 const int libdanh_version_major;
 const int libdanh_version_minor;
 const int libdanh_release;
 const int libdanh_revision;
-
 const char* libdanh_version;
+//#endif
 
 /* functions */
 

@@ -4,12 +4,19 @@
 
 #include "../include/danh.h"
 
+//#ifdef _WIN32
+//__declspec( dllexport ) const int libdanh_version_major = 0;
+//__declspec( dllexport ) const int libdanh_version_minor = 0;
+//__declspec( dllexport ) const int libdanh_release = 7;
+//__declspec( dllexport ) const int libdanh_revision = 1;
+//__declspec( dllexport ) const char* libdanh_version = "0.0.7 rev. 1 2011-03-16";
+//#else
 const int libdanh_version_major = 0;
 const int libdanh_version_minor = 0;
 const int libdanh_release = 7;
 const int libdanh_revision = 1;
-
 const char* libdanh_version = "0.0.7 rev. 1 2011-03-16";
+//#endif
 
 /* functions */
 
@@ -32,7 +39,7 @@ double str_to_double_dh(char* str){
 		char_count++;
 
 	position = char_count - 1;
-	
+
 	while (i <= position){
 		numbers[i] = str[i] - 48;
 		i++;
@@ -60,8 +67,6 @@ double str_to_double_dh(char* str){
 	return retval;
 }
 
-/* under construction */
-
 int strlength_dh(char* str){
 	int i = 0;
 	while(str && str[i] != 0){
@@ -69,6 +74,8 @@ int strlength_dh(char* str){
 	}
 	return i;
 }
+
+/* under construction */
 
 /*
 char* double_to_str_dh(double a){
