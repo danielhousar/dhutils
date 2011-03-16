@@ -2,13 +2,15 @@
  * file:	danh.c
  ***************************************************************************** */
 
+#include <windows.h>
 #include "../include/danh.h"
 
-const int libdanh_version_major = 0;
-const int libdanh_version_minor = 0;
-const int libdanh_release = 7;
-const int libdanh_revision = 1;
-const char* libdanh_version = "0.0.7 rev. 1 2011-03-16";
+__declspec( dllexport ) const int libdanh_version_major = 0;
+__declspec( dllexport ) const int libdanh_version_minor = 0;
+__declspec( dllexport ) const int libdanh_release = 7;
+__declspec( dllexport ) const int libdanh_revision = 1;
+__declspec( dllexport ) const char* libdanh_version = "0.0.7 rev. 1 2011-03-16";
+
 
 /* functions */
 
@@ -16,7 +18,7 @@ const char* libdanh_version = "0.0.7 rev. 1 2011-03-16";
 
 /* functions - testing */
 
-double str_to_double_dh(char* str){
+__declspec( dllexport ) double str_to_double_dh(char* str){
 	double retval = 0.0;
 	double helpval = 0.0;
 	int char_count = 0;
@@ -59,7 +61,7 @@ double str_to_double_dh(char* str){
 	return retval;
 }
 
-int strlength_dh(char* str){
+__declspec( dllexport ) int strlength_dh(char* str){
 	int i = 0;
 	while(str && str[i] != 0){
 		i++;

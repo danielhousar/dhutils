@@ -10,11 +10,11 @@
 #define LIBDANH_VERSION_MINOR 0
 #define LIBDANH_RELEASE 7
 
-const int libdanh_version_major;
-const int libdanh_version_minor;
-const int libdanh_release;
-const int libdanh_revision;
-const char* libdanh_version;
+__declspec( dllexport ) const int libdanh_version_major;
+__declspec( dllexport ) const int libdanh_version_minor;
+__declspec( dllexport ) const int libdanh_release;
+__declspec( dllexport ) const int libdanh_revision;
+__declspec( dllexport ) const char* libdanh_version;
 
 /* functions */
 
@@ -22,9 +22,9 @@ const char* libdanh_version;
 
 /* functions - testing */
 
-double str_to_double_dh(char* str);
+__declspec( dllexport ) double str_to_double_dh(char* str);
 
-int strlength_dh(char* str);
+__declspec( dllexport ) int strlength_dh(char* str);
 
 /* functions - under construction */
 
