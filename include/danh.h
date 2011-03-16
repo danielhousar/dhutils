@@ -1,7 +1,5 @@
 /***************************************************************
  * file:	danh.h
- * release:	0.0.6
- * revision:	2011-O3-15
  *
  * Header of danh library.
  * Danh library is custom library with some usable functions.
