@@ -13,13 +13,24 @@ char* quadequi_version = "0.0 2011-03-15";
 
 int main (int argc, char **argv){
 	int i = 0;
+	int is_y = 0;
 	int print_version = 0;
 	int debug = 0;
 	int print_help = 0;
+	double x;
+	double y;
+
 	while (i < argc){
 		if (strcmp(argv[i], "-V") == 0 || strcmp(argv[i], "--version") == 0) print_version = 1;
 		if (strcmp(argv[i], "--debug") == 0) debug = 1;
 		if (strcmp(argv[i], "--help") == 0) print_help = 1;
+		if (argv[i][0] > 48 && argv[i][0] < 57 && is_y == 0){
+			x = str_to_double_dh(argv[i]);
+			is_y = 1;
+		}
+		if (argv[i][0] > 48 && argv[i][0] < 57 && is_y == 1) {
+			y = str_to_double_dh(argv[i]);
+		}
 		i++;
 	}
 	
@@ -31,6 +42,8 @@ int main (int argc, char **argv){
 	}
 
 	if (debug == 1) puts("debug mode is ON");
+	if (debug == 1) printf("x: %lG\n", x);
+	if (debug == 1) printf("y: %lG\n", y);
 
 	return 0;
 }
