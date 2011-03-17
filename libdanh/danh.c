@@ -5,10 +5,9 @@
 #include "../include/danh.h"
 
 const int libdanh_version_major = 0;
-const int libdanh_version_minor = 0;
 const int libdanh_release = 7;
-const int libdanh_revision = 1;
-const char* libdanh_version = "0.0.7 rev. 1 2011-03-16";
+const int libdanh_revision = 2;
+const char* libdanh_version = "0.7 rev. 2 2011-03-17";
 
 /* functions */
 

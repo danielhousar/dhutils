@@ -7,6 +7,6 @@ sysconfdir=${prefix}/etc
 
 Name: libdanh
 Description: Dan.h's personal library
-Version: 0.0.7
+Version: 0.7.2
 Cflags: -I${includedir}/libdanh
 Libs: -L${libdir} -ldanh

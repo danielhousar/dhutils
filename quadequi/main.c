@@ -9,7 +9,7 @@
 
 int quadequi_release = 0;
 int quadequi_revision = 0;
-char* quadequi_version = "0.0 2011-03-15";
+char* quadequi_version = "0.0 2011-03-17";
 
 int main (int argc, char **argv){
 	int i = 0;
