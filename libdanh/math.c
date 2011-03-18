@@ -31,6 +31,7 @@ double factorial_double_dh(double a){
 }
 
 float misc_sqrt_dh(float a){
+	int i = 0;
 	float var1 = a;
 	float var2 = 0.0;
 	float var3;
@@ -38,6 +39,11 @@ float misc_sqrt_dh(float a){
 		var3 = (var1 + var2) / 2.0;
 		if ((var3 * var3) > a) { var1 = var3; }
 		else { var2 = var3; }
+		i++;
+		printf("%d\n", i);
+		printf("%lG\n", var3);
+		printf("%f\n", var3);
+		printf("%lf\n", var3);
 	}
 	return var3;
 }
