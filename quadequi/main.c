@@ -22,6 +22,8 @@ int main (int argc, char **argv){
 	double a;
 	double b;
 	double c;
+	double main_x1;
+	double main_x2;
 
 	while (i < argc){
 		if (strcmp(argv[i], "-V") == 0 || strcmp(argv[i], "--version") == 0) print_version = 1;
@@ -56,6 +58,15 @@ int main (int argc, char **argv){
 	if (debug == 1 && a_is_set == 1) printf("a: %lG\n", a);
 	if (debug == 1 && b_is_set == 1) printf("b: %lG\n", b);
 	if (debug == 1 && c_is_set == 1) printf("c: %lG\n", c);
+	
+	if (a_is_set == 1 && b_is_set == 1 && c_is_set == 1){
+		main_x1 = quadequi_double_dh(a, b, c, 1);
+		main_x2 = quadequi_double_dh(a, b, c, 2);
+
+		printf("solution:\nx1 = %lG\nx2 = %lG\n", main_x1, main_x2);
+	}
+	else puts("not all required values given - stop processing");
+
 	return 0;
 }
 
