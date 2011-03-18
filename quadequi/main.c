@@ -10,7 +10,7 @@
 
 int quadequi_release = 0;
 int quadequi_revision = 0;
-char* quadequi_version = "0.1 2011-03-18";
+char* quadequi_version = "0.2 2011-03-18";
 
 int main (int argc, char **argv){
 	int i = 0;
@@ -68,7 +68,7 @@ int main (int argc, char **argv){
 		main_x1 = quadequi_double_dh(a, b, c, 1);
 		main_x2 = quadequi_double_dh(a, b, c, 2);
 
-		printf("solution:\nx1 = %lG\nx2 = %lG\n", main_x1, main_x2);
+		printf("x1 = %lG\nx2 = %lG\n", main_x1, main_x2);
 	}
 	else puts("not all required values given - stop processing");
 
