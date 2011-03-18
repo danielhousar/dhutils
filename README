@@ -1,8 +1,17 @@
 ********************** DANHUTILS ********************
 
+Version: 0.0.7
+
 Danhutils is set of miscelaneous utilities, mostly using Libdanh library.
 
 Libdanh is general purpose C library with various functions. Libdanh is
 shipped with Danhutils.
 
+Now Contains:
+
+libdanh: 
+	- version: 0.7 rev. 4
+
+quadequi:
+	- version: 0.1
 
