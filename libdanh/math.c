@@ -152,7 +152,6 @@ double quadequi_double_dh (double a, double b, double c, int x){
 		x2 = (-b + d) / (2.0 * a);
 	}
 
-	// return * retval;
 	if (x == 2)
 		return x2;
 	else return x1;

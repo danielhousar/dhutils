@@ -8,6 +8,8 @@ double factorial_double_dh(double a);
 
 float misc_sqrt_dh(float a);
 
+double misc_sqrt_double_dh(double a);
+
 double sqrt_double_dh(double a);
 
 double mad_double_dh(double a);
