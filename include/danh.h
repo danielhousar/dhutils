@@ -1,8 +1,5 @@
 /***************************************************************
- * file:	danh.h
- *
- * Header of danh library.
- * Danh library is custom library with some usable functions.
+ * file:	include/danh.h
  *************************************************************** */
 
 #define LIBDANH
@@ -14,15 +11,5 @@ const int libdanh_release;
 const int libdanh_revision;
 const char* libdanh_version;
 
-/* functions */
-
-//no functions for now
-
-/* functions - testing */
-
 int strlength_dh(char* str);
-
-/* functions - under construction */
-
-//char* double_to_str_dh(double a);
 
