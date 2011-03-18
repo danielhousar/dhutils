@@ -62,7 +62,7 @@ int str_is_number_dh(char* str){
 		if (str[i] < 45 || str[i] == 47 || str[i] > 57) { err_nu++; }
 		if (i > 0 && str[i] == 45) { err_nu++; }
 
-		if (str[i] == 46){ 
+		if (str[i] == 46){
 			if (was_point == 0) { was_point = 1; }
 			else { err_nu++; }
 		}
@@ -75,7 +75,6 @@ int str_is_number_dh(char* str){
 
 /* under construction */
 
-/*
 char* double_to_str_dh(double a){
 	char* retval;
 	retval[0] = "1";
@@ -83,5 +82,5 @@ char* double_to_str_dh(double a){
 	retval[2] = "0";
 	return retval;
 }
-*/
+
 
