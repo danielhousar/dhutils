@@ -9,11 +9,6 @@ const int libdanh_release = 7;
 const int libdanh_revision = 4;
 const char* libdanh_version = "0.7 rev. 4 2011-03-18";
 
-/* functions */
-
-//nothing for now
-
-/* functions - testing */
 
 int strlength_dh(char* str){
 	int i = 0;
@@ -23,5 +18,4 @@ int strlength_dh(char* str){
 	return i;
 }
 
-/* under construction */
 

@@ -4,12 +4,6 @@
 
 #include "../include/types.h"
 
-/* functions */
-
-//nothing for now
-
-/* functions - testing */
-
 double str_to_double_dh(char* str){
 	double retval = 0.0;
 	double helpval = 0.0;
