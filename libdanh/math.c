@@ -40,10 +40,20 @@ float misc_sqrt_dh(float a){
 		if ((var3 * var3) > a) { var1 = var3; }
 		else { var2 = var3; }
 		i++;
-		printf("%d\n", i);
-		printf("%lG\n", var3);
-		printf("%f\n", var3);
-		printf("%lf\n", var3);
+	}
+	return var3;
+}
+
+double misc_sqrt_double_dh(double a){
+	int i = 0;
+	double var1 = a;
+	double var2 = 0.0;
+	double var3;
+	while ((var3 * var3) > a || (var3 * var3) < a) {
+		var3 = (var1 + var2) / 2.0;
+		if ((var3 * var3) > a) { var1 = var3; }
+		else { var2 = var3; }
+		i++;
 	}
 	return var3;
 }

@@ -4,8 +4,11 @@
 #include "../include/types.h"
 
 int main (int argc, char **argv){
-	float x;
-	scanf("%f", &x);
-	float root = misc_sqrt_dh(x);
-	printf("%f\n", root);
+	//float x;
+	double y;
+	//scanf("%f", &x);
+	scanf("%lG", &y);
+	//float root = misc_sqrt_dh(x);
+	double root2 = misc_sqrt_double_dh(y);
+	printf("%f\n", root2);
 }
