@@ -1,3 +1,4 @@
+# 0.0.7
 
 CC=gcc
 CFLAGS=-march=native -mtune=native -O3
