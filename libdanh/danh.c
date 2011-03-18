@@ -21,10 +21,11 @@ double str_to_double_dh(char* str){
 	int char_count = 0;
 	int i = 0;
 	int j = 0;
-	int index = 0;
 	double divider = 1.0;
 	int numbers[100];
 	int position;
+	int is_negative = 0;
+	int is_spot = 0;
 
 	while (str && str[char_count] != 0)
 		char_count++;
@@ -37,13 +38,17 @@ double str_to_double_dh(char* str){
 	}
 
 	while (j <= position){
-		if (numbers[j] >= 0 && numbers[j] <= 9 && index == 0){
+		if (numbers[j] >= 0 && numbers[j] <= 9 && is_spot == 0){
 			retval *= 10.0;
 			retval += numbers[j];
 			j++;
 		}
+		else if (numbers[j] == -3){
+			is_negative = 1;
+			j++;
+		}
 		else if (numbers[j] == -2){
-			index = 1;
+			is_spot = 1;
 			j++;
 		}
 		else {
@@ -54,6 +59,8 @@ double str_to_double_dh(char* str){
 	}
 
 	retval += helpval;
+	if (is_negative == 1)
+		retval *= -1.0;
 
 	return retval;
 }
