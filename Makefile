@@ -32,8 +32,7 @@ install:
 	mkdir -p $(DESTDIR)$(LIBDIR)/pkgconfig/
 	cp -f libdanh.pc $(DESTDIR)$(LIBDIR)/pkgconfig/
 	mkdir -p $(DESTDIR)$(INCLUDEDIR)/libdanh
-	cp -f include/danhmath.h $(DESTDIR)$(INCLUDEDIR)/libdanh/
-	cp -f include/danh.h $(DESTDIR)$(INCLUDEDIR)/libdanh/
+	cp -f include/* $(DESTDIR)$(INCLUDEDIR)/libdanh/
 	mkdir -p $(DESTDIR)$(BINDIR)/
 	cp -f bin/quadequi $(DESTDIR)$(BINDIR)/
 
