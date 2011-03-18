@@ -12,3 +12,5 @@ double sqrt_double_dh(double a);
 
 double mad_double_dh(double a);
 
+double quadequi_double_dh(double a, double b, double c, int x);
+

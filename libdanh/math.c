@@ -116,11 +116,9 @@ double mad_double_dh(double a){
 	return retval;
 }
 
-/******************************************************************
-double quadequi_double_dh (double a, double b, double c) [] {
+double quadequi_double_dh (double a, double b, double c, int x){
 	double d, discr;
 	double x1, x2;
-	double retval[2] = {x1, x2};
 	discr = (b * b) - (4.0 * a * c);
 
 	if (discr < 0.0) {
@@ -139,7 +137,8 @@ double quadequi_double_dh (double a, double b, double c) [] {
 	}
 
 	// return * retval;
-	return {x1,x2};
+	if (x == 2)
+		return x2;
+	else return x1;
 }
-*****************************************************************/
 
