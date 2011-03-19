@@ -12,5 +12,7 @@
 int main (int argc, char **argv){
 	printf("size of int: %i\n", sizeof(int));
 	printf("size of long: %i\n", sizeof(long));
+	printf("size of float: %i\n", sizeof(float));
+	printf("size of double: %i\n", sizeof(double));
 	return 0;
 }
