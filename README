@@ -14,7 +14,7 @@ libdanh:
 	C library with some functions, for example sqrt_double_dh() as implemetation of sqrt() from standard library math
 
 quadequi:
-	- version: 0.2
+	- version: 0.3
 	Computes roots of equation "ax^2 + bx + c = 0" if a b c values given as command line arguments
 	and prints x1 and x2 values.
 
