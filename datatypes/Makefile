@@ -10,7 +10,7 @@ all: binary
 .PHONY: binary objs
 
 binary: objs
-	$(CC) main.o -o ../bin/datatypes -L../bin -ldanh
+	$(CC) main.o -o ../bin/datatypes
 
 objs:
 	$(CC) $(CFLAGS) -c main.c
