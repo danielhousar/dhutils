@@ -18,3 +18,6 @@ quadequi:
 	Computes roots of equation "ax^2 + bx + c = 0" if a b c values given as command line arguments
 	and prints x1 and x2 values.
 
+datatypes:
+	Prints sizeof() of standard types and sometimes max value.
+
