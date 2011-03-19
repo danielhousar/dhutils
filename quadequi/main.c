@@ -3,14 +3,13 @@
  ***************************************************************/
 
 #include <stdio.h>
-#include <string.h>
 #include "../include/danh.h"
 #include "../include/danhmath.h"
 #include "../include/types.h"
 
 int quadequi_release = 0;
-int quadequi_revision = 0;
-char* quadequi_version = "0.2 2011-03-18";
+int quadequi_revision = 3;
+char* quadequi_version = "0.3 2011-03-19";
 
 int main (int argc, char **argv){
 	int i = 0;
@@ -27,9 +26,9 @@ int main (int argc, char **argv){
 	double main_x2;
 
 	while (i < argc){
-		if (strcmp(argv[i], "-V") == 0 || strcmp(argv[i], "--version") == 0) print_version = 1;
-		if (strcmp(argv[i], "--debug") == 0) debug = 1;
-		if (strcmp(argv[i], "--help") == 0) print_help = 1;
+		if (strcmp_dh(argv[i], "-V") == 0 || strcmp_dh(argv[i], "--version") == 0) print_version = 1;
+		if (strcmp_dh(argv[i], "--debug") == 0) debug = 1;
+		if (strcmp_dh(argv[i], "--help") == 0) print_help = 1;
 
 		if (str_is_number_dh(argv[i]) == 1) {
 			if (a_is_set == 0){
