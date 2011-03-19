@@ -1,4 +1,6 @@
-# 0.0.7
+########################################
+# file:	quadequi/Makefile
+########################################
 
 CC=gcc
 CFLAGS=-march=native -mtune=native -O3
