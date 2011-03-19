@@ -10,7 +10,7 @@
 //#include "../include/types.h"
 
 int main (int argc, char **argv){
-	printf("%i\n", sizeof(int));
-	printf("%i\n", sizeof(long));
+	printf("size of int: %i\n", sizeof(int));
+	printf("size of long: %i\n", sizeof(long));
 	return 0;
 }
