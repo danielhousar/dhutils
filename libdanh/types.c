@@ -77,9 +77,9 @@ int str_is_number_dh(char* str){
 
 char* double_to_str_dh(double a){
 	char* retval;
-	retval[0] = "1";
-	retval[1] = ".";
-	retval[2] = "0";
+	retval[0] = '1';
+	retval[1] = '.';
+	retval[2] = '0';
 	return retval;
 }
 

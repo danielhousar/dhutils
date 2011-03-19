@@ -10,7 +10,7 @@ shipped with Danhutils.
 Now Contains:
 
 libdanh: 
-	- version: 0.7 rev. 4
+	- version: 0.7 rev. 5
 	C library with some functions, for example sqrt_double_dh() as implemetation of sqrt() from standard library math
 
 quadequi:
