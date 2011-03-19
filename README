@@ -1,6 +1,6 @@
 ********************** DANHUTILS ********************
 
-Version: 0.0.7
+Version: 0.0.8
 
 Danhutils is set of miscelaneous utilities, mostly using Libdanh library.
 
@@ -10,7 +10,7 @@ shipped with Danhutils.
 Now Contains:
 
 libdanh: 
-	- version: 0.7 rev. 5
+	- version: 0.8 rev. 0
 	C library with some functions, for example sqrt_double_dh() as implemetation of sqrt() from standard library math
 
 quadequi:

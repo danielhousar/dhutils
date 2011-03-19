@@ -5,9 +5,9 @@
 #include "../include/danh.h"
 
 const int libdanh_version_major = 0;
-const int libdanh_release = 7;
-const int libdanh_revision = 5;
-const char* libdanh_version = "0.7 rev. 5 2011-03-19";
+const int libdanh_release = 8;
+const int libdanh_revision = 0;
+const char* libdanh_version = "0.8 rev. 0 2011-03-19";
 
 
 int strlength_dh(char* str){
