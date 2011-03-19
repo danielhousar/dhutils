@@ -41,3 +41,7 @@ Usable as check before str_to_double_dh() call
 
 	---------------------------------------------------------
 
+int strcmp_dh(char* str1, char* str2)
+
+Internal implementation of strcmp() from standard library. Returns 0 if given strings are equal.
+Usable when you dont want include <string.h>.
