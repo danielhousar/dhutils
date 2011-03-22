@@ -14,9 +14,8 @@ char* quadequi_version = "0.3 2011-03-19";
 int main (int argc, char **argv){
 	int i = 0;
 	int var_set = 0;
-	int print_version = 0;
+	int init_print = 0;
 	int debug = 0;
-	int print_help = 0;
 	double a;
 	double b;
 	double c;
@@ -24,9 +23,9 @@ int main (int argc, char **argv){
 	double main_x2;
 
 	while (i < argc){
-		if (strcmp_dh(argv[i], "-V") == 0 || strcmp_dh(argv[i], "--version") == 0) print_version = 1;
+		if (strcmp_dh(argv[i], "-V") == 0 || strcmp_dh(argv[i], "--version") == 0) init_print = 1;
 		if (strcmp_dh(argv[i], "--debug") == 0) debug = 1;
-		if (strcmp_dh(argv[i], "--help") == 0) print_help = 1;
+		if (strcmp_dh(argv[i], "--help") == 0) init_print = 2;
 
 		if (str_is_number_dh(argv[i]) == 1) {
 			var_set++;
@@ -36,7 +35,7 @@ int main (int argc, char **argv){
 			else if (var_set == 2) {
 				b = str_to_double_dh(argv[i]);
 			}
-			else {
+			else if (var_set == 3){
 				c = str_to_double_dh(argv[i]);
 			}
 		}
@@ -44,9 +43,9 @@ int main (int argc, char **argv){
 		i++;
 	}
 	
-	if (print_help == 1 || argc == 1) puts("Usage: quadequi [--help] [--debug] [-V | --version] a b c");
+	if (init_print == 2 || argc == 1) puts("Usage: quadequi [--help] [--debug] [-V | --version] a b c");
 
-	if (print_version == 1) {
+	if (init_print == 1) {
 		printf("libdanh version: %s\n", libdanh_version);
 		printf("quadequi version: %s\n", quadequi_version);
 	}
