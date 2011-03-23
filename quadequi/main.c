@@ -27,16 +27,16 @@ int main (int argc, char **argv){
 		if (strcmp_dh(argv[i], "--debug") == 0) qe_init += 4;
 		
 		if (str_is_number_dh(argv[i]) == 1) {
-			var_set++;
-			if (var_set == 1){
+			if (var_set == 0){
 				a = str_to_double_dh(argv[i]);
 			}
-			else if (var_set == 2) {
+			else if (var_set == 1) {
 				b = str_to_double_dh(argv[i]);
 			}
-			else if (var_set == 3){
+			else if (var_set == 2){
 				c = str_to_double_dh(argv[i]);
 			}
+			var_set++;
 		}
 
 		i++;
@@ -54,9 +54,11 @@ int main (int argc, char **argv){
 	if (var_set < 2) puts("b not set");
 	if (var_set < 3) puts("c not set");
 	
-	if (qe_init > 3 && var_set >= 1) printf("a: %lG\n", a);
-	if (qe_init > 3 && var_set >= 2) printf("b: %lG\n", b);
-	if (qe_init > 3 && var_set >= 3) printf("c: %lG\n", c);
+	if (qe_init > 3 && var_set > 0) {
+		printf("a: %lG\n", a);
+		if (var_set >= 2) printf("b: %lG\n", b);
+		if (var_set >= 3) printf("c: %lG\n", c);
+	}
 	
 	if (var_set >= 3){
 		main_x1 = quadequi_double_dh(a, b, c, 1);
