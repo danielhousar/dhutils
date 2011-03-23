@@ -6,48 +6,39 @@
 
 double str_to_double_dh(char* str){
 	double retval = 0.0;
-	double helpval = 0.0;
 	int char_count = 0;
 	int i = 0;
-	int j = 0;
 	double divider = 1.0;
-	int numbers[100];
-	int position;
+	int numbers[96];
 	int is_negative = 0;
-	int is_spot = 0;
+	int was_point = 0;
 
-	while (str && str[char_count] != 0)
+	while (str && str[char_count] != 0 && char_count < 96) {
+		numbers[char_count] = str[char_count] - 48;
 		char_count++;
-
-	position = char_count - 1;
-
-	while (i <= position){
-		numbers[i] = str[i] - 48;
-		i++;
 	}
 
-	while (j <= position){
-		if (numbers[j] >= 0 && numbers[j] <= 9 && is_spot == 0){
+	while (i < char_count){
+		if (numbers[i] >= 0 && numbers[i] <= 9 && was_point == 0){
 			retval *= 10.0;
-			retval += numbers[j];
-			j++;
+			retval += numbers[i];
+			i++;
 		}
-		else if (numbers[j] == -3){
+		else if (numbers[i] == -3){
 			is_negative = 1;
-			j++;
+			i++;
 		}
-		else if (numbers[j] == -2){
-			is_spot = 1;
-			j++;
+		else if (numbers[i] == -2){
+			was_point = 1;
+			i++;
 		}
 		else {
 			divider *= 10.0;
-			helpval += numbers[j] / divider;
-			j++;
+			retval += numbers[i] / divider;
+			i++;
 		}
 	}
 
-	retval += helpval;
 	if (is_negative == 1)
 		retval *= -1.0;
 
