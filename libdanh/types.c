@@ -18,14 +18,12 @@ double str_to_double_dh(char* str){
 		char_count++;
 	}
 
+	if (numbers[0] == -3) { i = 1; is_negative = 1; }
+
 	while (i < char_count){
 		if (numbers[i] >= 0 && numbers[i] <= 9 && was_point == 0){
 			retval *= 10.0;
 			retval += numbers[i];
-			i++;
-		}
-		else if (numbers[i] == -3){
-			is_negative = 1;
 			i++;
 		}
 		else if (numbers[i] == -2){
@@ -65,13 +63,5 @@ int str_is_number_dh(char* str){
 }
 
 /* under construction */
-
-char* double_to_str_dh(double a){
-	char* retval;
-	retval[0] = '1';
-	retval[1] = '.';
-	retval[2] = '0';
-	return retval;
-}
 
 
