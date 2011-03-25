@@ -5,7 +5,11 @@
 
 int main (int argc, char **argv){
 	double x;
-	scanf("%lG", &x);
+	printf("libdanh: %s\n", libdanh_version);
+	if (argc > 1){
+		x = str_to_double_dh(argv[1]);
+	}
+	else scanf("%lG", &x);
 	double root = misc_sqrt_double_dh(x);
-	printf("%lf\n", root);
+	printf("%.*f\n", 10, root);
 }
