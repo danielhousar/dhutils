@@ -6,7 +6,7 @@ LIBDIR=$(PREFIX)/lib
 INCLUDEDIR=$(PREFIX)/include
 SYSCONFDIR=/etc
 
-SUBDIRS=libdanh quadequi sqrt-test datatypes
+SUBDIRS=libdanh test quadequi datatypes
 
 all: subdirs
 
@@ -37,10 +37,10 @@ install:
 	mkdir -p $(DESTDIR)$(BINDIR)/
 	cp -f bin/* $(DESTDIR)$(BINDIR)/
 
+
 uninstall:
 	rm -f $(DESTDIR)$(LIBDIR)/libdanh.so
 	rm -f $(DESTDIR)$(LIBDIR)/pkgconfig/libdanh.pc
 	rm -rf $(DESTDIR)$(INCLUDEDIR)/libdanh
-	rm -f $(DESTDIR)$(BINDIR)/sqrt-test
 	rm -f $(DESTDIR)$(BINDIR)/datatypes
 	rm -f $(DESTDIR)$(BINDIR)/quadequi

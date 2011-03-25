@@ -7,5 +7,5 @@ all: binary
 .PHONY: binary
 
 binary:
-	$(CC) $(CFLAGS) main.c -o ../bin/sqrt-test -L../libdanh -ldanh
+	$(CC) $(CFLAGS) sqrt.c -o sqrt -L../libdanh -ldanh
 
