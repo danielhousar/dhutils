@@ -45,8 +45,8 @@ int main (int argc, char **argv){
 	if (qe_init == 1 || argc == 1) puts("Usage: quadequi [--help]|[--debug] [--version] a b c");
 
 	if (qe_init > 1) {
-		printf("libdanh version: %s\n", libdanh_version);
-		printf("quadequi version: %s\n", quadequi_version);
+		printf("libdanh %s\n", libdanh_version);
+		printf("quadequi %s\n", quadequi_version);
 	}
 	if (qe_init > 3) puts("debug mode is ON");
 	
@@ -64,7 +64,7 @@ int main (int argc, char **argv){
 		main_x1 = quadequi_fd_dh(a, b, c, 1);
 		main_x2 = quadequi_fd_dh(a, b, c, 2);
 
-		printf("x1 = %f\nx2 = %f\n", main_x1, main_x2);
+		printf(" x1 = %f\n x2 = %f\n", main_x1, main_x2);
 	}
 	else if (var_set > 0) puts("not all required values given - stop processing");
 
