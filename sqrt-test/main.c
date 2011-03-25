@@ -10,6 +10,6 @@ int main (int argc, char **argv){
 		x = str_to_double_dh(argv[1]);
 	}
 	else scanf("%lG", &x);
-	double root = misc_sqrt_double_dh(x);
+	double root = sqrt_fd_dh(x);
 	printf("%.*f\n", 10, root);
 }

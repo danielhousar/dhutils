@@ -12,7 +12,7 @@ char* libdanh_version - version string, usable for direct printf() during starti
 
 FUNCTIONS:
 
-double sqrt_double_dh(double a)
+double sqrt_fd_dh(double a)
 
 - Computes quadratic root of number
 

@@ -4,7 +4,7 @@
 
 #include "../include/danhmath.h"
 
-double factorial_double_dh(double a){
+double factorial_fd_dh(double a){
 	double retval = 1;
 	if (a <= 0 || a > 170) { return 0; }
 	else {
@@ -17,7 +17,7 @@ double factorial_double_dh(double a){
 	}
 }
 
-float misc_sqrt_dh(float a){
+float sqrt_f_dh(float a){
 	int i = 0;
 	float var1 = a;
 	float var2 = 0.0;
@@ -31,12 +31,12 @@ float misc_sqrt_dh(float a){
 	return var3;
 }
 
-double misc_sqrt_double_dh(double a){
+double sqrt_fd_dh(double a){
 	int i = 0;
 	double var1 = a;
 	double var2 = 0.0;
 	double var3;
-	while ((var3 * var3) != a && i < 200) {
+	while ((var3 * var3) != a && i < 300) {
 		var3 = (var1 + var2) / 2.0;
 		if ((var3 * var3) > a) { var1 = var3; }
 		else { var2 = var3; }
@@ -46,66 +46,7 @@ double misc_sqrt_double_dh(double a){
 	return var3;
 }
 
-double sqrt_double_dh(double a){
-	double retval = 0.0;
-
-	while ((retval * retval) < a){
-		retval += 100.0;
-	}
-	if ((retval * retval) > a){ retval -=100.0; }
-
-	while ((retval * retval) < a){
-		retval += 10.0;
-        }
-        if ((retval * retval) > a){ retval -=10.0; }
-
-	while ((retval * retval) < a){
-                retval += 1.0;
-        }
-        if ((retval * retval) > a){ retval -=1.0; }
-
-	if ((retval * retval) == a){ return retval; }
-	else {
-		while ((retval * retval) < a){
-                	retval += 0.1;
-        	}
-        	if ((retval * retval) > a){ retval -=0.1; }
-
-		while ((retval * retval) < a){
-                	retval += 0.01;
-                }
-                if ((retval * retval) > a){ retval -=0.01; }
-
-		while ((retval * retval) < a){
-			retval += 0.001;
-		}
-		if ((retval * retval) > a){ retval -=0.001; }
-
-		while ((retval * retval) < a){
-			retval += 0.0001;
-		}
-		if ((retval * retval) > a){ retval -=0.0001; }
-
-		while ((retval * retval) < a){
-			retval += 0.00001;
-		}
-		if ((retval * retval) > a){ retval -=0.00001; }
-
-		while ((retval * retval) < a){
-			retval += 0.000001;
-		}
-		if ((retval * retval) > a){ retval -=0.000001; }
-
-		while ((retval * retval) < a){
-			retval += 0.0000001;
-		}
-		if ((retval * retval) > a){ retval -=0.0000001; }
-
-		return retval;
-	}
-}
-
-double mad_double_dh(double a){
+double mad_fd_dh(double a){
 	double retval = a;
 	double helper1 = a;
 	double helper2 = 0;
@@ -120,7 +61,7 @@ double mad_double_dh(double a){
 	return retval;
 }
 
-double quadequi_double_dh (double a, double b, double c, int x){
+double quadequi_fd_dh (double a, double b, double c, int x){
 	double d, discr;
 	double x1, x2;
 	discr = (b * b) - (4.0 * a * c);
@@ -137,7 +78,7 @@ double quadequi_double_dh (double a, double b, double c, int x){
 	}
 
 	else {
-		d = sqrt_double_dh(discr);
+		d = sqrt_fd_dh(discr);
 		x1 = (-b - d) / (2.0 * a);
 		x2 = (-b + d) / (2.0 * a);
 	}

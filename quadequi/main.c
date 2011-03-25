@@ -61,10 +61,10 @@ int main (int argc, char **argv){
 	}
 	
 	if (var_set >= 3){
-		main_x1 = quadequi_double_dh(a, b, c, 1);
-		main_x2 = quadequi_double_dh(a, b, c, 2);
+		main_x1 = quadequi_fd_dh(a, b, c, 1);
+		main_x2 = quadequi_fd_dh(a, b, c, 2);
 
-		printf("x1 = %lG\nx2 = %lG\n", main_x1, main_x2);
+		printf("x1 = %f\nx2 = %f\n", main_x1, main_x2);
 	}
 	else if (var_set > 0) puts("not all required values given - stop processing");
 
