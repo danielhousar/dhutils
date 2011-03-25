@@ -7,7 +7,7 @@ int main (int argc, char **argv){
 	double x;
 	printf("libdanh: %s\n", libdanh_version);
 	if (argc > 1){
-		x = str_to_double_dh(argv[1]);
+		x = s_to_fd_dh(argv[1]);
 	}
 	else scanf("%lG", &x);
 	double root = sqrt_fd_dh(x);

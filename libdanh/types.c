@@ -4,7 +4,7 @@
 
 #include "../include/types.h"
 
-double str_to_double_dh(char* str){
+double s_to_fd_dh(char* s){
 	double retval = 0.0;
 	int char_count = 0;
 	int i = 0;
@@ -13,8 +13,8 @@ double str_to_double_dh(char* str){
 	int is_negative = 0;
 	int was_point = 0;
 
-	while (str && str[char_count] != 0 && char_count < 48) {
-		numbers[char_count] = str[char_count] - 48;
+	while (s && s[char_count] != 0 && char_count < 48) {
+		numbers[char_count] = s[char_count] - 48;
 		char_count++;
 	}
 
@@ -43,15 +43,15 @@ double str_to_double_dh(char* str){
 	return retval;
 }
 
-int str_is_number_dh(char* str){
+int s_is_num_dh(char* s){
 	int i = 0;
 	int err_nu = 0;
 	int was_point = 0;
-	while (str && str[i] != 0 && err_nu == 0){
-		if (str[i] < 45 || str[i] == 47 || str[i] > 57) { err_nu++; }
-		if (i > 0 && str[i] == 45) { err_nu++; }
+	while (s && s[i] != 0 && err_nu == 0){
+		if (s[i] < 45 || s[i] == 47 || s[i] > 57) { err_nu++; }
+		if (i > 0 && s[i] == 45) { err_nu++; }
 
-		if (str[i] == 46){
+		if (s[i] == 46){
 			if (was_point == 0) { was_point = 1; }
 			else { err_nu++; }
 		}

@@ -26,15 +26,15 @@ int main (int argc, char **argv){
 		if (strcmp_dh(argv[i], "--version") == 0) qe_init += 2;
 		if (strcmp_dh(argv[i], "--debug") == 0) qe_init += 4;
 		
-		if (str_is_number_dh(argv[i]) == 1) {
+		if (s_is_num_dh(argv[i]) == 1) {
 			if (var_set == 0){
-				a = str_to_double_dh(argv[i]);
+				a = s_to_fd_dh(argv[i]);
 			}
 			else if (var_set == 1) {
-				b = str_to_double_dh(argv[i]);
+				b = s_to_fd_dh(argv[i]);
 			}
 			else if (var_set == 2){
-				c = str_to_double_dh(argv[i]);
+				c = s_to_fd_dh(argv[i]);
 			}
 			var_set++;
 		}

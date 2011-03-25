@@ -2,7 +2,7 @@
  * file:	include/types.h
  *************************************************************** */
 
-double str_to_double_dh(char* str);
+double s_to_fd_dh(char* str);
 
-int str_is_number_dh(char* str);
+int s_is_num_dh(char* str);
 
