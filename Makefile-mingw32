@@ -9,7 +9,7 @@ SYSCONFDIR=\etc
 CC=gcc
 CFLAGS=-march=native -mtune=native -O3
 
-SUBDIRS=libdanh quadequi datatypes
+SUBDIRS=libdanh test quadequi datatypes
 
 all: $(SUBDIRS)
 
@@ -24,6 +24,7 @@ objs:
 	$(CC) $(CFLAGS) -c libdanh/types.c
 
 test:
+	$(CC) $(CFLAGS) test/sqrt.c -o test/sqrt.exe -L./bin -ldanh
 
 quadequi:
 	$(CC) $(CFLAGS) quadequi/main.c -o bin/quadequi.exe -L./bin -ldanh
