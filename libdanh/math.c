@@ -36,11 +36,12 @@ double misc_sqrt_double_dh(double a){
 	double var1 = a;
 	double var2 = 0.0;
 	double var3;
-	while ((var3 * var3) > a || (var3 * var3) < a) {
+	while ((var3 * var3) != a && i < 200) {
 		var3 = (var1 + var2) / 2.0;
 		if ((var3 * var3) > a) { var1 = var3; }
 		else { var2 = var3; }
 		i++;
+		//printf("%lf\n", var3);
 	}
 	return var3;
 }
