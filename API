@@ -37,11 +37,14 @@ int str_is_number_dh(char* str)
 
 Returns 1 if given string is representation of number.
 
+Hexadecimal representation isn't considered as number for now
 Usable as check before str_to_double_dh() call
 
 	---------------------------------------------------------
 
 int strcmp_dh(char* str1, char* str2)
 
-Internal implementation of strcmp() from standard library. Returns 0 if given strings are equal.
+Returns 0 if given strings are equal.
+
+Internal implementation of strcmp() from standard library. 
 Usable when you dont want include <string.h>.
