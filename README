@@ -1,7 +1,7 @@
 ********************** DANHUTILS ********************
 
 Version: 0.0.8
-The oldest file: 2011-03-19 [51] bin/.dirfile
+The oldest file: 2011-03-19 [52] datatypes/main.c
 
 Danhutils is set of miscelaneous utilities, mostly using Libdanh library.
 
@@ -12,7 +12,8 @@ Now Contains:
 
 libdanh: 
 	- version: 0.8 rev. 5
-	C library with some functions, for example sqrt_double_dh() as implemetation of sqrt() from standard library math
+	C library with some functions, for example sqrt_double_dh() as implemetation of sqrt()
+	from standard library math
 
 quadequi:
 	- version: 0.6
@@ -31,7 +32,7 @@ GNU Linux:
 	$ make
 	$ make install
 	
-Windows (MinGW32):
+Windows (MinGW32): Before running mingw32-make you have to install GCC and make from MinGW package from http://www.mingw.org/
 	> cd C:\Users\user\src\danhutils
 	> mingw32-make -f Makefile-mingw32
 	> mingw32-make -f Makefile-mingw32 install
