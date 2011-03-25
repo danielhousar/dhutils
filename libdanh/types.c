@@ -9,11 +9,11 @@ double str_to_double_dh(char* str){
 	int char_count = 0;
 	int i = 0;
 	double divider = 1.0;
-	int numbers[96];
+	int numbers[48];
 	int is_negative = 0;
 	int was_point = 0;
 
-	while (str && str[char_count] != 0 && char_count < 96) {
+	while (str && str[char_count] != 0 && char_count < 48) {
 		numbers[char_count] = str[char_count] - 48;
 		char_count++;
 	}
