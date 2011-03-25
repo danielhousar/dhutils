@@ -48,3 +48,11 @@ Returns 0 if given strings are equal.
 
 Internal implementation of strcmp() from standard library. 
 Usable when you dont want include <string.h>.
+
+	---------------------------------------------------------
+
+char** ssplit_dh(char* s, char separator)
+
+Returns array created from given string. Splits given string to array of strings by separator char.
+
+	---------------------------------------------------------

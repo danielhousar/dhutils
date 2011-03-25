@@ -33,4 +33,22 @@ int strcmp_dh(char* str1, char* str2) {
 	return retval;
 }
 
+char** ssplit_dh(char* s, char separator) {
+	char** retval;
+	int i = 0;
+	int j = 0;
+	int k = 0;
 
+	while (s && s[i] != 0) {
+		retval[j][k] = s[i];
+		k++;
+		if (s[i] = separator) { 
+			retval[j][k] = '\0';
+			j++; 
+			k = 0;
+		}
+		i++;
+	}
+
+	return retval;
+}
