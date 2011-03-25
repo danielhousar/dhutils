@@ -8,23 +8,23 @@ SYSCONFDIR=/etc
 
 SUBDIRS=libdanh test quadequi datatypes
 
-all: subdirs
+all: bindir subdirs
 
-.PHONY: subdirs $(SUBDIRS)
+.PHONY: bindir subdirs $(SUBDIRS) clean install uninstall
+
+bindir:
+	mkdir bin/
 
 subdirs: $(SUBDIRS)
 
 $(SUBDIRS):
 	$(MAKE) -C $@
 
-quadequi: libdanh
-
-.PHONY: clean install uninstall
 
 clean:
 	rm -f */*.o
 	rm -f libdanh/*.so
-	rm -f bin/*
+	rm -rf bin/
 	
 
 install:
