@@ -18,7 +18,7 @@ double sqrt_fd_dh(double a)
 
 	--------------------------------------------------------
 
-double str_to_double_dh(char *str) 
+double s_to_fd_dh(char *s) 
 
 Transforms given string representation of number to double type value
 
@@ -33,7 +33,7 @@ multiplied by 10 relatively to position in string
 
 	--------------------------------------------------------
 
-int str_is_number_dh(char* str)
+int s_is_num_dh(char* s)
 
 Returns 1 if given string is representation of number.
 
