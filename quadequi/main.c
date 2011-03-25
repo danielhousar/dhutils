@@ -8,8 +8,8 @@
 #include "../include/types.h"
 
 int quadequi_release = 0;
-int quadequi_revision = 5;
-char* quadequi_version = "0.5 2011-03-24";
+int quadequi_revision = 6;
+char* quadequi_version = "0.6 2011-03-25";
 
 int main (int argc, char **argv){
 	int i = 0;
