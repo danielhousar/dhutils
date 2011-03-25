@@ -10,7 +10,7 @@ all: library
 .PHONY: library objs
 
 library: objs
-	$(CC) -shared -Wl,-soname,libdanh.so.0 danh.o math.o types.o -o libdanh.so -lc
+	$(CC) -shared -Wl,-soname,libdanh.so danh.o math.o types.o -o libdanh.so -lc
 
 objs:
 	$(CC) $(CFLAGS) -fPIC -c danh.c
