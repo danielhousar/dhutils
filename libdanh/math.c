@@ -4,19 +4,6 @@
 
 #include "../include/danhmath.h"
 
-int factorial_int_dh(int a){
-	int retval = 1;
-	if (a <= 0 || a > 16) { return 0; }
-	else {
-		int i = 1;
-		while (i <= a){
-			retval *= i;
-			i++;
-		}
-	}
-	return retval;
-}
-
 double factorial_double_dh(double a){
 	double retval = 1;
 	if (a <= 0 || a > 170) { return 0; }
@@ -138,12 +125,14 @@ double quadequi_double_dh (double a, double b, double c, int x){
 	discr = (b * b) - (4.0 * a * c);
 
 	if (discr < 0.0) {
-		double div;
-		div = 2.0 * a;
-		discr *= -1.0;
-		d = sqrt_double_dh(discr);
-		d /= div;
-		b = b * -1.0 / div;
+		//double div;
+		//div = 2.0 * a;
+		//discr *= -1.0;
+		//d = sqrt_double_dh(discr);
+		//d /= div;
+		//b = b * -1.0 / div;
+		x1 = 0.0;
+		x2 = 0.0;
 	}
 
 	else {
