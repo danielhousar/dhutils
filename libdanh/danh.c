@@ -6,8 +6,8 @@
 
 const int libdanh_version_major = 0;
 const int libdanh_release = 8;
-const int libdanh_revision = 1;
-const char* libdanh_version = "0.8 rev. 1 2011-03-24";
+const int libdanh_revision = 2;
+const char* libdanh_version = "0.8 rev. 2 2011-03-25";
 
 
 int strlength_dh(char* str){
