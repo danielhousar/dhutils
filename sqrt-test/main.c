@@ -7,5 +7,5 @@ int main (int argc, char **argv){
 	double x;
 	scanf("%lG", &x);
 	double root = misc_sqrt_double_dh(x);
-	printf("%lf\n", root2);
+	printf("%lf\n", root);
 }
