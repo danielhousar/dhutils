@@ -1,0 +1,51 @@
+
+DESTDIR=
+PREFIX=C:
+BINDIR=$(PREFIX)\bin
+LIBDIR=$(PREFIX)\lib
+INCLUDEDIR=$(PREFIX)\include
+SYSCONFDIR=\etc
+
+CC=gcc
+CFLAGS=-march=native -mtune=native -O3
+
+SUBDIRS=libdanh quadequi datatypes
+
+all: $(SUBDIRS)
+
+.PHONY: $(SUBDIRS) clean install uninstall
+
+libdanh: objs
+	$(CC) -shared -Wl,-soname,libdanh.dll danh.o math.o types.o -o bin/libdanh.dll
+
+objs:
+	$(CC) $(CFLAGS) -c libdanh/danh.c
+	$(CC) $(CFLAGS) -c libdanh/math.c
+	$(CC) $(CFLAGS) -c libdanh/types.c
+
+test:
+
+quadequi:
+	$(CC) $(CFLAGS) quadequi/main.c -o bin/quadequi.exe -L./bin -ldanh
+
+datatypes:
+	$(CC) $(CFLAGS) datatypes/main.c -o bin/datatypes.exe
+
+clean:
+	del *.o
+	del bin\*
+	
+
+install:
+	copy /Y bin\* $(DESTDIR)$(BINDIR)
+	mkdir $(DESTDIR)$(LIBDIR)\pkgconfig
+	copy /Y libdanh.pc $(DESTDIR)$(LIBDIR)\pkgconfig\libdanh.pc
+	copy /Y include\* $(DESTDIR)$(INCLUDEDIR)\libdanh
+
+
+uninstall:
+	del $(DESTDIR)$(BINDIR)\libdanh.dll
+	del $(DESTDIR)$(LIBDIR)\pkgconfig\libdanh.pc
+	del $(DESTDIR)$(INCLUDEDIR)/libdanh
+	del $(DESTDIR)$(BINDIR)\datatypes.exe
+	del $(DESTDIR)$(BINDIR)\quadequi.exe
