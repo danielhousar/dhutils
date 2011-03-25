@@ -4,10 +4,8 @@ CFLAGS=-march=native -mtune=native -O3
 
 all: binary
 
-.PHONY: binary objs
+.PHONY: binary
 
-binary: objs
-	$(CC) main.o -o ../bin/sqrt-test -L../bin -ldanh
+binary:
+	$(CC) $(CFLAGS) main.c -o ../bin/sqrt-test -L../libdanh -ldanh
 
-objs:
-	$(CC) $(CFLAGS) -c main.c

@@ -7,10 +7,8 @@ CFLAGS=-march=native -mtune=native -O2
 
 all: binary
 
-.PHONY: binary objs
+.PHONY: binary
 
-binary: objs
-	$(CC) main.o -o ../bin/datatypes
+binary:
+	$(CC) $(CFLAGS) main.c -o ../bin/datatypes
 
-objs:
-	$(CC) $(CFLAGS) -c main.c

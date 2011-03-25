@@ -7,8 +7,8 @@ CFLAGS=-march=native -mtune=native -O3
 
 all: binary
 
-.PHONY: binary objs
+.PHONY: binary
 
 binary:
-	$(CC) $(CFLAGS) main.c -o ../bin/quadequi -L../bin -ldanh
+	$(CC) $(CFLAGS) main.c -o ../bin/quadequi -L../libdanh -ldanh
 
