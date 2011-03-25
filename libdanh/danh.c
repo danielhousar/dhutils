@@ -6,8 +6,8 @@
 
 const int libdanh_version_major = 0;
 const int libdanh_release = 8;
-const int libdanh_revision = 3;
-const char* libdanh_version = "0.8 rev. 3 2011-03-25";
+const int libdanh_revision = 4;
+const char* libdanh_version = "0.8 rev. 4 2011-03-25";
 
 
 int strlength_dh(char* str){
@@ -52,3 +52,4 @@ char** ssplit_dh(char* s, char separator) {
 
 	return retval;
 }
+

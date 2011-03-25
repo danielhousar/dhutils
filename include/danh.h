@@ -5,7 +5,7 @@
 #define LIBDANH
 #define LIBDANH_VERSION_MAJOR 0
 #define LIBDANH_RELEASE 8
-#define LIBDANH_REVISION 3
+#define LIBDANH_REVISION 4
 
 const int libdanh_version_major;
 const int libdanh_release;
