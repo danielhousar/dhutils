@@ -7,10 +7,10 @@
 #define LIBDANH_RELEASE 8
 #define LIBDANH_REVISION 4
 
-const int libdanh_version_major;
-const int libdanh_release;
-const int libdanh_revision;
-const char* libdanh_version;
+extern const int libdanh_version_major;
+extern const int libdanh_release;
+extern const int libdanh_revision;
+extern const char* libdanh_version;
 
 int strlength_dh(char* str);
 

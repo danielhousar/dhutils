@@ -4,10 +4,10 @@
 
 #include "../include/danh.h"
 
-const int libdanh_version_major = 0;
-const int libdanh_release = 8;
-const int libdanh_revision = 4;
-const char* libdanh_version = "0.8 rev. 4 2011-03-25";
+extern const int libdanh_version_major = 0;
+extern const int libdanh_release = 8;
+extern const int libdanh_revision = 4;
+extern const char* libdanh_version = "0.8 rev. 4 2011-03-25";
 
 
 int strlength_dh(char* str){

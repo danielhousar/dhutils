@@ -15,13 +15,12 @@ all: $(SUBDIRS)
 
 .PHONY: $(SUBDIRS) clean install uninstall
 
-libdanh: objs
-	$(CC) -shared -Wl,-soname,libdanh.dll danh.o math.o types.o -o bin/libdanh.dll
-
-objs:
+libdanh:
 	$(CC) $(CFLAGS) -c libdanh/danh.c
 	$(CC) $(CFLAGS) -c libdanh/math.c
 	$(CC) $(CFLAGS) -c libdanh/types.c
+	mkdir bin
+	$(CC) -shared -Wl,-soname,libdanh.dll danh.o math.o types.o -o bin/libdanh.dll
 
 test:
 	$(CC) $(CFLAGS) test/sqrt.c -o test/sqrt.exe -L./bin -ldanh
@@ -35,6 +34,8 @@ datatypes:
 clean:
 	del /Q *.o
 	del /Q bin\*
+	rmdir /Q bin
+	del /Q test\*.exe
 	
 
 install:

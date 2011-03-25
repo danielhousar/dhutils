@@ -7,9 +7,9 @@
 #include "../include/danhmath.h"
 #include "../include/types.h"
 
-int quadequi_release = 0;
-int quadequi_revision = 6;
-char* quadequi_version = "0.6 2011-03-25";
+const int quadequi_release = 0;
+const int quadequi_revision = 6;
+const char* quadequi_version = "0.6 2011-03-25";
 
 int main (int argc, char **argv){
 	int i = 0;
