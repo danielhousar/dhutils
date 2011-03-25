@@ -32,13 +32,12 @@ datatypes:
 	$(CC) $(CFLAGS) datatypes/main.c -o bin/datatypes.exe
 
 clean:
-	del *.o
-	del bin\*
+	del /Q *.o
+	del /Q bin\*
 	
 
 install:
 	copy /Y bin\* $(DESTDIR)$(BINDIR)
-	mkdir $(DESTDIR)$(LIBDIR)\pkgconfig
 	copy /Y libdanh.pc $(DESTDIR)$(LIBDIR)\pkgconfig\libdanh.pc
 	copy /Y include\* $(DESTDIR)$(INCLUDEDIR)\libdanh
 
@@ -46,6 +45,6 @@ install:
 uninstall:
 	del $(DESTDIR)$(BINDIR)\libdanh.dll
 	del $(DESTDIR)$(LIBDIR)\pkgconfig\libdanh.pc
-	del $(DESTDIR)$(INCLUDEDIR)/libdanh
+	del /Q $(DESTDIR)$(INCLUDEDIR)\libdanh
 	del $(DESTDIR)$(BINDIR)\datatypes.exe
 	del $(DESTDIR)$(BINDIR)\quadequi.exe

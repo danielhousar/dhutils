@@ -22,3 +22,16 @@ quadequi:
 datatypes:
 	Prints sizeof() of standard types and sometimes max value.
 
+	----------------------------------------------------------------
+	
+BUILDING:
+
+GNU Linux:
+	$ cd /home/user/src/danhutils
+	$ make
+	$ make install
+	
+Windows (MinGW32):
+	> cd C:\Users\user\src\danhutils
+	> mingw32-make -f Makefile-mingw32
+	> mingw32-make -f Makefile-mingw32 install
