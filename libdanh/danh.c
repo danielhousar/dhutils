@@ -4,10 +4,10 @@
 
 #include "../include/danh.h"
 
-extern const int libdanh_version_major = 0;
-extern const int libdanh_release = 8;
-extern const int libdanh_revision = 5;
-extern const char* libdanh_version = "0.8 rev. 5 2011-03-25";
+const int libdanh_version_major = 0;
+const int libdanh_release = 8;
+const int libdanh_revision = 5;
+const char* libdanh_version = "0.8 rev. 5 2011-03-25";
 
 
 int strlength_dh(char* str){
@@ -46,9 +46,9 @@ char** ssplit_dh(char* s, char separator) {
 		retval[j][k] = s[i];
 		puts("char added");
 		k++;
-		if (s[i] == separator) { 
+		if (s[i] == separator) {
 			retval[j][k] = '\0';
-			j++; 
+			j++;
 			k = 0;
 		}
 		i++;
