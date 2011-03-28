@@ -36,3 +36,4 @@ Windows (MinGW32): Before running mingw32-make you have to install GCC and make 
 	> cd C:\Users\user\src\danhutils
 	> mingw32-make -f Makefile-mingw32
 	> mingw32-make -f Makefile-mingw32 install
+
