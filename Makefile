@@ -8,14 +8,13 @@ SYSCONFDIR=/etc
 
 SUBDIRS=libdanh test quadequi datatypes
 
-all: bindir subdirs
+all: bindir $(SUBDIRS)
 
-.PHONY: bindir subdirs $(SUBDIRS) clean install uninstall
+.PHONY: bindir $(SUBDIRS) clean install uninstall
 
 bindir:
 	mkdir bin/
 
-subdirs: $(SUBDIRS)
 
 $(SUBDIRS):
 	$(MAKE) -C $@
