@@ -11,15 +11,17 @@ CFLAGS=-march=native -mtune=native -O3
 
 SUBDIRS=libdanh test quadequi datatypes
 
-all: $(SUBDIRS)
+all: bindir $(SUBDIRS)
 
-.PHONY: $(SUBDIRS) clean install uninstall
+.PHONY: bindir $(SUBDIRS) clean install uninstall
+
+bindir:
+	mkdir bin
 
 libdanh:
 	$(CC) $(CFLAGS) -c libdanh/danh.c
 	$(CC) $(CFLAGS) -c libdanh/math.c
 	$(CC) $(CFLAGS) -c libdanh/types.c
-	mkdir bin
 	$(CC) -shared -Wl,-soname,libdanh.dll danh.o math.o types.o -o bin/libdanh.dll
 
 test:
