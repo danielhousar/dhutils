@@ -13,7 +13,7 @@ all: bindir $(SUBDIRS)
 .PHONY: bindir $(SUBDIRS) clean install uninstall
 
 bindir:
-	mkdir bin/
+	mkdir -p bin/
 
 
 $(SUBDIRS):

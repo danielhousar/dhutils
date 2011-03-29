@@ -8,5 +8,6 @@ all: binary
 
 binary:
 	$(CC) $(CFLAGS) sqrt.c -o sqrt -L../libdanh -ldanh
-#	$(CC) $(CFLAGS) split.c -o split -L../libdanh -ldanh
+	
+# $(CC) $(CFLAGS) split.c -o split -L../libdanh -ldanh
 

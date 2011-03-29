@@ -4,8 +4,9 @@
 #include "../include/types.h"
 
 int main (int argc, char **argv){
-	char* ss = ssplit_dh("slovoa-slovob-slovoc", '-');
+	char** ss = ssplit_dh("slovoa-slovob-slovoc", '-');
 	puts("ss set, now should be printf");
-	printf("%d\n", ss[0][0]);
+	printf("%s\n", ss[0]);
 	return 0;
 }
+
