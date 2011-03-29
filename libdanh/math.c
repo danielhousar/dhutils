@@ -41,7 +41,7 @@ double sqrt_fd_dh(double a){
 		if ((var3 * var3) > a) { var1 = var3; }
 		else { var2 = var3; }
 		i++;
-		//printf("%lf\n", var3);
+		//printf("%.*f\t %d\n", 20, var3, i);
 	}
 	return var3;
 }
@@ -52,9 +52,9 @@ double mad_fd_dh(double a){
 	double helper2 = 0;
 	int counter = 0;
 	while (counter < 10){
-		retval = (helper1 + helper2) / 2;
+		retval = (helper1 + helper2) / 2.00;
 		helper2 = retval;
-		helper1 = (helper1 + helper2) / 2;
+		helper1 = (helper1 + helper2) / 2.00;
 		retval = helper1;
 		counter++;
 	}

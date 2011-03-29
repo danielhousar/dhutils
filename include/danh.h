@@ -17,5 +17,5 @@ extern int strlen_dh(char* str);
 
 extern int strcmp_dh(char* str1, char* str2);
 
-//char** ssplit_dh(char* s, char separator);
+// extern char** ssplit_dh(char* s, char separator);
 
