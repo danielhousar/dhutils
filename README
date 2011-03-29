@@ -23,6 +23,7 @@ quadequi:
 	and prints x1 and x2 values.
 
 datatypes:
+	- version: 0.2
 	Prints sizeof() of standard types and sometimes max value.
 
 	----------------------------------------------------------------
