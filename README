@@ -1,7 +1,9 @@
 ********************** DANHUTILS ********************
 
 Version: 0.0.8
-The oldest file: 2011-03-25 [69] datatypes/Makefile
+The oldest files:
+	2011-03-25 [69] datatypes/Makefile
+	2011-03-25 [69] quadequi/Makefile
 
 Danhutils is set of miscelaneous utilities, mostly using Libdanh library.
 
@@ -34,7 +36,7 @@ GNU Linux:
 	
 Windows (MinGW32): 
 	- Before running mingw32-make you have to install GCC and make from MinGW package from http://www.mingw.org/
-	- Don't forget add C:\mingw\bin to PATH system variable
+	- Don't forget add "C:\mingw\bin" to PATH system variable
 
 	> cd C:\Users\user\src\danhutils
 	> mingw32-make -f Makefile-mingw32
