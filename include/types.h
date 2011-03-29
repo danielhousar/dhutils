@@ -2,7 +2,7 @@
  * file:	include/types.h
  *************************************************************** */
 
-double s_to_fd_dh(char* str);
+extern double s_to_fd_dh(char* str);
 
-int s_is_num_dh(char* str);
+extern int s_is_num_dh(char* str);
 
