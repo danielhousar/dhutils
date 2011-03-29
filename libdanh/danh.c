@@ -37,7 +37,7 @@ int strcmp_dh(char* str1, char* str2) {
 char** ssplit_dh(char* s, char separator) {
 	printf("entering in function: %s %d\n", s, separator);
 	char helpval[48][48];
-	char** retval;
+	char **retval;
 	int i = 0;
 	int j = 0;
 	int k = 0;
@@ -56,7 +56,7 @@ char** ssplit_dh(char* s, char separator) {
 		}
 		i++;
 	}
-	retval = (char**) helpval;
+	retval = &&helpval;
 	printf("end of function\n");
 	return retval;
 }

@@ -11,11 +11,11 @@ CFLAGS=-march=native -mtune=native -O3
 
 SUBDIRS=libdanh test quadequi datatypes
 
-all: bindir $(SUBDIRS)
+all: bin $(SUBDIRS)
 
-.PHONY: bindir $(SUBDIRS) clean install uninstall
+.PHONY: $(SUBDIRS) clean install uninstall
 
-bindir:
+bin:
 	mkdir bin
 
 libdanh:
