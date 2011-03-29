@@ -50,7 +50,7 @@ char** ssplit_dh(char* s, char separator) {
 		k++;
 		if (s[i] == separator) {
 			puts("separator");
-			//helpval[j][k] = 0;
+			helpval[j][k] = 0;
 			j++;
 			k = 0;
 		}
