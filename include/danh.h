@@ -13,7 +13,7 @@ extern const int dh_rev;
 extern const int dh_rev_date;
 extern const char* dh_version_string;
 
-extern int strlength_dh(char* str);
+extern int strlen_dh(char* str);
 
 extern int strcmp_dh(char* str1, char* str2);
 

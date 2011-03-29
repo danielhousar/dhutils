@@ -11,7 +11,7 @@ const int dh_rev_date = 20110329;
 const char* dh_version_string = "0.8 rev. 6 2011-03-29";
 
 
-int strlength_dh(char* str){
+int strlen_dh(char* str){
 	int i = 0;
 	while(str && str[i] != 0){
 		i++;
@@ -22,7 +22,7 @@ int strlength_dh(char* str){
 int strcmp_dh(char* str1, char* str2) {
 	int i = 0;
 	int retval = 0;
-	if (strlength_dh(str1) != strlength_dh(str2)) {
+	if (strlen_dh(str1) != strlen_dh(str2)) {
 		retval++;
 	}
 	else {
