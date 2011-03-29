@@ -7,9 +7,7 @@
 #include "../include/danhmath.h"
 #include "../include/types.h"
 
-const int quadequi_release = 0;
-const int quadequi_revision = 6;
-const char* quadequi_version = "0.6 2011-03-25";
+const char* qe_version_string = "0.7 2011-03-25";
 
 int main (int argc, char **argv){
 	int i = 0;
@@ -45,8 +43,8 @@ int main (int argc, char **argv){
 	if (qe_init == 1 || argc == 1) puts("Usage: quadequi [--help]|[--debug] [--version] a b c");
 
 	if (qe_init > 1) {
-		printf("libdanh %s\n", libdanh_version);
-		printf("quadequi %s\n", quadequi_version);
+		printf("libdanh %s\n", dh_version_string);
+		printf("quadequi %s\n", qe_version_string);
 	}
 	if (qe_init > 3) puts("debug mode is ON");
 	

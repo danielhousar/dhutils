@@ -5,7 +5,7 @@
 
 int main (int argc, char **argv){
 	double x;
-	printf("libdanh: %s\n", libdanh_version);
+	printf("libdanh: %s\n", dh_version_string);
 	if (argc > 1){
 		x = s_to_fd_dh(argv[1]);
 	}
