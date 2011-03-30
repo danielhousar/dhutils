@@ -34,6 +34,10 @@ GNU Linux:
 	$ make
 	$ make install
 	
+	- installs utils to '/usr/bin' by default
+	- installs libdanh.so to '/usr/lib' by default
+	- installs headers to '/usr/include/libdanh' by default
+
 Windows (MinGW32): 
 	- Before running mingw32-make you have to install GCC and make from MinGW package from http://www.mingw.org/
 	- Don't forget add "C:\mingw\bin" to PATH system variable
@@ -41,4 +45,7 @@ Windows (MinGW32):
 	> cd C:\Users\user\src\danhutils
 	> mingw32-make -f Makefile-mingw32
 	> mingw32-make -f Makefile-mingw32 install
+
+	- installs utils and libdanh.dll to 'C:\bin' by default
+	- installs headers to 'C:\include\libdanh' by default
 
