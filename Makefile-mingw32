@@ -9,7 +9,7 @@ SYSCONFDIR=\etc
 CC=gcc
 CFLAGS=-march=native -mtune=native -O3
 
-SUBDIRS=libdanh test quadequi datatypes
+SUBDIRS=libdanh quadequi datatypes
 
 all: bin out $(SUBDIRS)
 
@@ -30,7 +30,8 @@ libdanh:
 	$(CC) -shared -Wl,-soname,libdanh.dll out/danh.o out/math.o out/types.o -o bin/libdanh.dll
 
 test:
-	$(CC) $(CFLAGS) test/sqrt.c -o test/sqrt.exe -L./bin -ldanh
+	$(CC) $(CFLAGS) test/sqrt.c -o bin/sqrt.exe -L./bin -ldanh
+	$(CC) $(CFLAGS) test/convert.c -o bin/convert.exe -L./bin -ldanh
 
 quadequi:
 	$(CC) $(CFLAGS) quadequi/main.c -o bin/quadequi.exe -L./bin -ldanh
@@ -43,7 +44,6 @@ clean:
 	del /Q bin\*
 	rmdir /Q out
 	rmdir /Q bin
-	del /Q test\*.exe
 	
 
 install:
