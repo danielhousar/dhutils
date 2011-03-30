@@ -26,13 +26,13 @@ int main (int argc, char **argv){
 		
 		if (s_is_num_dh(argv[i]) == 1) {
 			if (var_set == 0){
-				a = s_to_fd_dh(argv[i]);
+				a = sdecrep_to_fd_dh(argv[i]);
 			}
 			else if (var_set == 1) {
-				b = s_to_fd_dh(argv[i]);
+				b = sdecrep_to_fd_dh(argv[i]);
 			}
 			else if (var_set == 2){
-				c = s_to_fd_dh(argv[i]);
+				c = sdecrep_to_fd_dh(argv[i]);
 			}
 			var_set++;
 		}

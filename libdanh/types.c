@@ -4,7 +4,7 @@
 
 #include "../include/types.h"
 
-double s_to_fd_dh(char* s){
+double sdecrep_to_fd_dh(char* s){
 	double retval = 0.0;
 	int char_count = 0;
 	int i = 0;
@@ -40,6 +40,11 @@ double s_to_fd_dh(char* s){
 	if (is_negative == 1)
 		retval *= -1.0;
 
+	return retval;
+}
+
+long shexrep_to_li_dh(char *s){
+	long retval = 0;
 	return retval;
 }
 
