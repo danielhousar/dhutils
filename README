@@ -2,7 +2,7 @@
 
 Version: 0.0.8
 The oldest files:
-	2011-03-25 [100] include/danhmath.h
+	2011-03-29 [100] include/danhmath.h
 
 Danhutils is set of miscelaneous utilities, mostly using Libdanh library.
 
