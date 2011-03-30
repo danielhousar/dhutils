@@ -8,12 +8,14 @@ SYSCONFDIR=/etc
 
 SUBDIRS=libdanh test quadequi datatypes
 
-all: bindir $(SUBDIRS)
+all: outdirs $(SUBDIRS)
 
-.PHONY: bindir $(SUBDIRS) clean install uninstall
+.PHONY: outdirs $(SUBDIRS) clean install uninstall
 
-bindir:
-	mkdir -p bin/
+outdirs:
+	mkdir -p .bin/
+	mkdir -p .lib/
+	mkdir -p .out/
 
 
 $(SUBDIRS):
@@ -21,20 +23,20 @@ $(SUBDIRS):
 
 
 clean:
-	rm -f */*.o
-	rm -f libdanh/*.so
-	rm -rf bin/
+	rm -rf .bin/
+	rm -rf .lib/
+	rm -rf .out/
 	
 
 install:
 	mkdir -p $(DESTDIR)$(LIBDIR)/
-	cp -a libdanh/libdanh.so $(DESTDIR)$(LIBDIR)/
+	cp -a .lib/libdanh.so $(DESTDIR)$(LIBDIR)/
 	mkdir -p $(DESTDIR)$(LIBDIR)/pkgconfig/
 	cp -f libdanh.pc $(DESTDIR)$(LIBDIR)/pkgconfig/
 	mkdir -p $(DESTDIR)$(INCLUDEDIR)/libdanh
 	cp -f include/* $(DESTDIR)$(INCLUDEDIR)/libdanh/
 	mkdir -p $(DESTDIR)$(BINDIR)/
-	cp -f bin/* $(DESTDIR)$(BINDIR)/
+	cp -f .bin/* $(DESTDIR)$(BINDIR)/
 
 
 uninstall:

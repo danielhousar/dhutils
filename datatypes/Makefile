@@ -10,5 +10,5 @@ all: binary
 .PHONY: binary
 
 binary:
-	$(CC) $(CFLAGS) main.c -o ../bin/datatypes
+	$(CC) $(CFLAGS) main.c -o ../.bin/datatypes
 

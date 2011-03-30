@@ -11,18 +11,23 @@ CFLAGS=-march=native -mtune=native -O3
 
 SUBDIRS=libdanh test quadequi datatypes
 
-all: bin $(SUBDIRS)
+all: bin out $(SUBDIRS)
 
 .PHONY: $(SUBDIRS) clean install uninstall
 
 bin:
 	mkdir bin
 
+out:
+	mkdir out
+
+
+
 libdanh:
-	$(CC) $(CFLAGS) -c libdanh/danh.c
-	$(CC) $(CFLAGS) -c libdanh/math.c
-	$(CC) $(CFLAGS) -c libdanh/types.c
-	$(CC) -shared -Wl,-soname,libdanh.dll danh.o math.o types.o -o bin/libdanh.dll
+	$(CC) $(CFLAGS) -c libdanh/danh.c -o out/danh.o
+	$(CC) $(CFLAGS) -c libdanh/math.c -o out/math.o
+	$(CC) $(CFLAGS) -c libdanh/types.c -o out/types.o
+	$(CC) -shared -Wl,-soname,libdanh.dll out/danh.o out/math.o out/types.o -o bin/libdanh.dll
 
 test:
 	$(CC) $(CFLAGS) test/sqrt.c -o test/sqrt.exe -L./bin -ldanh
@@ -34,8 +39,9 @@ datatypes:
 	$(CC) $(CFLAGS) datatypes/main.c -o bin/datatypes.exe
 
 clean:
-	del /Q *.o
+	del /Q out\*
 	del /Q bin\*
+	rmdir /Q out
 	rmdir /Q bin
 	del /Q test\*.exe
 	

@@ -10,9 +10,9 @@ all: library
 .PHONY: library objs
 
 library: objs
-	$(CC) -shared -Wl,-soname,libdanh.so danh.o math.o types.o -o libdanh.so -lc
+	$(CC) -shared -Wl,-soname,libdanh.so ../.out/danh.o ../.out/math.o ../.out/types.o -o ../.lib/libdanh.so -lc
 
 objs:
-	$(CC) $(CFLAGS) -fPIC -c danh.c
-	$(CC) $(CFLAGS) -fPIC -c math.c
-	$(CC) $(CFLAGS) -fPIC -c types.c
+	$(CC) $(CFLAGS) -fPIC -c danh.c -o ../.out/danh.o
+	$(CC) $(CFLAGS) -fPIC -c math.c -o ../.out/math.o
+	$(CC) $(CFLAGS) -fPIC -c types.c -o ../.out/types.o

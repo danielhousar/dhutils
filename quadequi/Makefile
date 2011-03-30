@@ -10,5 +10,5 @@ all: binary
 .PHONY: binary
 
 binary:
-	$(CC) $(CFLAGS) main.c -o ../bin/quadequi -L../libdanh -ldanh
+	$(CC) $(CFLAGS) main.c -o ../.bin/quadequi -L../.lib -ldanh
 
