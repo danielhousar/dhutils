@@ -45,6 +45,26 @@ double sdecrep_to_fd_dh(char* s){
 
 long shexrep_to_li_dh(char *s){
 	long retval = 0;
+	int i = 2;
+	int chars[48];
+
+	chars[0] = 0;
+	chars[1] = 0;
+
+	while (s && s[i] != 0) {
+		if(s[i] > 47 && s[i] < 58) { chars[i] = s[i] - 48; }
+		else if (s[i] > 64 && s[i] < 71) { chars[i] = s[i] - 55; }
+		else if (s[i] > 96 && s[i] < 103) { chars[i] = s[i] - 87; }
+		else { chars[i] = 0; }
+
+		retval *= 16;
+		retval += chars[i];
+
+		i++;
+	}
+
+	if (s[0] == 49) retval *= -1;
+
 	return retval;
 }
 

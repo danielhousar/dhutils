@@ -13,7 +13,7 @@ shipped with Danhutils.
 Now Contains:
 
 libdanh: 
-	- version: 0.8 rev. 7
+	- version: 0.8 rev. 8
 	C library with some functions, for example sqrt_fd_dh() as implemetation of sqrt()
 	from standard library math
 

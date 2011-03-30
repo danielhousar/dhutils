@@ -1,12 +1,14 @@
 GLOBAL CONSTANTS:
 
-int libdanh_version_major
+int dh_version
 
-int libdanh_release
+int dh_release
 
-int libdanh_revision
+int dh_rev
 
-char* libdanh_version - version string, usable for direct printf() during starting of application
+int dh_rev_date
+
+char* dh_version_string - version string, usable for direct printf() during starting of application
 
 -------------------------------------------------------------------------------------------------------------
 
@@ -18,18 +20,28 @@ double sqrt_fd_dh(double a)
 
 	--------------------------------------------------------
 
-double s_to_fd_dh(char *s) 
+double sdecrep_to_fd_dh(char *s) 
 
 Transforms given string representation of number to double type value
 
 Accepts: "1", "1.0", "100.023", "0.0000034" "-12.0005" "-0.00025" etc.
 Doesn't accept hexadecimal representation string ("0x23")
 Doesn't accept some local versions of point, for example czech "6,25" (english/american "6.25")
+Doesn't accept exponential representation of number like "3e-2", "3.14+E4" etc.
 
 This function is not fault safe, if given string is not number, it leads to unpredictable behaviour.
 It will try to convert each char to number, it just do char value (48 for '0') minus 48, so '9' (57)
 is transformed to 9 (57 - 48), so then 's' (113) wil be transformed to 73, which will be moretime divided or 
 multiplied by 10 relatively to position in string
+
+	--------------------------------------------------------
+
+long shexrep_to_li_dh(char *s)
+
+Transforms given string (hex representation of number) to long int type value
+
+Accepts "0XA2", "0xa2", "1xFf" etc.
+Doesn't accept hex representation without sign ('0x' or '1x' as first 2 chars) like "2f"
 
 	--------------------------------------------------------
 
