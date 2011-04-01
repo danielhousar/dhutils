@@ -13,7 +13,7 @@ SUBDIRS=libdanh quadequi datatypes
 
 all: bin out $(SUBDIRS)
 
-.PHONY: $(SUBDIRS) clean install uninstall
+.PHONY: $(SUBDIRS) test clean install uninstall
 
 bin:
 	mkdir bin
