@@ -44,7 +44,7 @@ clean:
 	del /Q bin\*
 	rmdir /Q out
 	rmdir /Q bin
-	
+
 
 install:
 	copy /Y bin\* $(DESTDIR)$(BINDIR)
