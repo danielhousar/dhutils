@@ -21,7 +21,7 @@ double sdecrep_to_fd_dh(char* s){
 	if (numbers[0] == -3) { i = 1; is_negative = 1; }
 
 	while (i < char_count){
-		if (numbers[i] >= 0 && numbers[i] <= 9 && was_point == 0){
+		if (numbers[i] >= 0 && numbers[i] <= 9){
 			retval *= 10.0;
 			retval += numbers[i];
 			i++;
@@ -64,6 +64,34 @@ long shexrep_to_li_dh(char *s){
 	}
 
 	if (s[0] == 49) retval *= -1;
+
+	return retval;
+}
+
+int snumrep_to_i_dh(char* s){
+	int retval = 0;
+	int char_count = 0;
+	int i = 0;
+	int numbers[48];
+	int is_negative = 0;
+
+	while (s && s[char_count] != 0 && char_count < 48) {
+		numbers[char_count] = s[char_count] - 48;
+		char_count++;
+	}
+
+	if (numbers[0] == -3) { i = 1; is_negative = 1; }
+
+	while (i < char_count){
+		if (numbers[i] >= 0 && numbers[i] <= 9 && was_point == 0){
+			retval *= 10;
+			retval += numbers[i];
+			i++;
+		}
+	}
+
+	if (is_negative == 1)
+		retval *= -1;
 
 	return retval;
 }
