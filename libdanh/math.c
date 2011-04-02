@@ -5,16 +5,16 @@
 #include "../include/danhmath.h"
 
 double factorial_fd_dh(double a){
-	double retval = 1;
-	if (a <= 0 || a > 170) { return 0; }
+	double retval = 1.0;
+	double i = 1.0;
+	if (a <= 0 || a > 170) { retval = 0.0; }
 	else {
-		double i = 1;
 		while (i <= a){
 			retval *= i;
 			i++;
 		}
-	return retval;
 	}
+	return retval;
 }
 
 float sqrt_f_dh(float a){
@@ -67,12 +67,6 @@ double quadequi_fd_dh (double a, double b, double c, int x){
 	discr = (b * b) - (4.0 * a * c);
 
 	if (discr < 0.0) {
-		//double div;
-		//div = 2.0 * a;
-		//discr *= -1.0;
-		//d = sqrt_double_dh(discr);
-		//d /= div;
-		//b = b * -1.0 / div;
 		x1 = 0.0;
 		x2 = 0.0;
 	}
