@@ -82,3 +82,10 @@ double quadequi_fd_dh (double a, double b, double c, int x){
 	else return x1;
 }
 
+double sin_deg_dh(double a){
+	return 0.0;
+}
+
+double sin_rad_dh(double a){
+	return 0.0;
+}
