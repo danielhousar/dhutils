@@ -4,6 +4,8 @@
 
 #include "../include/danhmath.h"
 
+const double PI_dh = 3.1415927;
+
 double factorial_fd_dh(double a){
 	double retval = 1.0;
 	double i = 1.0;

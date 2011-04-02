@@ -2,7 +2,7 @@
  * file:	include/danhmath.h
  ****************************************************** */
 
-extern double PI_dh = 3.1415927;
+extern const double PI_dh;
 
 extern double factorial_fd_dh(double a);
 
