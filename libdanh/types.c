@@ -21,7 +21,7 @@ double sdecrep_to_fd_dh(char* s){
 	if (numbers[0] == -3) { i = 1; is_negative = 1; }
 
 	while (i < char_count){
-		if (numbers[i] >= 0 && numbers[i] <= 9){
+		if (numbers[i] >= 0 && numbers[i] <= 9 && was_point == 0){
 			retval *= 10.0;
 			retval += numbers[i];
 			i++;
