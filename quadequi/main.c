@@ -7,7 +7,7 @@
 #include "../include/danhmath.h"
 #include "../include/types.h"
 
-const char* qe_version_string = "0.7 2011-03-25";
+const char* qe_version_string = "0.8 2011-04-04";
 
 int main (int argc, char **argv){
 	int i = 0;
@@ -20,10 +20,12 @@ int main (int argc, char **argv){
 	double main_x2;
 
 	while (i < argc){
-		if (strcmp_dh(argv[i], "--help") == 0) qe_init += 1;
-		if (strcmp_dh(argv[i], "--version") == 0) qe_init += 2;
-		if (strcmp_dh(argv[i], "--debug") == 0) qe_init += 4;
-		
+		if (argv[i][0] == '-') {
+			if (strcmp_dh(argv[i], "--help") == 0) qe_init += 1;
+			if (strcmp_dh(argv[i], "--version") == 0) qe_init += 2;
+			if (strcmp_dh(argv[i], "--debug") == 0) qe_init += 4;
+		}
+
 		if (s_is_num_dh(argv[i]) == 1) {
 			if (var_set == 0){
 				a = sdecrep_to_fd_dh(argv[i]);
@@ -47,7 +49,7 @@ int main (int argc, char **argv){
 		printf("quadequi %s\n", qe_version_string);
 	}
 	if (qe_init > 3) puts("debug mode is ON");
-	
+	puts(" ");
 	if (var_set < 1) puts("a not set");
 	if (var_set < 2) puts("b not set");
 	if (var_set < 3) puts("c not set");
