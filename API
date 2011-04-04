@@ -45,6 +45,12 @@ Doesn't accept hex representation without sign ('0x' or '1x' as first 2 chars) l
 
 	--------------------------------------------------------
 
+int snumrep_to_i_dh(char *s)
+
+Transforms given string (representation of number - "123", "-20", "3") to int type value
+
+	--------------------------------------------------------
+
 int s_is_num_dh(char* s)
 
 Returns 1 if given string is representation of number.
