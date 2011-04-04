@@ -17,3 +17,6 @@ extern double quadequi_fd_dh(double a, double b, double c, int x);
 extern double sin_deg_dh(double a);
 
 extern double sin_rad_dh(double a);
+
+extern double power_dh(double a, double exp_pow, double exp_unpow);
+

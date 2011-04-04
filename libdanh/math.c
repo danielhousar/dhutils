@@ -91,3 +91,9 @@ double sin_deg_dh(double a){
 double sin_rad_dh(double a){
 	return 0.0;
 }
+
+double power_dh(double a, double exp_pow, double exp_unpow) {
+	
+	return 0.0;
+}
+
