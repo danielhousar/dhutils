@@ -25,7 +25,8 @@ int main (int argc, char **argv){
 	printf("size_t: %i\n", sizeof(size_t));
 	puts(" ");
 	puts("-----------------------");
-	
+	puts(" ");
+
 #ifdef WIN32
 	puts("WIN32 defined");
 #endif
