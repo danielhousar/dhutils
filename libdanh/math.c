@@ -92,8 +92,16 @@ double sin_rad_dh(double a){
 	return 0.0;
 }
 
-double power_dh(double a, double exp_pow, double exp_unpow) {
-	
-	return 0.0;
-}
+double pow_dh(double a, double exp) {
+	double retval = a;
+	long i = 1;
 
+	if (exp > 0){
+		while (i < exp) {
+			retval *= a;
+			i++;
+		}
+	}
+
+	return retval;
+}

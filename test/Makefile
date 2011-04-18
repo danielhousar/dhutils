@@ -1,14 +1,17 @@
 
 CC=gcc
 CFLAGS=-march=native -mtune=native -O3
+DEFS=
 
 all:
 
-.PHONY: sqrt convert
+.PHONY: sqrt convert power
 
 sqrt:
-	$(CC) $(CFLAGS) sqrt.c -o sqrt -L../.lib -ldanh
+	$(CC) $(CFLAGS) $(DEFS) sqrt.c -o sqrt -L../.lib -ldanh
 
 convert:
-	$(CC) $(CFLAGS) convert.c -o convert -L../.lib -ldanh
-	
+	$(CC) $(CFLAGS) $(DEFS) convert.c -o convert -L../.lib -ldanh
+
+power:
+	$(CC) $(CFLAGS) $(DEFS) power.c -o power -L../.lib -ldanh

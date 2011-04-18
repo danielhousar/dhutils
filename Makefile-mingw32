@@ -8,6 +8,7 @@ SYSCONFDIR=\etc
 
 CC=gcc
 CFLAGS=-march=native -mtune=native -O3
+DEFS=
 
 SUBDIRS=libdanh quadequi datatypes
 
@@ -24,20 +25,21 @@ out:
 
 
 libdanh:
-	$(CC) $(CFLAGS) -c libdanh/danh.c -o out/danh.o
-	$(CC) $(CFLAGS) -c libdanh/math.c -o out/math.o
-	$(CC) $(CFLAGS) -c libdanh/types.c -o out/types.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdanh/danh.c -o out/danh.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdanh/math.c -o out/math.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdanh/types.c -o out/types.o
 	$(CC) -shared -Wl,-soname,libdanh.dll out/danh.o out/math.o out/types.o -o bin/libdanh.dll
 
 test:
-	$(CC) $(CFLAGS) test/sqrt.c -o bin/sqrt.exe -L./bin -ldanh
-	$(CC) $(CFLAGS) test/convert.c -o bin/convert.exe -L./bin -ldanh
+	$(CC) $(CFLAGS) $(DEFS) test/sqrt.c -o bin/sqrt.exe -L./bin -ldanh
+	$(CC) $(CFLAGS) $(DEFS) test/convert.c -o bin/convert.exe -L./bin -ldanh
+	$(CC) $(CFLAGS) $(DEFS) test/power.c -o bin/power.exe -L./bin -ldanh
 
 quadequi:
-	$(CC) $(CFLAGS) quadequi/main.c -o bin/quadequi.exe -L./bin -ldanh
+	$(CC) $(CFLAGS) $(DEFS) quadequi/main.c -o bin/quadequi.exe -L./bin -ldanh
 
 datatypes:
-	$(CC) $(CFLAGS) datatypes/main.c -o bin/datatypes.exe
+	$(CC) $(CFLAGS) $(DEFS) datatypes/main.c -o bin/datatypes.exe
 
 clean:
 	del /Q out\*

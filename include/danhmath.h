@@ -18,5 +18,5 @@ extern double sin_deg_dh(double a);
 
 extern double sin_rad_dh(double a);
 
-extern double power_dh(double a, double exp_pow, double exp_unpow);
+extern double pow_dh(double a, double exp);
 
