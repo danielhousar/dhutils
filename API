@@ -20,6 +20,12 @@ double sqrt_fd_dh(double a)
 
 	--------------------------------------------------------
 
+double pow_dh(double a, double exp)
+
+- computes power of number (x^y)
+
+	--------------------------------------------------------
+
 double sdecrep_to_fd_dh(char *s) 
 
 Transforms given string representation of number to double type value
