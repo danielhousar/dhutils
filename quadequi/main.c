@@ -7,7 +7,7 @@
 #include "../include/danhmath.h"
 #include "../include/types.h"
 
-const char* qe_version_string = "0.8 2011-04-04";
+const char* qe_version_string = "0.9 2011-04-25";
 
 int main (int argc, char **argv){
 	int i = 0;
@@ -41,25 +41,27 @@ int main (int argc, char **argv){
 
 		i++;
 	}
-	
+
 	if (qe_init == 1 || argc == 1) puts("Usage: quadequi [--help]|[--debug] [--version] a b c");
 
 	if (qe_init > 1) {
 		printf("libdanh %s\n", dh_version_string);
 		printf("quadequi %s\n", qe_version_string);
 	}
-	if (qe_init > 3) puts("debug mode is ON");
+
 	puts(" ");
-	if (var_set < 1) puts("a not set");
-	if (var_set < 2) puts("b not set");
-	if (var_set < 3) puts("c not set");
-	
+	if (argc > 1 && qe_init < 2) {
+		if (var_set < 1) puts("a not set");
+		if (var_set < 2) puts("b not set");
+		if (var_set < 3) puts("c not set");
+	}
+
 	if (qe_init > 3 && var_set > 0) {
 		printf("a: %lG\n", a);
 		if (var_set >= 2) printf("b: %lG\n", b);
 		if (var_set >= 3) printf("c: %lG\n", c);
 	}
-	
+
 	if (var_set >= 3){
 		main_x1 = quadequi_fd_dh(a, b, c, 1);
 		main_x2 = quadequi_fd_dh(a, b, c, 2);
