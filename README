@@ -4,6 +4,8 @@ Version: 0.0.8
 The oldest files:
 	2011-03-30 [121] Makefile
 
+Lines of code: 421
+
 Danhutils is set of miscelaneous utilities, mostly using Libdanh library.
 
 Libdanh is general purpose C library with various functions. Libdanh is
