@@ -10,7 +10,7 @@
 //#include "../include/types.h"
 
 int main (int argc, char **argv){
-	puts("datatypes 0.4 2011-05-02");
+	puts("datatypes 0.5 2011-05-02");
 	puts(" ");
 	puts("----- ENVIRONMENT -----");
 	puts(" ");
@@ -45,6 +45,20 @@ int main (int argc, char **argv){
 #ifdef __GNUC_PATCHLEVEL__
 	printf("__GNUC_PATCHLEVEL__ %i\n", __GNUC_PATCHLEVEL__);
 #endif
+
+	puts(" ");
+
+#ifdef PI
+	printf("PI = %f", PI);
+#endif
+
+#ifdef M_PI
+	printf("M_PI = %f", M_PI);
+#endif
+
+	puts(" ");
+	puts("-----------------------");
+	puts(" ");
 
 	puts(" ");
 	return 0;

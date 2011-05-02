@@ -4,6 +4,8 @@
 
 extern const double PI_dh;
 
+extern const double E_dh;
+
 extern double factorial_fd_dh(double a);
 
 extern float sqrt_f_dh(float a);

@@ -12,7 +12,7 @@ shipped with Danhutils.
 Now Contains:
 
 libdanh:
-	- version: 0.8 rev. 10
+	- version: 0.8 rev. 11
 	C library with some functions, for example sqrt_fd_dh() as implemetation of sqrt()
 	from standard library math
 
@@ -22,7 +22,7 @@ quadequi:
 	and prints x1 and x2 values.
 
 datatypes:
-	- version: 0.4
+	- version: 0.5
 	Prints sizeof() of standard types and sometimes max value and C preprocessor defines
 
 	----------------------------------------------------------------
