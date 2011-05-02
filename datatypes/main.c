@@ -10,7 +10,7 @@
 //#include "../include/types.h"
 
 int main (int argc, char **argv){
-	puts("datatypes 0.3 2011-03-29");
+	puts("datatypes 0.4 2011-05-02");
 	puts(" ");
 	puts("----- ENVIRONMENT -----");
 	puts(" ");
@@ -33,6 +33,19 @@ int main (int argc, char **argv){
 #ifdef _WIN32
 	puts("_WIN32 defined");
 #endif
+
+#ifdef __GNUC__
+	printf("__GNUC__ %i\n", __GNUC__);
+#endif
+
+#ifdef __GNUC_MINOR__
+	printf("__GNUC_MINOR__ %i\n", __GNUC_MINOR__);
+#endif
+
+#ifdef __GNUC_PATCHLEVEL__
+	printf("__GNUC_PATCHLEVEL__ %i\n", __GNUC_PATCHLEVEL__);
+#endif
+
 	puts(" ");
 	return 0;
 }
