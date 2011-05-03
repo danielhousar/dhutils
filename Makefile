@@ -51,3 +51,4 @@ uninstall:
 	rm -rf $(DESTDIR)$(INCLUDEDIR)/libdanh
 	rm -f $(DESTDIR)$(BINDIR)/datatypes
 	rm -f $(DESTDIR)$(BINDIR)/quadequi
+	rm -f $(DESTDIR)$(BINDIR)/portping

@@ -1,15 +1,26 @@
-********************** DANHUTILS ********************
+****************************** DANHUTILS ***************************
+
+	------------------------ Using of code -------------------------
+
+All people can freely do with code of DanhUtils: build, copy, distribute, include in their code, modify and all what they want.
+There are no terms, no conditions for using code of DanhUtils.
+
+
+	-------------------------- DESCRIPTION -------------------------
 
 Version: 0.0.8
 
 Lines of code: 488
 
+Authors:
+	Daniel Housar (daniel.h.080490.cs@gmail.com)
+	Matthew Fernandez (matthew.fernandez@gmail.com)
+
 Danhutils is set of miscelaneous utilities, mostly using Libdanh library.
+Libdanh is general purpose C library with various functions. Libdanh is shipped with Danhutils.
 
-Libdanh is general purpose C library with various functions. Libdanh is
-shipped with Danhutils.
 
-Now Contains:
+	---------------------------- UTILS -----------------------------
 
 libdanh:
 	- version: 0.8 rev. 11
@@ -25,9 +36,19 @@ datatypes:
 	- version: 0.5
 	Prints sizeof() of standard types and sometimes max value and C preprocessor defines
 
-	----------------------------------------------------------------
+portping:
+	- version 0.1
+	- License: Creative Commons Attribution 3.0
+	- Author: Matthew Fernandez (matthew.fernandez@gmail.com)
 
-BUILD & INSTALL:
+	TCP/UDP connectivity diagnostic tool.
+	If host and port given as command-line args, it pings once the port on given host if accessible and opened.
+	!Now buildable under GNU/Linux, Mostly cann't be compilled under most MinGW setups!
+
+	TODO: fix building under MinGW setups
+
+
+	-------------------- BUILD & INSTALL ---------------------------
 
 GNU Linux:
 	$ cd /home/user/src/danhutils

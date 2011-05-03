@@ -7,7 +7,7 @@ INCLUDEDIR=$(PREFIX)\include
 SYSCONFDIR=\etc
 
 CC=gcc
-CFLAGS=-march=native -mtune=native -O3
+CFLAGS=-march=native -mtune=native -O3 -Wall
 DEFS=
 
 SUBDIRS=libdanh quadequi datatypes
@@ -41,6 +41,9 @@ quadequi:
 datatypes:
 	$(CC) $(CFLAGS) $(DEFS) datatypes/main.c -o bin/datatypes.exe
 
+portping:
+	$(CC) $(CFLAGS) $(DEFS) portping/main.c -o bin/portping.exe
+
 clean:
 	del /Q out\*
 	del /Q bin\*
@@ -60,3 +63,4 @@ uninstall:
 	del /Q $(DESTDIR)$(INCLUDEDIR)\libdanh
 	del $(DESTDIR)$(BINDIR)\datatypes.exe
 	del $(DESTDIR)$(BINDIR)\quadequi.exe
+	del $(DESTDIR)$(BINDIR)\portping.exe
