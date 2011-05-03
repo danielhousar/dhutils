@@ -19,6 +19,7 @@ int main (int argc, char **argv){
 	double main_x1;
 	double main_x2;
 
+/* init */
 	while (i < argc){
 		if (argv[i][0] == '-') {
 			if (strcmp_dh(argv[i], "--help") == 0) qe_init += 1;
@@ -42,6 +43,7 @@ int main (int argc, char **argv){
 		i++;
 	}
 
+/* output */
 	if (qe_init == 1 || argc == 1) puts("Usage: quadequi [--help]|[--debug] [--version] a b c");
 
 	if (qe_init > 1) {
