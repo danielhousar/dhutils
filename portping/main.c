@@ -26,8 +26,11 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <errno.h>
+#include "../include/types.h"
 
 #define SOCKET_TIMEOUT 10 // seconds
+
+const char* pp_version_string = "0.2 2011-05-03";
 
 static inline int init(void) {
 #ifdef _WIN32
@@ -65,6 +68,8 @@ int ready(int socket) {
 
 int main(int argc, char **argv)
 {
+	int loop = 0;
+	int udp = 0;
     int sockfd, portno;
     struct sockaddr_in serv_addr;
     struct hostent* server;
@@ -73,13 +78,21 @@ int main(int argc, char **argv)
     int result;
     long elapsed;
     int protocol;
+    int i = 0;
 
-    if (argc < 3) {
-        fprintf(stderr,"Usage: %s hostname port\n", argv[0]);
+/* init */
+	if (argc < 3) {
+        fprintf(stderr,"Usage: portping hostname port [-t] [udp]\n");
         return 0;
     }
 
-    portno = atoi(argv[2]);
+	while (i < argc){
+		if (!strcmp(argv[i], "-t")) { loop = 1; }
+		if (s_is_num_dh(argv[i]) == 1) { portno = atoi(argv[i]); }
+		if (!strcmp(argv[i], "udp")) { udp = 1; }
+		i++;
+	}
+
     if (!portno) {
         fprintf(stderr, "Invalid port number.\n");
         return 0;
@@ -90,12 +103,16 @@ int main(int argc, char **argv)
         return 1;
     }
 
-    if ((argc > 3) && !strcmp(argv[3], "udp"))
+    if (udp == 1)
         protocol = SOCK_DGRAM;
     else
         protocol = SOCK_STREAM;
 
-    do {
+/* output */
+	printf("portping %s\n", pp_version_string);
+
+/* core */
+	do {
         sockfd = socket(AF_INET, protocol, 0);
 
         if (sockfd < 0) {
@@ -168,7 +185,7 @@ int main(int argc, char **argv)
         close(sockfd);
 #endif
         sleep(1);
-    } while ((argc >= 4 && !strcmp(argv[3], "-t")) || (argc >= 5 && !strcmp(argv[4], "-t")));
+    } while (loop == 1);
     /* FIXME: Proper arg handling. */
 
     cleanup();
