@@ -12,6 +12,8 @@ char* dh_version_string - version string, usable for direct printf() during star
 
 const double PI_dh
 
+const double E_dh
+
 -------------------------------------------------------------------------------------------------------------
 
 FUNCTIONS:
