@@ -23,7 +23,6 @@ out:
 	mkdir out
 
 
-
 libdanh:
 	$(CC) $(CFLAGS) $(DEFS) -c libdanh/danh.c -o out/danh.o
 	$(CC) $(CFLAGS) $(DEFS) -c libdanh/math.c -o out/math.o
@@ -43,6 +42,7 @@ datatypes:
 
 portping:
 	$(CC) $(CFLAGS) $(DEFS) portping/main.c -o bin/portping.exe -lws2_32
+
 
 clean:
 	del /Q out\*

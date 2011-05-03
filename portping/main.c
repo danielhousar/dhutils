@@ -7,12 +7,8 @@
  *
  ***************************************************************/
 
-/* Tests the connectivity of a host via TCP or UDP. */
-
 #ifdef _WIN32
-    /* You'll need to pass the switch -lws2_32 to gcc for the Winsock components
-     * to compile.
-     */
+    /* You'll need to pass the switch -lws2_32 to GCC for the Winsock components to compile. */
     #include <winsock2.h>
     #include <ws2tcpip.h>
     #include <windows.h>
@@ -31,7 +27,7 @@
 #include <fcntl.h>
 #include <errno.h>
 
-#define SOCKET_TIMEOUT 10 /* seconds */
+#define SOCKET_TIMEOUT 10 // seconds
 
 static inline int init(void) {
 #ifdef _WIN32
@@ -172,8 +168,7 @@ int main(int argc, char **argv)
         close(sockfd);
 #endif
         sleep(1);
-    } while ((argc >= 4 && !strcmp(argv[3], "-t")) ||
-             (argc >= 5 && !strcmp(argv[4], "-t")));
+    } while ((argc >= 4 && !strcmp(argv[3], "-t")) || (argc >= 5 && !strcmp(argv[4], "-t")));
     /* FIXME: Proper arg handling. */
 
     cleanup();
