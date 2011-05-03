@@ -15,7 +15,7 @@
 #else
     #include <netinet/in.h>
     #include <netdb.h>
-    #include <sys/types.h>
+	#include <sys/types.h>
     #include <sys/socket.h>
 #endif
 
@@ -122,12 +122,14 @@ int main(int argc, char **argv)
         }
 
         /* Set the socket to non-blocking. */
+        /*
         result = fcntl(sockfd, F_SETFL, fcntl(sockfd, F_GETFL, 0) | O_NONBLOCK);
         if (result < 0) {
             perror("Error setting socket to non-blocking");
             cleanup();
             return 1;
         }
+        */
 
         /* Lookup the provided host. */
         server = gethostbyname(argv[1]);
@@ -158,9 +160,8 @@ int main(int argc, char **argv)
              */
             sendto(sockfd, 0, 0, 0, &serv_addr, sizeof(serv_addr));
             result = sendto(sockfd, 0, 0, 0, &serv_addr, sizeof(serv_addr));
-            if (errno == ECONNREFUSED)
-                /* This will happen on ICMP error indicating a blocked port. */
-                result = 1;
+            //if (errno == ECONNREFUSED) /* This will happen on ICMP error indicating a blocked port. */
+            //    result = 1;
         }
 
         gettimeofday(&tock, 0);
@@ -181,10 +182,12 @@ int main(int argc, char **argv)
 
 #ifdef _WIN32
         closesocket(sockfd);
+        Sleep(1);
 #else
         close(sockfd);
-#endif
         sleep(1);
+#endif
+
     } while (loop == 1);
     /* FIXME: Proper arg handling. */
 

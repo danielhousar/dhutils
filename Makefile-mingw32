@@ -41,7 +41,7 @@ datatypes:
 	$(CC) $(CFLAGS) $(DEFS) datatypes/main.c -o bin/datatypes.exe
 
 portping:
-	$(CC) $(CFLAGS) $(DEFS) portping/main.c -o bin/portping.exe -lws2_32
+	$(CC) $(CFLAGS) $(DEFS) portping/main.c -o bin/portping.exe -L./bin -ldanh -lws2_32
 
 
 clean:
