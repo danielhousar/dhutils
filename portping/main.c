@@ -128,7 +128,7 @@ int main(int argc, char **argv)
         /* Set the socket to non-blocking. */
 #ifdef _WIN32
 		result = ioctlsocket(sockfd, FIONBIO, &imode);
-		printf("result = %i\n", result);
+		//printf("result = %i\n", result);
 #else
         result = fcntl(sockfd, F_SETFL, fcntl(sockfd, F_GETFL, 0) | O_NONBLOCK);
 #endif
