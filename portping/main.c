@@ -21,16 +21,16 @@
 
 #include <unistd.h>
 #include <stdio.h>
-#include <string.h>
 #include <sys/time.h>
 #include <stdlib.h>
 #include <fcntl.h>
 #include <errno.h>
+#include "../include/danh.h"
 #include "../include/types.h"
 
 #define SOCKET_TIMEOUT 10 // seconds
 
-const char* pp_version_string = "0.2 2011-05-03";
+const char* pp_version_string = "0.3 2011-05-03";
 
 static inline int init(void) {
 #ifdef _WIN32
@@ -70,6 +70,7 @@ int main(int argc, char **argv)
 {
 	int loop = 0;
 	int udp = 0;
+	int prt_ver = 0;
     int sockfd, portno;
     struct sockaddr_in serv_addr;
     struct hostent* server;
@@ -86,10 +87,12 @@ int main(int argc, char **argv)
         return 0;
     }
 
-	while (i < argc){
-		if (!strcmp(argv[i], "-t")) { loop = 1; }
+	while (i < argc) {
+		// controls each command-line arg
+		if (!strcmp_dh(argv[i], "-t")) { loop = 1; }
 		if (s_is_num_dh(argv[i]) == 1) { portno = atoi(argv[i]); }
-		if (!strcmp(argv[i], "udp")) { udp = 1; }
+		if (!strcmp_dh(argv[i], "udp")) { udp = 1; }
+		if (!strcmp_dh(argv[i], "-v")) { prt_ver = 1; }
 		i++;
 	}
 
@@ -109,7 +112,7 @@ int main(int argc, char **argv)
         protocol = SOCK_STREAM;
 
 /* output */
-	printf("portping %s\n", pp_version_string);
+	if (prt_ver == 1) { printf("portping %s\n", pp_version_string); }
 
 /* core */
 	do {
@@ -122,14 +125,14 @@ int main(int argc, char **argv)
         }
 
         /* Set the socket to non-blocking. */
-        /*
+#ifndef _WIN32
         result = fcntl(sockfd, F_SETFL, fcntl(sockfd, F_GETFL, 0) | O_NONBLOCK);
         if (result < 0) {
             perror("Error setting socket to non-blocking");
             cleanup();
             return 1;
         }
-        */
+#endif
 
         /* Lookup the provided host. */
         server = gethostbyname(argv[1]);
@@ -160,8 +163,9 @@ int main(int argc, char **argv)
              */
             sendto(sockfd, 0, 0, 0, &serv_addr, sizeof(serv_addr));
             result = sendto(sockfd, 0, 0, 0, &serv_addr, sizeof(serv_addr));
-            //if (errno == ECONNREFUSED) /* This will happen on ICMP error indicating a blocked port. */
-            //    result = 1;
+#ifndef _WIN32
+			if (errno == ECONNREFUSED) { result = 1; } // This will happen on ICMP error indicating a blocked port.
+#endif
         }
 
         gettimeofday(&tock, 0);
@@ -189,7 +193,6 @@ int main(int argc, char **argv)
 #endif
 
     } while (loop == 1);
-    /* FIXME: Proper arg handling. */
 
     cleanup();
     return 0;
