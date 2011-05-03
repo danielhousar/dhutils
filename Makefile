@@ -6,7 +6,7 @@ LIBDIR=$(PREFIX)/lib
 INCLUDEDIR=$(PREFIX)/include
 SYSCONFDIR=/etc
 
-SUBDIRS=libdanh quadequi datatypes
+SUBDIRS=libdanh quadequi datatypes portping
 
 all: outdirs $(SUBDIRS)
 

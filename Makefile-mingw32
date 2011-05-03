@@ -10,7 +10,7 @@ CC=gcc
 CFLAGS=-march=native -mtune=native -O3 -Wall
 DEFS=
 
-SUBDIRS=libdanh quadequi datatypes
+SUBDIRS=libdanh quadequi datatypes portping
 
 all: bin out $(SUBDIRS)
 
@@ -42,7 +42,7 @@ datatypes:
 	$(CC) $(CFLAGS) $(DEFS) datatypes/main.c -o bin/datatypes.exe
 
 portping:
-	$(CC) $(CFLAGS) $(DEFS) portping/main.c -o bin/portping.exe
+	$(CC) $(CFLAGS) $(DEFS) portping/main.c -o bin/portping.exe -lws2_32
 
 clean:
 	del /Q out\*
