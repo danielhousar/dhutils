@@ -10,7 +10,7 @@ There are no terms, no conditions for using code of DanhUtils.
 
 Version: 0.0.8
 
-Lines of code: 599
+Lines of code: 615
 
 Authors:
 	Daniel Housar (daniel.h.080490.cs@gmail.com)
@@ -33,11 +33,11 @@ quadequi:
 	Computes roots of equation "ax^2 + bx + c = 0" if a b c values given as command line arguments and prints x1 and x2 values.
 
 datatypes:
-	- version: 0.5
-	Prints sizeof() of standard types and sometimes max value and C preprocessor defines
+	- version: 0.6
+	Prints info about programming environment like C preprocessor macros or sizeof() of data-types.
 
 portping:
-	- version 0.3
+	- version 0.4
 	- License: Creative Commons Attribution 3.0
 	- Author: Matthew Fernandez (matthew.fernandez@gmail.com)
 
