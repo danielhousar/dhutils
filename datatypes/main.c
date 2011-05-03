@@ -15,6 +15,7 @@ int main (int argc, char **argv){
 	puts("----- ENVIRONMENT -----");
 	puts(" ");
 	puts("sizeof()");
+	puts(" ");
 	printf("short: %i\n", sizeof(short));
 	printf("int: %i\n", sizeof(int));
 	printf("long: %i\n", sizeof(long));
@@ -24,7 +25,7 @@ int main (int argc, char **argv){
 	printf("long double: %i\n", sizeof(long double));
 	printf("size_t: %i\n", sizeof(size_t));
 	puts(" ");
-	puts("-----------------------");
+	puts("------- MACROS --------");
 	puts(" ");
 
 #ifdef WIN32
