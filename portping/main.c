@@ -30,7 +30,7 @@
 
 #define SOCKET_TIMEOUT 10 // seconds
 
-const char* pp_version_string = "0.4 2011-05-04";
+const char* pp_version_string = "0.5 2011-05-04";
 
 static inline int init(void) {
 #ifdef _WIN32
@@ -83,11 +83,6 @@ int main(int argc, char **argv)
 	long imode = 0;
 
 /* init */
-	if (argc < 2) {
-        fprintf(stderr,"Usage: portping hostname port [-t] [udp]\n");
-        return 0;
-    }
-
 	while (i < argc) {
 		// controls each command-line arg
 		if (!strcmp_dh(argv[i], "-t")) { loop = 1; }
@@ -96,7 +91,17 @@ int main(int argc, char **argv)
 		if (!strcmp_dh(argv[i], "-v")) { prt_ver = 1; }
 		i++;
 	}
-
+	
+	if (prt_ver == 1) {
+		printf("portping %s\n", pp_version_string);
+		return 0;
+	}
+	
+	if (argc < 3) {
+        fprintf(stderr,"Usage: portping hostname port [-t] [udp]\n");
+        return 0;
+    }
+	
     if (!portno) {
         fprintf(stderr, "Invalid port number.\n");
         return 0;
@@ -111,9 +116,6 @@ int main(int argc, char **argv)
         protocol = SOCK_DGRAM;
     else
         protocol = SOCK_STREAM;
-
-/* output */
-	if (prt_ver == 1) { printf("portping %s\n", pp_version_string); }
 
 /* core */
 	do {
