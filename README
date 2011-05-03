@@ -43,9 +43,6 @@ portping:
 
 	TCP/UDP connectivity diagnostic tool.
 	If host and port given as command-line args, it pings once the port on given host if accessible and opened.
-	!Now buildable under GNU/Linux, Mostly cann't be compilled under most MinGW setups!
-
-	TODO: fix building under MinGW setups
 
 
 	-------------------- BUILD & INSTALL ---------------------------
