@@ -10,7 +10,7 @@
 //#include "../include/types.h"
 
 int main (int argc, char **argv){
-	puts("datatypes 0.5 2011-05-02");
+	puts("datatypes 0.6 2011-05-04");
 	puts(" ");
 	puts("----- ENVIRONMENT -----");
 	puts(" ");
@@ -32,6 +32,15 @@ int main (int argc, char **argv){
 #endif
 #ifdef _WIN32
 	puts("_WIN32 defined");
+#endif
+#ifdef __MINGW32__
+	puts("__MINGW32__ defined");
+#endif
+#ifdef __MINGW32_MAJOR_VERSION
+	printf("__MINGW32_MAJOR_VERSION %i\n", __MINGW32_MAJOR_VERSION);
+#endif
+#ifdef __MINGW32_MINOR_VERSION
+	printf("__MINGW32_MINOR_VERSION %i\n", __MINGW32_MINOR_VERSION);
 #endif
 
 #ifdef __GNUC__

@@ -30,7 +30,7 @@
 
 #define SOCKET_TIMEOUT 10 // seconds
 
-const char* pp_version_string = "0.3 2011-05-03";
+const char* pp_version_string = "0.4 2011-05-04";
 
 static inline int init(void) {
 #ifdef _WIN32
@@ -80,6 +80,7 @@ int main(int argc, char **argv)
     long elapsed;
     int protocol;
     int i = 0;
+	long imode = 0;
 
 /* init */
 	if (argc < 3) {
@@ -125,14 +126,18 @@ int main(int argc, char **argv)
         }
 
         /* Set the socket to non-blocking. */
-//#ifndef _WIN32
+#ifdef _WIN32
+		result = ioctlsocket(sockfd, FIONBIO, &imode);
+		printf("result = %i\n", result);
+#else
         result = fcntl(sockfd, F_SETFL, fcntl(sockfd, F_GETFL, 0) | O_NONBLOCK);
+#endif
         if (result < 0) {
             perror("Error setting socket to non-blocking");
             cleanup();
             return 1;
         }
-//#endif
+
 
         /* Lookup the provided host. */
         server = gethostbyname(argv[1]);
