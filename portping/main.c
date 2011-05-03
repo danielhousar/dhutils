@@ -83,7 +83,7 @@ int main(int argc, char **argv)
 	long imode = 0;
 
 /* init */
-	if (argc < 3) {
+	if (argc < 2) {
         fprintf(stderr,"Usage: portping hostname port [-t] [udp]\n");
         return 0;
     }
