@@ -125,14 +125,14 @@ int main(int argc, char **argv)
         }
 
         /* Set the socket to non-blocking. */
-#ifndef _WIN32
+//#ifndef _WIN32
         result = fcntl(sockfd, F_SETFL, fcntl(sockfd, F_GETFL, 0) | O_NONBLOCK);
         if (result < 0) {
             perror("Error setting socket to non-blocking");
             cleanup();
             return 1;
         }
-#endif
+//#endif
 
         /* Lookup the provided host. */
         server = gethostbyname(argv[1]);
@@ -163,8 +163,10 @@ int main(int argc, char **argv)
              */
             sendto(sockfd, 0, 0, 0, &serv_addr, sizeof(serv_addr));
             result = sendto(sockfd, 0, 0, 0, &serv_addr, sizeof(serv_addr));
-#ifndef _WIN32
-			if (errno == ECONNREFUSED) { result = 1; } // This will happen on ICMP error indicating a blocked port.
+#ifdef _WIN32
+			if (errno == WSAECONNREFUSED) { result = 1; } // This will happen on ICMP error indicating a blocked port.
+#else
+			if (errno == ECONNREFUSED) { result = 1; }
 #endif
         }
 
