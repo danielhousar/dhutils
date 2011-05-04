@@ -99,9 +99,10 @@ int main(int argc, char **argv)
 
 	if (argc < 3) {
         fprintf(stderr,"Usage: portping [-v] | hostname port [-t] [udp]\n");
-        printf("-v \tPrints out version info");
-        printf("-t \tLoop ping given host and port");
-        printf("udp \tSwitch to UDP (TCP is by default)");
+        puts(" ");
+        printf("\t-v \tPrints out version info\n");
+        printf("\t-t \tLoop ping given host and port\n");
+        printf("\tudp \tSwitch to UDP (TCP is by default)\n");
         return 0;
     }
 
