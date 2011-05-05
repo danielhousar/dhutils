@@ -34,21 +34,21 @@ const char* pp_version_string = "0.6 2011-05-05";
 
 static inline int init(void) {
 #ifdef _WIN32
-    WORD wVersionRequested;
-    WSADATA wsaData;
+	WORD wVersionRequested;
+	WSADATA wsaData;
 
-    /* Initialise Winsock. */
-    wVersionRequested = MAKEWORD(1, 0);
-    return WSAStartup(wVersionRequested, &wsaData);
+	/* Initialise Winsock. */
+	wVersionRequested = MAKEWORD(1, 0);
+	return WSAStartup(wVersionRequested, &wsaData);
 #else
-    return 0;
+	return 0;
 #endif
 }
 
 static inline void cleanup(void) {
 #ifdef _WIN32
-    /* Unload Winsock resources. */
-    WSACleanup();
+	/* Unload Winsock resources. */
+	WSACleanup();
 #endif
 }
 
@@ -56,14 +56,14 @@ static inline void cleanup(void) {
  * defined timeout value.
  */
 int ready(int socket) {
-    fd_set readfds, writefds;
-    struct timeval timeout = { .tv_sec = SOCKET_TIMEOUT, .tv_usec = 0 };
+	fd_set readfds, writefds;
+	struct timeval timeout = { .tv_sec = SOCKET_TIMEOUT, .tv_usec = 0 };
 
-    FD_ZERO(&readfds);
-    FD_ZERO(&writefds);
-    FD_SET(socket, &readfds);
-    FD_SET(socket, &writefds);
-    return select(socket + 1, &readfds, &writefds, (fd_set*)0, &timeout);
+	FD_ZERO(&readfds);
+	FD_ZERO(&writefds);
+	FD_SET(socket, &readfds);
+	FD_SET(socket, &writefds);
+	return select(socket + 1, &readfds, &writefds, (fd_set*)0, &timeout);
 }
 
 int main(int argc, char **argv)
@@ -71,15 +71,15 @@ int main(int argc, char **argv)
 	int loop = 0;
 	int udp = 0;
 	int prt_ver = 0;
-    int sockfd, portno;
-    struct sockaddr_in serv_addr;
-    struct hostent* server;
-    struct timeval tick;
-    struct timeval tock;
-    int result;
-    long elapsed;
-    int protocol;
-    int i = 0;
+	int sockfd, portno;
+	struct sockaddr_in serv_addr;
+	struct hostent* server;
+	struct timeval tick;
+	struct timeval tock;
+	int result;
+	long elapsed;
+	int protocol;
+	int i = 0;
 	long imode = 1; //non-blocking mode, set to 0 for blocking mode
 
 /* init */
@@ -106,48 +106,48 @@ int main(int argc, char **argv)
         return 0;
     }
 
-    if (!portno) {
-        fprintf(stderr, "Invalid port number.\n");
-        return 0;
-    }
+	if (!portno) {
+		fprintf(stderr, "Invalid port number.\n");
+		return 0;
+	}
 
-    if (init()) {
-        perror("Error during initialisation");
-        return 1;
-    }
+	if (init()) {
+		perror("Error during initialisation");
+		return 1;
+	}
 
-    if (udp == 1)
-        protocol = SOCK_DGRAM;
-    else
-        protocol = SOCK_STREAM;
+	if (udp == 1)
+		protocol = SOCK_DGRAM;
+	else
+		protocol = SOCK_STREAM;
 
 /* core */
 	do {
-        sockfd = socket(AF_INET, protocol, 0);
+		sockfd = socket(AF_INET, protocol, 0);
 
-        if (sockfd < 0) {
-            perror("Error opening socket");
-            cleanup();
-            return 1;
-        }
+		if (sockfd < 0) {
+			perror("Error opening socket");
+			cleanup();
+			return 1;
+		}
 
-        /* Set the socket to non-blocking. */
+		/* Set the socket to non-blocking. */
 #ifdef _WIN32
 		result = ioctlsocket(sockfd, FIONBIO, &imode);
 		//printf("result = %i\n", result);
 #else
-        result = fcntl(sockfd, F_SETFL, fcntl(sockfd, F_GETFL, 0) | O_NONBLOCK);
+		result = fcntl(sockfd, F_SETFL, fcntl(sockfd, F_GETFL, 0) | O_NONBLOCK);
 #endif
-        if (result < 0) {
-            perror("Error setting socket to non-blocking");
-            cleanup();
-            return 1;
+		if (result < 0) {
+			perror("Error setting socket to non-blocking");
+			cleanup();
+			return 1;
         }
 
 
-        /* Lookup the provided host. */
-        server = gethostbyname(argv[1]);
-        if (!server) {
+		/* Lookup the provided host. */
+		server = gethostbyname(argv[1]);
+		if (!server) {
             perror("DNS lookup failed");
             cleanup();
             return 1;
