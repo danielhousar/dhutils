@@ -80,7 +80,7 @@ int main(int argc, char **argv)
     long elapsed;
     int protocol;
     int i = 0;
-	long imode = 1;
+	long imode = 1; //non-blocking mode, set to 0 for blocking mode
 
 /* init */
 	while (i < argc) {
