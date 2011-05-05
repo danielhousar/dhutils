@@ -97,11 +97,20 @@ double pow_dh(double a, double exp) {
 	double retval = a;
 	long i = 1;
 
-	if (exp > 0){
+	if (exp < 0){
+		exp *= -1;
 		while (i < exp) {
 			retval *= a;
 			i++;
 		}
+		retval = 1.0 / retval;
+	}
+	else {
+		while (i < exp) {
+			retval *= a;
+			i++;
+		}
+
 	}
 
 	return retval;

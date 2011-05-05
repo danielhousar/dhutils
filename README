@@ -10,7 +10,7 @@ There are no terms, no conditions for using code of DanhUtils.
 
 Version: 0.0.8
 
-Lines of code: 622
+Lines of code: 631
 
 Authors:
 	Daniel Housar (daniel.h.080490.cs@gmail.com)
@@ -23,7 +23,7 @@ Libdanh is general purpose C library with various functions. Libdanh is shipped 
 	---------------------------- UTILS -----------------------------
 
 libdanh:
-	- version: 0.8 rev. 11
+	- version: 0.8 rev. 12
 	C library with some functions, for example sqrt_fd_dh() as implemetation of sqrt()
 	from standard library math
 

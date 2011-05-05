@@ -30,7 +30,7 @@
 
 #define SOCKET_TIMEOUT 10 // seconds
 
-const char* pp_version_string = "0.5 2011-05-04";
+const char* pp_version_string = "0.6 2011-05-05";
 
 static inline int init(void) {
 #ifdef _WIN32

@@ -6,9 +6,9 @@
 
 const int dh_version = 0;
 const int dh_release = 8;
-const int dh_rev = 11;
-const int dh_rev_date = 20110502;
-const char* dh_version_string = "0.8 rev. 11 2011-05-02";
+const int dh_rev = 12;
+const int dh_rev_date = 20110505;
+const char* dh_version_string = "0.8 rev. 12 2011-05-05";
 
 
 int strlen_dh(char* str){
