@@ -8,15 +8,15 @@
  ***************************************************************/
 
 #ifdef _WIN32
-    /* You'll need to pass the switch -lws2_32 to GCC for the Winsock components to compile. */
-    #include <winsock2.h>
-    #include <ws2tcpip.h>
-    #include <windows.h>
+	/* You'll need to pass the switch -lws2_32 to GCC for the Winsock components to compile. */
+	#include <winsock2.h>
+	#include <ws2tcpip.h>
+	#include <windows.h>
 #else
-    #include <netinet/in.h>
-    #include <netdb.h>
+	#include <netinet/in.h>
+	#include <netdb.h>
 	#include <sys/types.h>
-    #include <sys/socket.h>
+	#include <sys/socket.h>
 #endif
 
 #include <unistd.h>
