@@ -80,7 +80,7 @@ int main(int argc, char **argv)
     long elapsed;
     int protocol;
     int i = 0;
-	long imode = 0;
+	long imode = 1;
 
 /* init */
 	while (i < argc) {
