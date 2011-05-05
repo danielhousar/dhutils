@@ -91,17 +91,21 @@ int main(int argc, char **argv)
 		if (!strcmp_dh(argv[i], "-v")) { prt_ver = 1; }
 		i++;
 	}
-	
+
 	if (prt_ver == 1) {
 		printf("portping %s\n", pp_version_string);
 		return 0;
 	}
-	
+
 	if (argc < 3) {
-        fprintf(stderr,"Usage: portping hostname port [-t] [udp]\n");
+        fprintf(stderr,"Usage: portping [-v] | hostname port [-t] [udp]\n");
+        puts(" ");
+        printf("\t-v \tPrints out version info\n");
+        printf("\t-t \tLoop ping given host and port\n");
+        printf("\tudp \tSwitch to UDP (TCP is by default)\n");
         return 0;
     }
-	
+
     if (!portno) {
         fprintf(stderr, "Invalid port number.\n");
         return 0;
