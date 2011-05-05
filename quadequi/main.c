@@ -7,9 +7,11 @@
 #include "../include/danhmath.h"
 #include "../include/types.h"
 
-const char* qe_version_string = "0.9 2011-04-25";
 
 int main (int argc, char **argv){
+
+	const char* qe_version_string = "0.9 2011-05-05";
+
 	int i = 0;
 	int var_set = 0;
 	int qe_init = 0;
@@ -19,12 +21,13 @@ int main (int argc, char **argv){
 	double main_x1;
 	double main_x2;
 
+
 /* init */
 	while (i < argc){
 		if (argv[i][0] == '-') {
-			if (strcmp_dh(argv[i], "--help") == 0) qe_init += 1;
-			if (strcmp_dh(argv[i], "--version") == 0) qe_init += 2;
-			if (strcmp_dh(argv[i], "--debug") == 0) qe_init += 4;
+			if (!strcmp_dh(argv[i], "--help")) { qe_init += 1; }
+			if (!strcmp_dh(argv[i], "--version")) { qe_init += 2; }
+			if (!strcmp_dh(argv[i], "--debug")) { qe_init += 4; }
 		}
 
 		if (s_is_num_dh(argv[i]) == 1) {
