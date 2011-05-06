@@ -71,7 +71,8 @@ int main(int argc, char **argv)
 	int loop = 0;
 	int udp = 0;
 	int prt_ver = 0;
-	int sockfd, portno;
+	int sockfd;
+	int portno;
 	struct sockaddr_in serv_addr;
 	struct hostent* server;
 	struct timeval tick;
@@ -157,7 +158,7 @@ int main(int argc, char **argv)
         memset(&serv_addr, 0, sizeof(serv_addr));
         serv_addr.sin_family = AF_INET;
         memmove(&serv_addr.sin_addr.s_addr, server->h_addr, server->h_length);
-        serv_addr.sin_port = htons(portno);
+		serv_addr.sin_port = htons(portno);
 
         if (protocol == SOCK_STREAM) { /* TCP */
             connect(sockfd, &serv_addr, sizeof(serv_addr));
