@@ -58,6 +58,10 @@ int main (int argc, char **argv){
 
 	puts(" ");
 
+#ifdef __WORDSIZE
+	printf("__WORDSIZE %i\n", __WORDSIZE);
+#endif
+
 #ifdef PI
 	printf("PI = %f", PI);
 #endif
