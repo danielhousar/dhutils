@@ -14,7 +14,7 @@ SUBDIRS=libdanh quadequi datatypes portping
 
 all: bin out $(SUBDIRS)
 
-.PHONY: $(SUBDIRS) test clean install uninstall
+.PHONY: $(SUBDIRS) clean install uninstall
 
 bin:
 	mkdir bin
@@ -29,10 +29,6 @@ libdanh:
 	$(CC) $(CFLAGS) $(DEFS) -c libdanh/types.c -o out/types.o
 	$(CC) -shared -Wl,-soname,libdanh.dll out/danh.o out/math.o out/types.o -o bin/libdanh.dll
 
-test:
-	$(CC) $(CFLAGS) $(DEFS) test/sqrt.c -o bin/sqrt.exe -L./bin -ldanh
-	$(CC) $(CFLAGS) $(DEFS) test/convert.c -o bin/convert.exe -L./bin -ldanh
-	$(CC) $(CFLAGS) $(DEFS) test/power.c -o bin/power.exe -L./bin -ldanh
 
 quadequi:
 	$(CC) $(CFLAGS) $(DEFS) quadequi/main.c -o bin/quadequi.exe -L./bin -ldanh
