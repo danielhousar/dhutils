@@ -5,9 +5,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-//#include "../include/danhmath.h"
-//#include "../include/danh.h"
-//#include "../include/types.h"
+#include <stdint.h>
+#include <limits.h>
 
 int main (int argc, char **argv){
 	puts("datatypes 0.7 2011-05-06");
