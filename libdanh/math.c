@@ -110,7 +110,6 @@ double pow_dh(double a, double exp) {
 			retval *= a;
 			i++;
 		}
-
 	}
 
 	return retval;
