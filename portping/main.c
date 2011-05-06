@@ -30,7 +30,7 @@
 
 #define SOCKET_TIMEOUT 10 // seconds
 
-const char* pp_version_string = "0.6 2011-05-05";
+const char* pp_version_string = "0.7 2011-05-06";
 
 static inline int init(void) {
 #ifdef _WIN32
@@ -80,7 +80,7 @@ int main(int argc, char **argv)
 	long elapsed;
 	int protocol;
 	int i = 0;
-	long imode = 1; //non-blocking mode, set to 0 for blocking mode
+	unsigned long imode = 1; //non-blocking mode, set to 0 for blocking mode
 
 /* init */
 	while (i < argc) {
