@@ -10,7 +10,7 @@
 //#include "../include/types.h"
 
 int main (int argc, char **argv){
-	puts("datatypes 0.6 2011-05-04");
+	puts("datatypes 0.7 2011-05-06");
 	puts(" ");
 	puts("----- ENVIRONMENT -----");
 	puts(" ");
