@@ -92,9 +92,11 @@ int s_is_num_dh(char* s){
 	int i = 0;
 	int err_nu = 0;
 	int was_point = 0;
+
+	if (s[i] == 45) { i++; }
+
 	while (s && s[i] != 0 && err_nu == 0){
 		if (s[i] < 45 || s[i] == 47 || s[i] > 57) { err_nu++; }
-		if (i > 0 && s[i] == 45) { err_nu++; }
 
 		if (s[i] == 46){
 			if (was_point == 0) { was_point = 1; }
@@ -109,4 +111,28 @@ int s_is_num_dh(char* s){
 
 /* under construction */
 
+int s_is_hex_dh(char *s) {
+	int i = 0;
+	int err_nu = 0;
+
+	if (strlen_dh(s) < 3) { return 0; }
+
+	if (s[i] > 49 || s[i] < 48) { return 0; }
+	i++;
+
+	if (s[i] != 120) { return 0; }
+	i++;
+
+	while (s && s[i] != 0 && err_nu == 0){
+		if (s[i] < 48 || s[i] > 57) {
+			if (s[i] < 65 || s[i] > 70) {
+				if (s[i] < 97 || s[i] > 102) err_nu++;
+			}
+		}
+		i++;
+	}
+
+	if (err_nu == 0) return 1;
+	else return 0;
+}
 
