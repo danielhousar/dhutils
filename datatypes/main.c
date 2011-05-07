@@ -8,9 +8,10 @@
 #include <stdint.h>
 #include <limits.h>
 #include <assert.h>
+#include "../include/danh.h"
 
 int main (int argc, char **argv){
-	puts("datatypes 0.7 2011-05-06");
+	puts("datatypes 0.8 2011-05-06");
 	puts(" ");
 	puts("----- ENVIRONMENT -----");
 	puts(" ");
@@ -71,8 +72,14 @@ int main (int argc, char **argv){
 #endif
 
 	puts(" ");
-	puts("-----------------------");
+	puts("------- LIBDANH -------");
 	puts(" ");
+#ifdef LIBDANH
+	printf("danh.h version: %i %i %i\n", LIBDANH_VERSION_MAJOR, LIBDANH_RELEASE, LIBDANH_REVISION);
+	printf("libdanh version: %i %i %i", dh_version, dh_release, dh_rev);
+#endif
+	puts(" ");
+	puts("-----------------------");
 
 	puts(" ");
 	return 0;
