@@ -7,6 +7,7 @@
 #include <math.h>
 #include <stdint.h>
 #include <limits.h>
+#include <assert.h>
 
 int main (int argc, char **argv){
 	puts("datatypes 0.7 2011-05-06");
