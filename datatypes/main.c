@@ -17,6 +17,17 @@ int main (int argc, char **argv){
 	puts(" ");
 	puts("sizeof()");
 	puts(" ");
+#ifdef _WIN32
+	printf("char: %u\n", sizeof(char));
+	printf("short: %u\n", sizeof(short));
+	printf("int: %u\n", sizeof(int));
+	printf("long: %u\n", sizeof(long));
+	printf("long long: %u\n", sizeof(long long));
+	printf("float: %u\n", sizeof(float));
+	printf("double: %u\n", sizeof(double));
+	printf("long double: %u\n", sizeof(long double));
+	printf("size_t: %u\n", sizeof(size_t));
+#else
 	printf("char: %lu\n", sizeof(char));
 	printf("short: %lu\n", sizeof(short));
 	printf("int: %lu\n", sizeof(int));
@@ -26,6 +37,7 @@ int main (int argc, char **argv){
 	printf("double: %lu\n", sizeof(double));
 	printf("long double: %lu\n", sizeof(long double));
 	printf("size_t: %lu\n", sizeof(size_t));
+#endif
 	puts(" ");
 	puts("------- MACROS --------");
 	puts(" ");
@@ -36,25 +48,16 @@ int main (int argc, char **argv){
 #ifdef _WIN32
 	puts("_WIN32 defined");
 #endif
+
 #ifdef __MINGW32__
 	puts("__MINGW32__ defined");
-#endif
-#ifdef __MINGW32_MAJOR_VERSION
 	printf("__MINGW32_MAJOR_VERSION %i\n", __MINGW32_MAJOR_VERSION);
-#endif
-#ifdef __MINGW32_MINOR_VERSION
 	printf("__MINGW32_MINOR_VERSION %i\n", __MINGW32_MINOR_VERSION);
 #endif
 
 #ifdef __GNUC__
 	printf("__GNUC__ %i\n", __GNUC__);
-#endif
-
-#ifdef __GNUC_MINOR__
 	printf("__GNUC_MINOR__ %i\n", __GNUC_MINOR__);
-#endif
-
-#ifdef __GNUC_PATCHLEVEL__
 	printf("__GNUC_PATCHLEVEL__ %i\n", __GNUC_PATCHLEVEL__);
 #endif
 

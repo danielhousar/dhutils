@@ -34,7 +34,7 @@ quadequi:
 	$(CC) $(CFLAGS) $(DEFS) quadequi/main.c -o bin/quadequi.exe -L./bin -ldanh
 
 datatypes:
-	$(CC) $(CFLAGS) $(DEFS) datatypes/main.c -o bin/datatypes.exe
+	$(CC) $(CFLAGS) $(DEFS) datatypes/main.c -o bin/datatypes.exe -L./bin -ldanh
 
 portping:
 	$(CC) $(CFLAGS) $(DEFS) portping/main.c -o bin/portping.exe -L./bin -ldanh -lws2_32
