@@ -11,12 +11,13 @@
 #include "../include/danh.h"
 
 int main (int argc, char **argv){
-	puts("datatypes 0.8 2011-05-06");
+	puts("datatypes 0.9 2011-05-06");
 	puts(" ");
 	puts("----- ENVIRONMENT -----");
 	puts(" ");
 	puts("sizeof()");
 	puts(" ");
+	printf("char: %lu\n", sizeof(char));
 	printf("short: %lu\n", sizeof(short));
 	printf("int: %lu\n", sizeof(int));
 	printf("long: %lu\n", sizeof(long));

@@ -68,11 +68,11 @@ int ready(int socket) {
 
 int main(int argc, char **argv)
 {
-	int loop = 0;
-	int udp = 0;
-	int prt_ver = 0;
+	char loop = 0;
+	char udp = 0;
+	char prt_ver = 0;
 	int sockfd;
-	int portno;
+	int portno = 0;
 	struct sockaddr_in serv_addr;
 	struct hostent* server;
 	struct timeval tick;
