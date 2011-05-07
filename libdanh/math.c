@@ -24,7 +24,7 @@ float sqrt_f_dh(float a){
 	int i = 0;
 	float var1 = a;
 	float var2 = 0.0;
-	float var3;
+	float var3 = 0.0;
 	while ((var3 * var3) != a && i < 300) {
 		var3 = (var1 + var2) / 2.0;
 		if ((var3 * var3) > a) { var1 = var3; }
@@ -38,7 +38,7 @@ double sqrt_fd_dh(double a){
 	int i = 0;
 	double var1 = a;
 	double var2 = 0.0;
-	double var3;
+	double var3 = 0.0;
 	while ((var3 * var3) != a && i < 300) {
 		var3 = (var1 + var2) / 2.0;
 		if ((var3 * var3) > a) { var1 = var3; }

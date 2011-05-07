@@ -15,11 +15,11 @@ int main (int argc, char **argv){
 	int i = 0;
 	int var_set = 0;
 	int qe_init = 0;
-	double a;
-	double b;
-	double c;
-	double main_x1;
-	double main_x2;
+	double a = 0.0;
+	double b = 0.0;
+	double c = 0.0;
+	double main_x1 = 0.0;
+	double main_x2 = 0.0;
 
 
 /* init */
