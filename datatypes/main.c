@@ -76,7 +76,7 @@ int main (int argc, char **argv){
 	puts(" ");
 #ifdef LIBDANH
 	printf("danh.h version: %i %i %i\n", LIBDANH_VERSION_MAJOR, LIBDANH_RELEASE, LIBDANH_REVISION);
-	printf("libdanh version: %i %i %i", dh_version, dh_release, dh_rev);
+	printf("libdanh version: %i %i %i %i\n", dh_version, dh_release, dh_rev, dh_rev_date);
 #endif
 	puts(" ");
 	puts("-----------------------");
