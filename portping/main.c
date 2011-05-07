@@ -81,7 +81,9 @@ int main(int argc, char **argv)
 	long elapsed;
 	int protocol;
 	int i = 0;
+#ifdef _WIN32
 	unsigned long imode = 1; //non-blocking mode, set to 0 for blocking mode
+#endif
 
 /* init */
 	while (i < argc) {

@@ -13,8 +13,8 @@ int main (int argc, char **argv){
 	const char* qe_version_string = "0.9 2011-05-05";
 
 	int i = 0;
-	int var_set = 0;
-	int qe_init = 0;
+	char var_set = 0;
+	char qe_init = 0;
 	double a = 0.0;
 	double b = 0.0;
 	double c = 0.0;
