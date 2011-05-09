@@ -10,7 +10,7 @@ There are no terms, no conditions for using code of DanhUtils.
 
 Version: 0.0.9
 
-Lines of code: 691
+Lines of code: 694
 
 Authors:
 	Daniel Housar (daniel.h.080490.cs@gmail.com)
@@ -28,7 +28,7 @@ libdanh:
 	from standard library math
 
 quadequi:
-	- version: 0.9
+	- version: 0.10
 	Frontend for quadequi_fd_dh() function from libdanh library.
 	Computes roots of equation "ax^2 + bx + c = 0" if a b c values given as command line arguments and prints x1 and x2 values.
 

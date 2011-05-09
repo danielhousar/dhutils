@@ -10,7 +10,7 @@
 
 int main (int argc, char **argv){
 
-	const char* qe_version_string = "0.9 2011-05-05";
+	const char* qe_version_string = "0.10 2011-05-09";
 
 	int i = 0;
 	char var_set = 0;
@@ -47,7 +47,10 @@ int main (int argc, char **argv){
 	}
 
 /* output */
-	if (qe_init == 1 || argc == 1) puts("Usage: quadequi [--help]|[--debug] [--version] a b c");
+	if (qe_init == 1 || argc == 1) {
+		puts("Usage: quadequi [--help]|[--debug] [--version] a b c");
+		return 0;
+	}
 
 	if (qe_init > 1) {
 		printf("libdanh %s\n", dh_version_string);
