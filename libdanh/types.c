@@ -88,6 +88,21 @@ int snumrep_to_i_dh(char* s){
 	return retval;
 }
 
+unsigned int sbinrep_to_ui_dh(char *s){
+	unsigned int retval = 0;
+	int i = 0;
+	int len = strlen_dh(s);
+
+	while (i < len) {
+		if (s[i] == 49) {
+			retval += 1 << (len - i - 1);
+		}
+		i++;
+	}
+
+	return retval;
+}
+
 int s_is_num_dh(char* s){
 	int i = 0;
 	int err_nu = 0;
