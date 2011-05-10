@@ -10,7 +10,7 @@ CC=gcc
 CFLAGS=-march=native -mtune=native -O3 -Wall
 DEFS=
 
-SUBDIRS=libdanh quadequi datatypes portping
+SUBDIRS=libdh quadequi datatypes portping
 
 all: bin out $(SUBDIRS)
 
@@ -23,21 +23,22 @@ out:
 	mkdir out
 
 
-libdanh:
-	$(CC) $(CFLAGS) $(DEFS) -c libdanh/danh.c -o out/danh.o
-	$(CC) $(CFLAGS) $(DEFS) -c libdanh/math.c -o out/math.o
-	$(CC) $(CFLAGS) $(DEFS) -c libdanh/types.c -o out/types.o
-	$(CC) -shared -Wl,-soname,libdanh.dll out/danh.o out/math.o out/types.o -o bin/libdanh.dll
+libdh:
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/dh.c -o out/dh.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/math.c -o out/math.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/types.c -o out/types.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/misc.c -o out/misc.o
+	$(CC) -shared -Wl,-soname,libdh.dll out/dh.o out/math.o out/types.o out/misc.o -o bin/libdh.dll
 
 
 quadequi:
-	$(CC) $(CFLAGS) $(DEFS) quadequi/main.c -o bin/quadequi.exe -L./bin -ldanh
+	$(CC) $(CFLAGS) $(DEFS) quadequi/main.c -o bin/quadequi.exe -L./bin -ldh
 
 datatypes:
-	$(CC) $(CFLAGS) $(DEFS) datatypes/main.c -o bin/datatypes.exe -L./bin -ldanh
+	$(CC) $(CFLAGS) $(DEFS) datatypes/main.c -o bin/datatypes.exe -L./bin -ldh
 
 portping:
-	$(CC) $(CFLAGS) $(DEFS) portping/main.c -o bin/portping.exe -L./bin -ldanh -lws2_32
+	$(CC) $(CFLAGS) $(DEFS) portping/main.c -o bin/portping.exe -L./bin -ldh -lws2_32
 
 
 clean:
@@ -49,14 +50,12 @@ clean:
 
 install:
 	copy /Y bin\* $(DESTDIR)$(BINDIR)
-	copy /Y libdanh.pc $(DESTDIR)$(LIBDIR)\pkgconfig\libdanh.pc
-	copy /Y include\* $(DESTDIR)$(INCLUDEDIR)\libdanh
+	copy /Y include\* $(DESTDIR)$(INCLUDEDIR)\libdh
 
 
 uninstall:
-	del $(DESTDIR)$(BINDIR)\libdanh.dll
-	del $(DESTDIR)$(LIBDIR)\pkgconfig\libdanh.pc
-	del /Q $(DESTDIR)$(INCLUDEDIR)\libdanh
+	del $(DESTDIR)$(BINDIR)\libdh.dll
+	del /Q $(DESTDIR)$(INCLUDEDIR)\libdh
 	del $(DESTDIR)$(BINDIR)\datatypes.exe
 	del $(DESTDIR)$(BINDIR)\quadequi.exe
 	del $(DESTDIR)$(BINDIR)\portping.exe
