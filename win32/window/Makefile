@@ -4,13 +4,19 @@ DEFS=-D UNICODE
 
 all: app
 
-.PHONY: app obj res
+.PHONY: app obj res clean
 
 app: obj res
-	$(CC) win32-window.res main.o -o win32-window.exe -lgdi32
+	$(CC) window.res main.o -o window.exe -lgdi32
 
 obj:
 	$(CC) $(CFLAGS) $(DEFS) -c main.c -o main.o -Wall
 
 res:
-	windres -i win32-window.rc --input-format=rc -o win32-window.res -O coff
+	windres -i window.rc --input-format=rc -o window.res -O coff
+
+clean:
+	del main.o
+	del window.res
+	del window.exe
+
