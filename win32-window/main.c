@@ -54,18 +54,29 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
 	HMENU hMenu;
+	HDC hDC;
+	PAINTSTRUCT ps;
+	RECT rect;
+
 	switch(message) {
 		case WM_COMMAND:
-		hMenu=GetMenu(hWnd);
-		switch(LOWORD(wParam)) {
-			case IDM_ABOUT:
-			MessageBox(hWnd,TEXT("win32-window 0.1"),TEXT("About"), MB_OK | MB_ICONINFORMATION);
-			return 0;
-		}
+			hMenu=GetMenu(hWnd);
+			switch(LOWORD(wParam)) {
+				case IDM_ABOUT:
+				MessageBox(hWnd,TEXT("win32-window 0.1"),TEXT("About"), MB_OK | MB_ICONINFORMATION);
+				return 0;
+			}
+		return 0;
+
+		case WM_PAINT:
+			GetClientRect(hWnd, &rect);
+			hDC=BeginPaint(hWnd, &ps);
+			DrawText(hDC, TEXT("Message in Window."), -1, &rect, DT_SINGLELINE|DT_CENTER|DT_VCENTER);
+			EndPaint(hWnd, &ps);
 		return 0;
 
 		case WM_DESTROY:
-		PostQuitMessage(0);
+			PostQuitMessage(0);
 		return 0;
 	}
 	return DefWindowProc(hWnd, message, wParam, lParam);
