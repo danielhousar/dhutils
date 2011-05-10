@@ -10,7 +10,7 @@
 
 int main (int argc, char **argv){
 
-	const char* qe_version_string = "0.10 2011-05-09";
+	const char* qe_version_str = "0.10 2011-05-09";
 
 	int i = 0;
 	char var_set = 0;
@@ -53,8 +53,8 @@ int main (int argc, char **argv){
 	}
 
 	if (qe_init > 1) {
-		printf("libdh %s\n", dh_version_string);
-		printf("quadequi %s\n", qe_version_string);
+		printf("libdh %s\n", dh_version_str);
+		printf("quadequi %s\n", qe_version_str);
 	}
 
 	puts(" ");

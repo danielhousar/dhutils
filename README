@@ -23,7 +23,7 @@ LibDH is general purpose C library with various functions. LibDH is shipped with
 	---------------------------- UTILS -----------------------------
 
 libdh:
-	- version: 0.9.3
+	- version: 0.9 20110510
 	C library with various functions
 
 quadequi:
@@ -32,7 +32,7 @@ quadequi:
 	Computes roots of equation "ax^2 + bx + c = 0" if a b c values given as command line arguments and prints x1 and x2 values.
 
 datatypes:
-	- version: 0.8
+	- version: 0.9
 	Prints info about programming environment like C preprocessor macros or sizeof() of data-types.
 
 portping:
