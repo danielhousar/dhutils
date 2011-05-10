@@ -1,5 +1,5 @@
 ########################################################
-# file:	libdanh/Makefile
+# file:	libdh/Makefile
 ########################################################
 
 CC=gcc
@@ -11,7 +11,7 @@ all: library
 .PHONY: library objs
 
 library: objs
-	$(CC) -shared -Wl,-soname,libdanh.so ../.out/danh.o ../.out/math.o ../.out/types.o ../.out/misc.o -o ../.lib/libdanh.so -lc
+	$(CC) -shared -Wl,-soname,libdh.so ../.out/danh.o ../.out/math.o ../.out/types.o ../.out/misc.o -o ../.lib/libdh.so -lc
 
 objs:
 	$(CC) $(CFLAGS) $(DEFS) -fPIC -c danh.c -o ../.out/danh.o

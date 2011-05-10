@@ -32,13 +32,13 @@ install: install_lib install_headers install_utils
 
 install_lib:
 	mkdir -p $(DESTDIR)$(LIBDIR)/
-	cp -a .lib/libdanh.so $(DESTDIR)$(LIBDIR)/
+	cp -a .lib/libdh.so $(DESTDIR)$(LIBDIR)/
 	mkdir -p $(DESTDIR)$(LIBDIR)/pkgconfig/
 	cp -f libdanh.pc $(DESTDIR)$(LIBDIR)/pkgconfig/
 
 install_headers:
-	mkdir -p $(DESTDIR)$(INCLUDEDIR)/libdanh
-	cp -f include/* $(DESTDIR)$(INCLUDEDIR)/libdanh/
+	mkdir -p $(DESTDIR)$(INCLUDEDIR)/libdh
+	cp -f include/* $(DESTDIR)$(INCLUDEDIR)/libdh/
 
 install_utils:
 	mkdir -p $(DESTDIR)$(BINDIR)/
@@ -46,9 +46,9 @@ install_utils:
 
 
 uninstall:
-	rm -f $(DESTDIR)$(LIBDIR)/libdanh.so
-	rm -f $(DESTDIR)$(LIBDIR)/pkgconfig/libdanh.pc
-	rm -rf $(DESTDIR)$(INCLUDEDIR)/libdanh
+	rm -f $(DESTDIR)$(LIBDIR)/libdh.so
+	rm -f $(DESTDIR)$(LIBDIR)/pkgconfig/libdh.pc
+	rm -rf $(DESTDIR)$(INCLUDEDIR)/libdh
 	rm -f $(DESTDIR)$(BINDIR)/datatypes
 	rm -f $(DESTDIR)$(BINDIR)/quadequi
 	rm -f $(DESTDIR)$(BINDIR)/portping
