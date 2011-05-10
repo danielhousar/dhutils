@@ -1,0 +1,48 @@
+#include "resource.h"
+
+
+MAINMENU MENU DISCARDABLE
+BEGIN
+	POPUP "&Soubor"
+	BEGIN
+		MENUITEM "&Nový",       IDM_NEW
+		MENUITEM "&Otevřít",    IDM_OPEN
+		MENUITEM SEPARATOR
+		POPUP "Ta&jemství"
+		BEGIN
+			MENUITEM "&Tajemná truhla",   IDM_SECRET
+		END
+	END
+	POPUP "&Ostatní"
+	BEGIN
+		MENUITEM "&Nápověda",    IDM_HELP
+		MENUITEM "&Konec",       IDM_CLOSE
+		MENUITEM SEPARATOR
+		MENUITEM "&O Aplikaci",  IDM_ABOUT
+	END
+END
+
+
+
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// NEOMEZENE ODSAMSAD                                                         //
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////
+
+// NEOMEZENE POSAMSAD                                                         //
+
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+

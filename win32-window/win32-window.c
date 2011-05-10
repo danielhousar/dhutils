@@ -1,4 +1,9 @@
 #include <windows.h>
+#include "resource.h"
+
+#define _MainClassName TEXT("WinAPIMainClass")
+
+#define _AppName TEXT("Hello World window")
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
@@ -8,6 +13,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	HWND hWnd;
 	MSG msg;
 	WNDCLASSEX wc;
+
 
 	wc.cbSize = sizeof(wc);
 	wc.style = CS_HREDRAW | CS_VREDRAW;
@@ -19,7 +25,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	wc.hIconSm = NULL;
 	wc.hCursor = (HCURSOR)LoadCursor(NULL, IDC_ARROW);
 	wc.hbrBackground = (HBRUSH)(COLOR_WINDOW+1);
-	wc.lpszMenuName = NULL;
+	wc.lpszMenuName = "MAINMENU";
 	wc.lpszClassName = szAppName;
 
 	RegisterClassEx(&wc);
