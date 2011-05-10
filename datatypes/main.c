@@ -67,10 +67,6 @@ int main (int argc, char **argv){
 	printf("__WORDSIZE %i\n", __WORDSIZE);
 #endif
 
-#ifdef PI
-	printf("PI = %f", PI);
-#endif
-
 #ifdef M_PI
 	printf("M_PI = %f", M_PI);
 #endif
