@@ -101,7 +101,7 @@ int main(int argc, char **argv)
 	}
 
 	if (argc < 3) {
-		fprintf(stderr,"Usage: portping [-v] | hostname port [-t] [udp]\n");
+		printf("Usage: %s [-v] | hostname port [-t] [udp]\n", argv[0]);
 		puts(" ");
 		printf("\t-v \tPrints out version info\n");
 		printf("\t-t \tLoop ping given host and port\n");
