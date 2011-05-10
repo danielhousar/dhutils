@@ -3,15 +3,10 @@
  ***************************************************************/
 
 #include <windows.h>
+#include "resource.h"
 
-#define IDM_NEW    40001
-#define IDM_OPEN   40002
-#define IDM_SECRET 40003
-#define IDM_HELP   40004
-#define IDM_CLOSE  40005
-#define IDM_ABOUT  40006
-
-#define _AppName TEXT("Hello World window")
+#define _MainClassName TEXT("WinAPIMainClass")
+#define _AppName TEXT("Window")
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
 
@@ -33,7 +28,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 	wc.hIconSm = NULL;
 	wc.hCursor = (HCURSOR)LoadCursor(NULL, IDC_ARROW);
 	wc.hbrBackground = (HBRUSH)(COLOR_WINDOW+1);
-	wc.lpszMenuName = "MAINMENU";
+	wc.lpszMenuName = MAKEINTRESOURCE(MAINMENU); ;
 	wc.lpszClassName = szAppName;
 
 	RegisterClassEx(&wc);
@@ -61,7 +56,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			hMenu=GetMenu(hWnd);
 			switch(LOWORD(wParam)) {
 				case IDM_ABOUT:
-					MessageBox(hWnd,TEXT("win32-window 0.1"),TEXT("About"), MB_OK | MB_ICONINFORMATION);
+					MessageBox(hWnd,TEXT("Window 0.1"),TEXT("About"), MB_OK | MB_ICONINFORMATION);
 					return 0;
 				case IDM_CLOSE:
 					DestroyWindow(hWnd);
@@ -78,6 +73,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 			GetClientRect(hWnd, &rect);
 			hDC=BeginPaint(hWnd, &ps);
 			DrawText(hDC, TEXT("Message in Window."), -1, &rect, DT_SINGLELINE|DT_CENTER|DT_VCENTER);
+			TextOut(hDC, 20, 10, TEXT("Initial Message."), 16);
 			EndPaint(hWnd, &ps);
 			return 0;
 

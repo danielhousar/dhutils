@@ -12,23 +12,22 @@ DEFS=
 
 SUBDIRS=libdh quadequi datatypes portping win32
 
-all: bin out $(SUBDIRS)
+all: out $(SUBDIRS)
 
 .PHONY: $(SUBDIRS) window win-name clean install uninstall
 
-bin:
-	mkdir bin
-
 out:
+	mkdir libout
 	mkdir out
+	mkdir bin
 
 
 libdh:
-	$(CC) $(CFLAGS) $(DEFS) -c libdh/dh.c -o out/dh.o
-	$(CC) $(CFLAGS) $(DEFS) -c libdh/math.c -o out/math.o
-	$(CC) $(CFLAGS) $(DEFS) -c libdh/types.c -o out/types.o
-	$(CC) $(CFLAGS) $(DEFS) -c libdh/misc.c -o out/misc.o
-	$(CC) -shared -Wl,-soname,libdh.dll out/dh.o out/math.o out/types.o out/misc.o -o bin/libdh.dll
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/dh.c -o libout/dh.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/math.c -o libout/math.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/types.c -o libout/types.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/misc.c -o libout/misc.o
+	$(CC) -shared -Wl,-soname,libdh.dll libout/dh.o libout/math.o libout/types.o libout/misc.o -o bin/libdh.dll
 
 
 quadequi:
@@ -43,16 +42,20 @@ portping:
 win32: window win-name
 
 window:
-	windres -i win32/window/window.rc --input-format=rc -o out/window.res -O coff
-	$(CC) $(CFLAGS) -D UNICODE -c win32/window/main.c -o out/window.o -Wall
+	windres -i win32\window\window.rc --input-format=rc -o out\window.res -O coff
+	$(CC) $(CFLAGS) -D UNICODE -c win32/window/main.c -o out/window.o -Wall -lgdi32
 	$(CC) out/window.res out/window.o -o bin/window.exe -lgdi32
 
+win-name:
+	$(CC) $(CFLAGS) -D UNICODE win32/win-name/main.c -o bin/win-name.exe -lgdi32
 
 
 
 clean:
+	del /Q libout\*
 	del /Q out\*
 	del /Q bin\*
+	rmdir /Q libout
 	rmdir /Q out
 	rmdir /Q bin
 
