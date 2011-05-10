@@ -10,11 +10,11 @@ CC=gcc
 CFLAGS=-march=native -mtune=native -O3 -Wall
 DEFS=
 
-SUBDIRS=libdh quadequi datatypes portping
+SUBDIRS=libdh quadequi datatypes portping win32
 
 all: bin out $(SUBDIRS)
 
-.PHONY: $(SUBDIRS) clean install uninstall
+.PHONY: $(SUBDIRS) window win-name clean install uninstall
 
 bin:
 	mkdir bin
@@ -39,6 +39,15 @@ datatypes:
 
 portping:
 	$(CC) $(CFLAGS) $(DEFS) portping/main.c -o bin/portping.exe -L./bin -ldh -lws2_32
+
+win32: window win-name
+
+window:
+	windres -i win32/window/window.rc --input-format=rc -o out/window.res -O coff
+	$(CC) $(CFLAGS) -D UNICODE -c win32/window/main.c -o out/window.o -Wall
+	$(CC) out/window.res out/window.o -o bin/window.exe -lgdi32
+
+
 
 
 clean:
