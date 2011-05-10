@@ -3,22 +3,22 @@
 
 MAINMENU MENU DISCARDABLE
 BEGIN
-	POPUP "&Soubor"
+	POPUP "&File"
 	BEGIN
-		MENUITEM "&Nový",       IDM_NEW
-		MENUITEM "&Otevřít",    IDM_OPEN
+		MENUITEM "&New",       IDM_NEW
+		MENUITEM "&Open",    IDM_OPEN
 		MENUITEM SEPARATOR
-		POPUP "Ta&jemství"
+		POPUP "S&ecret"
 		BEGIN
-			MENUITEM "&Tajemná truhla",   IDM_SECRET
+			MENUITEM "&Secret coffer",   IDM_SECRET
 		END
 	END
-	POPUP "&Ostatní"
+	POPUP "&Others"
 	BEGIN
-		MENUITEM "&Nápověda",    IDM_HELP
-		MENUITEM "&Konec",       IDM_CLOSE
+		MENUITEM "&Help",    IDM_HELP
+		MENUITEM "&Exit",       IDM_CLOSE
 		MENUITEM SEPARATOR
-		MENUITEM "&O Aplikaci",  IDM_ABOUT
+		MENUITEM "&About",  IDM_ABOUT
 	END
 END
 
