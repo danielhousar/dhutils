@@ -71,3 +71,6 @@ uninstall:
 	del $(DESTDIR)$(BINDIR)\datatypes.exe
 	del $(DESTDIR)$(BINDIR)\quadequi.exe
 	del $(DESTDIR)$(BINDIR)\portping.exe
+	del $(DESTDIR)$(BINDIR)\window.exe
+	del $(DESTDIR)$(BINDIR)\win-name.exe
+
