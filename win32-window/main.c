@@ -5,8 +5,6 @@
 #include <windows.h>
 #include "resource.h"
 
-#define _MainClassName TEXT("WinAPIMainClass")
-
 #define _AppName TEXT("Hello World window")
 
 LRESULT CALLBACK WndProc(HWND, UINT, WPARAM, LPARAM);
@@ -55,7 +53,17 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+	HMENU hMenu;
 	switch(message) {
+		case WM_COMMAND:
+		hMenu=GetMenu(hWnd);
+		switch(LOWORD(wParam)) {
+			case IDM_ABOUT:
+			MessageBox(hWnd,TEXT("win32-window 0.1"),TEXT("About"), MB_OK | MB_ICONINFORMATION);
+			return 0;
+		}
+		return 0;
+
 		case WM_DESTROY:
 		PostQuitMessage(0);
 		return 0;
