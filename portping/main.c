@@ -25,7 +25,7 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <errno.h>
-#include "../include/danh.h"
+#include "../include/dh.h"
 #include "../include/types.h"
 
 #define SOCKET_TIMEOUT 10 // seconds

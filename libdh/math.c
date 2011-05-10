@@ -2,7 +2,7 @@
  * file:	libdh/math.c
  ****************************************************** */
 
-#include "../include/danhmath.h"
+#include "../include/dhmath.h"
 
 const double PI_dh = 3.14159265358979323846;
 const double E_dh = 2.7182818284590452354;

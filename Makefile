@@ -6,7 +6,7 @@ LIBDIR=$(PREFIX)/lib
 INCLUDEDIR=$(PREFIX)/include
 SYSCONFDIR=/etc
 
-SUBDIRS=libdanh quadequi datatypes portping
+SUBDIRS=libdh quadequi datatypes portping
 
 all: outdirs $(SUBDIRS)
 
@@ -34,7 +34,7 @@ install_lib:
 	mkdir -p $(DESTDIR)$(LIBDIR)/
 	cp -a .lib/libdh.so $(DESTDIR)$(LIBDIR)/
 	mkdir -p $(DESTDIR)$(LIBDIR)/pkgconfig/
-	cp -f libdanh.pc $(DESTDIR)$(LIBDIR)/pkgconfig/
+	cp -f libdh.pc $(DESTDIR)$(LIBDIR)/pkgconfig/
 
 install_headers:
 	mkdir -p $(DESTDIR)$(INCLUDEDIR)/libdh

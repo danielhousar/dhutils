@@ -11,5 +11,5 @@ all: binary
 .PHONY: binary
 
 binary:
-	$(CC) $(CFLAGS) $(DEFS) main.c -o ../.bin/datatypes -L../.lib -ldanh
+	$(CC) $(CFLAGS) $(DEFS) main.c -o ../.bin/datatypes -L../.lib -ldh
 

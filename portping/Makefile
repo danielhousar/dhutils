@@ -11,5 +11,5 @@ all: binary
 .PHONY: binary
 
 binary:
-	$(CC) $(CFLAGS) $(DEFS) main.c -o ../.bin/portping -L../.lib -ldanh
+	$(CC) $(CFLAGS) $(DEFS) main.c -o ../.bin/portping -L../.lib -ldh
 

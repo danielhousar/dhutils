@@ -1,11 +1,11 @@
 /***************************************************************
- * file:	include/danh.h
+ * file:	include/dh.h
  *************************************************************** */
 
-#define LIBDANH
-#define LIBDANH_VERSION_MAJOR 0
-#define LIBDANH_RELEASE 9
-#define LIBDANH_REVISION 3
+#define LIBDH
+#define LIBDH_VERSION_MAJOR 0
+#define LIBDH_RELEASE 9
+#define LIBDH_REVISION 3
 
 extern const int dh_version;
 extern const int dh_release;

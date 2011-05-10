@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "../include/danh.h"
+#include "../include/dh.h"
 #include "../include/types.h"
 
 int main () {

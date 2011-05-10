@@ -3,8 +3,8 @@
  ***************************************************************/
 
 #include <stdio.h>
-#include "../include/danh.h"
-#include "../include/danhmath.h"
+#include "../include/dh.h"
+#include "../include/dhmath.h"
 #include "../include/types.h"
 
 
@@ -53,7 +53,7 @@ int main (int argc, char **argv){
 	}
 
 	if (qe_init > 1) {
-		printf("libdanh %s\n", dh_version_string);
+		printf("libdh %s\n", dh_version_string);
 		printf("quadequi %s\n", qe_version_string);
 	}
 

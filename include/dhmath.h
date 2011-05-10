@@ -1,5 +1,5 @@
 /******************************************************
- * file:	include/danhmath.h
+ * file:	include/dhmath.h
  ****************************************************** */
 
 extern const double PI_dh;

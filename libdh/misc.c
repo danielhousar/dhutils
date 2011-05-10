@@ -2,7 +2,7 @@
  * file:	libdh/misc.c
  ***************************************************************************** */
 
-# include "../include/danh.h"
+# include "../include/dh.h"
 
 void print_ui_to_sbinrep_dh(unsigned int a) {
 	char retval[64];

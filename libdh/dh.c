@@ -1,8 +1,8 @@
 /*****************************************************************************
- * file:	libdh/danh.c
+ * file:	libdh/dh.c
  ***************************************************************************** */
 
-#include "../include/danh.h"
+#include "../include/dh.h"
 
 const int dh_version = 0;
 const int dh_release = 9;
