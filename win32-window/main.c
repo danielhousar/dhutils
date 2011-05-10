@@ -32,16 +32,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 
 	RegisterClassEx(&wc);
 
-	hWnd = CreateWindowEx(0,szAppName,
-							szAppName,
-							WS_OVERLAPPEDWINDOW,
-							CW_USEDEFAULT,
-							CW_USEDEFAULT,
-							CW_USEDEFAULT,
-							CW_USEDEFAULT,
-							NULL,
-							NULL,
-							hInstance,NULL);
+	hWnd = CreateWindowEx(0,szAppName, szAppName, WS_OVERLAPPEDWINDOW, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, CW_USEDEFAULT, NULL, NULL, hInstance,NULL);
 	ShowWindow(hWnd, iCmdShow);
 	UpdateWindow(hWnd);
 
@@ -53,6 +44,7 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, PSTR szCmdLine,
 }
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) {
+	static int cxClient, cyClient;
 	HMENU hMenu;
 	HDC hDC;
 	PAINTSTRUCT ps;
@@ -69,6 +61,11 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) 
 					DestroyWindow(hWnd);
 					return 0;
 			}
+			return 0;
+
+		case WM_SIZE:
+			cxClient = LOWORD(lParam);
+			cyClient = HIWORD(lParam);
 			return 0;
 
 		case WM_PAINT:
