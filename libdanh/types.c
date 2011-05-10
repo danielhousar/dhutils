@@ -124,8 +124,6 @@ int s_is_num_dh(char* s){
 	else return 0;
 }
 
-/* under construction */
-
 int s_is_hex_dh(char *s) {
 	int i = 0;
 	int err_nu = 0;

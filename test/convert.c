@@ -9,5 +9,6 @@ int main () {
 	printf("l = %i\n", l);
 	printf("d = %f\n", d);
 	printf("ui = %u\n", ui);
+	print_ui_to_sbinrep_dh(20);
 	return 0;
 }

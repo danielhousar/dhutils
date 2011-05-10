@@ -5,7 +5,7 @@
 #define LIBDANH
 #define LIBDANH_VERSION_MAJOR 0
 #define LIBDANH_RELEASE 9
-#define LIBDANH_REVISION 2
+#define LIBDANH_REVISION 3
 
 extern const int dh_version;
 extern const int dh_release;
@@ -16,4 +16,6 @@ extern const char* dh_version_string;
 extern int strlen_dh(char* str);
 
 extern int strcmp_dh(char* str1, char* str2);
+
+extern void print_ui_to_sbinrep_dh(unsigned int a);
 
