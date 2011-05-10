@@ -48,7 +48,7 @@ int main (int argc, char **argv){
 
 /* output */
 	if (qe_init == 1 || argc == 1) {
-		puts("Usage: quadequi [--help]|[--debug] [--version] a b c");
+		puts("Usage: %s [--help]|[--debug] [--version] a b c", argv[0]);
 		return 0;
 	}
 
