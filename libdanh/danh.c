@@ -13,7 +13,7 @@ const char* dh_version_string = "0.9.3 2011-05-10";
 
 int strlen_dh(char* str){
 	int i = 0;
-	while(str && str[i] != 0){
+	while(str[i] != 0){
 		i++;
 	}
 	return i;
@@ -26,7 +26,7 @@ int strcmp_dh(char* str1, char* str2) {
 		retval++;
 	}
 	else {
-		while ((str1 || str2) && str1[i] != 0 && str2[i] != 0) {
+		while (str1[i] != 0 && str2[i] != 0) {
 			if (str1[i] != str2[i]) retval++;
 			i++;
 		}

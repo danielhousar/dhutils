@@ -44,7 +44,6 @@ double sqrt_fd_dh(double a){
 		if ((var3 * var3) > a) { var1 = var3; }
 		else { var2 = var3; }
 		i++;
-		//printf("%.*f\t %d\n", 20, var3, i);
 	}
 	return var3;
 }
