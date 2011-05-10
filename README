@@ -24,8 +24,7 @@ Libdanh is general purpose C library with various functions. Libdanh is shipped 
 
 libdanh:
 	- version: 0.9.3
-	C library with some functions, for example sqrt_fd_dh() as implemetation of sqrt()
-	from standard library math
+	C library with various functions
 
 quadequi:
 	- version: 0.10
