@@ -7,7 +7,7 @@
 const double PI_dh = 3.14159265358979323846;
 const double E_dh = 2.7182818284590452354;
 
-double factoriald_dh(double a){
+double factorial_dh(double a){
 	double retval = 1.0;
 	double i = 1.0;
 	if (a <= 0 || a > 170) { retval = 0.0; }
