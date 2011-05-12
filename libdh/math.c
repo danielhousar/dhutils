@@ -85,11 +85,30 @@ double quadequi_dh (double a, double b, double c, int x){
 }
 
 double sin_deg_dh(double a){
-	return 0.0;
+	double angle = PI_dh * (a / 180.0);
+	double retval = angle;
+	double n = 1.0;
+	double exp;
+
+	while (n < 50.0) {
+		exp = (2 * n) + 1;
+		retval += ((pow_dh(-1, n) * pow_dh(angle, exp)) / factorial_dh(exp));
+		n += 1.0;
+	}
+	return retval;
 }
 
 double sin_rad_dh(double a){
-	return 0.0;
+	double retval = a;
+	double n = 1.0;
+	double exp;
+
+	while (n < 50.0) {
+		exp = (2 * n) + 1;
+		retval += ((pow_dh(-1, n) * pow_dh(a, exp)) / factorial_dh(exp));
+		n += 1.0;
+	}
+	return retval;
 }
 
 double radtodeg_dh(double a){
