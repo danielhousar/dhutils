@@ -24,5 +24,7 @@ extern double radtodeg_dh(double a);
 
 extern double degtorad_dh(double a);
 
+extern double degtorad_spec_dh(double a);
+
 extern double pow_dh(double a, double exp);
 

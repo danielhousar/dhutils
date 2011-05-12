@@ -93,11 +93,15 @@ double sin_rad_dh(double a){
 }
 
 double radtodeg_dh(double a){
-	return 0.0;
+	return ((a / PI_dh) * 180.0);
 }
 
 double degtorad_dh(double a){
-	return 0.0;
+	return (PI_dh * (a / 180.0));
+}
+
+double degtorad_spec_dh(double a){
+	return (a / 180.0);
 }
 
 double pow_dh(double a, double exp) {
