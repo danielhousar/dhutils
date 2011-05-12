@@ -10,11 +10,11 @@ CC=gcc
 CFLAGS=-march=native -mtune=native -O3 -Wall
 DEFS=
 
-SUBDIRS=libdh quadequi datatypes portping
+SUBDIRS=libdh quadequi datatypes portping win32
 
 all: bin out $(SUBDIRS)
 
-.PHONY: $(SUBDIRS) clean install uninstall
+.PHONY: $(SUBDIRS) window win-name clean install uninstall
 
 bin:
 	mkdir bin
@@ -40,6 +40,15 @@ datatypes:
 portping:
 	$(CC) $(CFLAGS) $(DEFS) portping/main.c -o bin/portping.exe -L./bin -ldh -lws2_32
 
+win32: window win-name
+
+window:
+	windres -i win32/window/window.rc --input-format=rc -o out/window.res -O coff
+	$(CC) $(CFLAGS) -D UNICODE -c win32/window/main.c -o out/window.o -Wall -lgdi32
+	$(CC) out/window.res out/window.o -o bin/window.exe -lgdi32
+
+win-name:
+	$(CC) $(CFLAGS) -D UNICODE win32/win-name/main.c -o bin/win-name.exe -lgdi32
 
 clean:
 	rm -rf out/*
@@ -59,3 +68,5 @@ uninstall:
 	rm $(DESTDIR)$(BINDIR)/datatypes.exe
 	rm $(DESTDIR)$(BINDIR)/quadequi.exe
 	rm $(DESTDIR)$(BINDIR)/portping.exe
+	rm $(DESTDIR)$(BINDIR)/window.exe
+	rm $(DESTDIR)$(BINDIR)/win-name.exe
