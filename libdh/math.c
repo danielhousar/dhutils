@@ -90,7 +90,7 @@ double sin_deg_dh(double a){
 	double n = 1.0;
 	double exp;
 
-	while (n < 50.0) {
+	while (n < 60.0) {
 		exp = (2 * n) + 1;
 		retval += ((pow_dh(-1, n) * pow_dh(angle, exp)) / factorial_dh(exp));
 		n += 1.0;
@@ -103,7 +103,7 @@ double sin_rad_dh(double a){
 	double n = 1.0;
 	double exp;
 
-	while (n < 50.0) {
+	while (n < 60.0) {
 		exp = (2 * n) + 1;
 		retval += ((pow_dh(-1, n) * pow_dh(a, exp)) / factorial_dh(exp));
 		n += 1.0;
