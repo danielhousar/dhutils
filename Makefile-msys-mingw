@@ -12,18 +12,16 @@ DEFS=
 
 SUBDIRS=libdh quadequi datatypes portping win32
 
-all: bin out $(SUBDIRS)
+all: out $(SUBDIRS)
 
 .PHONY: $(SUBDIRS) window win-name clean install uninstall
 
-bin:
-	mkdir bin
-
 out:
 	mkdir out
+	mkdir bin
 
 
-libdanh:
+libdh:
 	$(CC) $(CFLAGS) $(DEFS) -c libdh/dh.c -o out/dh.o
 	$(CC) $(CFLAGS) $(DEFS) -c libdh/math.c -o out/math.o
 	$(CC) $(CFLAGS) $(DEFS) -c libdh/types.c -o out/types.o
@@ -51,8 +49,8 @@ win-name:
 	$(CC) $(CFLAGS) -D UNICODE win32/win-name/main.c -o bin/win-name.exe -lgdi32
 
 clean:
-	rm -rf out/*
-	rm -rf bin/*
+	rm -rf out/
+	rm -rf bin/
 
 
 install:
