@@ -23,7 +23,7 @@ LibDH is general purpose C library with various functions. LibDH is shipped with
 	---------------------------- UTILS -----------------------------
 
 libdh:
-	- version: 0.9 20110510
+	- version: 0.9 20110512
 	C library with various functions
 
 quadequi:

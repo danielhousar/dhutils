@@ -7,7 +7,7 @@
 const double PI_dh = 3.14159265358979323846;
 const double E_dh = 2.7182818284590452354;
 
-double factorial_fd_dh(double a){
+double factoriald_dh(double a){
 	double retval = 1.0;
 	double i = 1.0;
 	if (a <= 0 || a > 170) { retval = 0.0; }
@@ -20,7 +20,7 @@ double factorial_fd_dh(double a){
 	return retval;
 }
 
-float sqrt_f_dh(float a){
+float sqrtf_dh(float a){
 	int i = 0;
 	float var1 = a;
 	float var2 = 0.0;
@@ -34,7 +34,7 @@ float sqrt_f_dh(float a){
 	return var3;
 }
 
-double sqrt_fd_dh(double a){
+double sqrtd_dh(double a){
 	int i = 0;
 	double var1 = a;
 	double var2 = 0.0;
@@ -48,7 +48,7 @@ double sqrt_fd_dh(double a){
 	return var3;
 }
 
-double mad_fd_dh(double a){
+double mad_d_dh(double a){
 	double retval = a;
 	double helper1 = a;
 	double helper2 = 0;
@@ -63,7 +63,7 @@ double mad_fd_dh(double a){
 	return retval;
 }
 
-double quadequi_fd_dh (double a, double b, double c, int x){
+double quadequi_dh (double a, double b, double c, int x){
 	double d, discr;
 	double x1, x2;
 	discr = (b * b) - (4.0 * a * c);
@@ -74,7 +74,7 @@ double quadequi_fd_dh (double a, double b, double c, int x){
 	}
 
 	else {
-		d = sqrt_fd_dh(discr);
+		d = sqrtd_dh(discr);
 		x1 = (-b - d) / (2.0 * a);
 		x2 = (-b + d) / (2.0 * a);
 	}
@@ -89,6 +89,14 @@ double sin_deg_dh(double a){
 }
 
 double sin_rad_dh(double a){
+	return 0.0;
+}
+
+double radtodeg_dh(double a){
+	return 0.0;
+}
+
+double degtorad_dh(double a){
 	return 0.0;
 }
 
