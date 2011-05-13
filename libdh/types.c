@@ -8,27 +8,24 @@ double sdecrep_to_fd_dh(char* s){
 	double retval = 0.0;
 	int i = 0;
 	double divider = 1.0;
-	int numbers[48];
-	int sign = 1.0;
+	double sign = 1.0;
 	int was_point = 0;
 
 	if (s[0] == 45) { i = 1; sign = -1.0; }
 
-	while (s && s[i] != 0 && i < 48) {
-		numbers[i] = s[i] - 48;
-
-		if (numbers[i] >= 0 && numbers[i] <= 9){
+	while (s[i] != 0 && i < 64) {
+		if (s[i] >= 48 && s[i] <= 57){
 			if (was_point == 0) {
 				retval *= 10.0;
-				retval += numbers[i];
+				retval += (s[i] - 48);
 			}
 			else {
 				divider *= 10.0;
-				retval += numbers[i] / divider;
+				retval += ((s[i] - 48) / divider);
 			}
 		}
 
-		if (numbers[i] == -2){
+		if (s[i] == 46){
 			was_point = 1;
 		}
 
@@ -44,27 +41,24 @@ long double sdecrep_to_fld_dh(char* s){
 	long double retval = 0.0;
 	int i = 0;
 	long double divider = 1.0;
-	int numbers[48];
 	long double sign = 1.0;
 	int was_point = 0;
 
 	if (s[0] == 45) { i = 1; sign = -1.0; }
 
-	while (s && s[i] != 0 && i < 48) {
-		numbers[i] = s[i] - 48;
-
-		if (numbers[i] >= 0 && numbers[i] <= 9){
+	while (s[i] != 0 && i < 64) {
+		if (s[i] >= 48 && s[i] <= 57){
 			if (was_point == 0) {
 				retval *= 10.0;
-				retval += numbers[i];
+				retval += (s[i] - 48);
 			}
 			else {
 				divider *= 10.0;
-				retval += numbers[i] / divider;
+				retval += ((s[i] - 48) / divider);
 			}
 		}
 
-		if (numbers[i] == -2){
+		if (s[i] == 46){
 			was_point = 1;
 		}
 
