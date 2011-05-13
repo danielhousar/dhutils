@@ -6,25 +6,27 @@ extern const long double PI_dh;
 
 extern const long double E_dh;
 
-extern double factorial_dh(double a);
+extern long double factorial_dh(long double a);
 
 extern float sqrtf_dh(float a);
 
-extern double sqrtd_dh(double a);
+extern double sqrt_dh(double a);
+
+extern long double sqrt_fld_dh(long double a);
 
 extern double mad_d_dh(double a);
 
-extern double quadequi_dh(double a, double b, double c, int x);
+extern long double quadequi_dh(long double a, long double b, long double c, int x);
 
-extern double sin_deg_dh(double a);
+extern long double sin_deg_dh(long double a);
 
-extern double sin_rad_dh(double a);
+extern long double sin_rad_dh(long double a);
 
-extern double radtodeg_dh(double a);
+extern long double radtodeg_dh(long double a);
 
-extern double degtorad_dh(double a);
+extern long double degtorad_dh(long double a);
 
-extern double degtorad_spec_dh(double a);
+extern long double degtorad_spec_dh(long double a);
 
-extern double pow_dh(double a, double exp);
+extern long double pow_dh(long double a, long double exp);
 
