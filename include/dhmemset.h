@@ -1,5 +1,8 @@
 /***************************************************************
- * file:	include/dh.h
+ * file:	include/dhmemset.h
+ *
+ * Author:	Matthew Fernandez (matthew.fernandez@gmail.com)
+ *
  *************************************************************** */
 
 typedef unsigned char byte;
