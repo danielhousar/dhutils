@@ -4,10 +4,13 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <math.h>
+
+#ifndef WIN32
+	#include <math.h>
+#endif
+
 #include <stdint.h>
 #include <limits.h>
-#include <assert.h>
 #include "../include/dh.h"
 
 int main (int argc, char **argv){

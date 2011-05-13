@@ -2,9 +2,9 @@
  * file:	include/dhmath.h
  ****************************************************** */
 
-extern const double PI_dh;
+extern const long double PI_dh;
 
-extern const double E_dh;
+extern const long double E_dh;
 
 extern double factorial_dh(double a);
 
