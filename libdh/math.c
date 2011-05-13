@@ -77,9 +77,9 @@ double mad_d_dh(double a){
 	return retval;
 }
 
-long double quadequi_dh (long double a, long double b, long double c, int x){
-	long double d, discr;
-	long double x1, x2;
+double quadequi_dh (double a, double b, double c, int x){
+	double d, discr;
+	double x1, x2;
 	discr = (b * b) - (4.0 * a * c);
 
 	if (discr < 0.0) {
