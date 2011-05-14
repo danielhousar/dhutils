@@ -6,6 +6,11 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <limits.h>
+
+#ifdef _WIN32
+	#include <windows.h>
+#endif
+
 #include "../include/dh.h"
 
 int main (int argc, char **argv){
