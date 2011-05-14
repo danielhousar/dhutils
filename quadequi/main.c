@@ -53,7 +53,7 @@ int main (int argc, char **argv){
 	}
 
 	if (qe_init > 1) {
-		printf("libdh %s\n", dh_version_str);
+		printf("libdh %i.%i %i\n", dh_version, dh_release, dh_rev);
 		printf("quadequi %s\n", qe_version_str);
 	}
 

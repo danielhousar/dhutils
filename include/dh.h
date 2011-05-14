@@ -5,12 +5,11 @@
 #define LIBDH
 #define LIBDH_VERSION_MAJOR 0
 #define LIBDH_RELEASE 9
-#define LIBDH_REVISION 20110513
+#define LIBDH_REVISION 20110514
 
 extern const int dh_version;
 extern const int dh_release;
 extern const int dh_rev;
-extern const char* dh_version_str;
 
 extern int strlen_dh(char* str);
 
