@@ -8,7 +8,7 @@ extern long double sdecrep_to_fld_dh(char* s);
 
 extern long shexrep_to_li_dh(char* s);
 
-extern int snumrep_to_i_dh(char* s);
+extern int snumrep_to_i_dh(char *s);
 
 unsigned int sbinrep_to_ui_dh(char *s);
 

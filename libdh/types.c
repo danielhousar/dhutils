@@ -95,25 +95,22 @@ long shexrep_to_li_dh(char *s){
 	return retval;
 }
 
-int snumrep_to_i_dh(char* s){
+int snumrep_to_i_dh(char *s){
 	int retval = 0;
 	int i = 0;
-	int numbers[48];
-	int is_negative = 0;
+	int sign = 1;
 
-	if (s[0] == 45) { i = 1; numbers[0] = 0; is_negative = 1; }
+	if (s[0] == 45) { i = 1; sign = -1; }
 
-	while (s && s[i] != 0 && i < 48) {
-		numbers[i] = s[i] - 48;
-		if (numbers[i] >= 0 && numbers[i] <= 9){
+	while (s[i] != 0 && i < 64) {
+		if (s[i] >= 48 && s[i] <= 57){
 			retval *= 10;
-			retval += numbers[i];
+			retval += (s[i] - 48);
 		}
 		i++;
 	}
 
-	if (is_negative == 1)
-		retval *= -1;
+	retval *= sign;
 
 	return retval;
 }
