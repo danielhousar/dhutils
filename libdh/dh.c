@@ -9,23 +9,23 @@ const int dh_release = 9;
 const int dh_rev = 20110514;
 
 
-int strlen_dh(char* str){
+int strlen_dh(char *s){
 	int i = 0;
-	while(str[i] != 0){
+	while(s[i] != 0){
 		i++;
 	}
 	return i;
 }
 
-int strcmp_dh(char* str1, char* str2) {
+int strcmp_dh(char *s1, char *s2) {
 	int i = 0;
 	int retval = 0;
-	if (strlen_dh(str1) != strlen_dh(str2)) {
+	if (strlen_dh(s1) != strlen_dh(s2)) {
 		retval++;
 	}
 	else {
-		while (str1[i] != 0 && str2[i] != 0) {
-			if (str1[i] != str2[i]) retval++;
+		while (s1[i] != 0 && s2[i] != 0) {
+			if (s1[i] != s2[i]) retval++;
 			i++;
 		}
 	}
