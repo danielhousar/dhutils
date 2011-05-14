@@ -25,8 +25,6 @@
  * Matthew Fernandez, 2011
  */
 
-#include <stdint.h>
-#include <assert.h>
 #include "../include/dhmemset.h"
 
 /* Just for convenience let's setup a type for bytes. */
@@ -152,8 +150,9 @@ void* wordwise_32_unaligned_memset(void* s, int c, size_t sz) {
     /* Let's introduce a prologue to bump the starting location forward to the
      * next alignment boundary.
      */
-    while (((unsigned int)pp & 3) && sz--)
+    while (((unsigned int)pp & 3) && sz--) {
         *pp++ = xx;
+	}
     p = (uint32_t*)pp;
 
     /* Let's figure out the number of bytes that will be trailing when the
@@ -217,49 +216,42 @@ void* wordwise_unaligned_memset(void* s, int c, size_t sz) {
     return s;
 }
 
-/* This function does some very basic checking of your memset function. If you
- * really want to comprehensively test your function you should check the
- * regions either side of the memory you are setting to make sure your function
- * is actually obeying the limits passed to it.
- *
- * Note, the argument unaligned determines whether we pass an unaligned pointer
- * and size or not. Only certain of the above implementations will pass this
- * test.
+/* Finally, just for fun, let's look at memset using Duff's Device
+ * (http://www.lysator.liu.se/c/duffs-device.html). The original Duff's Device
+ * was not intended to target memset, but was aimed at solving the problem of
+ * copying data from an array into a memory mapped hardware register. As a
+ * result, it's not particularly suited to memset. Of course there's a big
+ * "but" with this. As with all the algorithms in this file, the relative
+ * performance is highly architecture- and compiler-dependent. If you want to
+ * know the fastest algorithm for a given scenario you really have no choice
+ * but to look at the generated assembly code.
  */
-int check_memset(void* f(), int unaligned) {
-    char buffer[BUFFER_LEN];
-    int i;
-    char set;
+void* duffs_device_memset(void* s, int c, size_t sz) {
+	byte* p = (byte*)s;
+	byte x = c & 0xff;
+	unsigned int leftover = sz & 0x7;
 
-    for (set = 0; (unsigned int)set <= 0xff; ++set) {
-        f(buffer + unaligned, set, BUFFER_LEN - 2*unaligned);
-        for (i = unaligned; i < BUFFER_LEN - 2*unaligned; ++i)
-            if (buffer[i] != set)
-                return i + 1;
+	/* Catch the pathological case of 0. */
+	if (!sz)
+		return s;
+
+	/* To understand what's going on here, take a look at the original
+	 * bytewise_memset and consider unrolling the loop. For this situation
+	 * we'll unroll the loop 8 times (assuming a 32-bit architecture). Choosing
+	 * the level to which to unroll the loop can be a fine art...
+	 */
+	sz = (sz + 7) >> 3;
+	switch (leftover) {
+		case 0: do { *p++ = x;
+		case 7:      *p++ = x;
+		case 6:      *p++ = x;
+		case 5:      *p++ = x;
+		case 4:      *p++ = x;
+		case 3:      *p++ = x;
+		case 2:      *p++ = x;
+		case 1:      *p++ = x;
+				} while (--sz > 0);
     }
-
-    return 0;
+    return s;
 }
 
-/* When executed, this program will just validate the implementations in this
- * file. Note that the unaligned tests are only run on the functions that can
- * cope with unaligned values.
- */
-int test_memset_dh(void) {
-
-    /* Use GCC's built-in memset to validate our checking function. */
-    CHECK(memset, 0);
-    CHECK(memset, 1);
-
-    /* Check our implementations. */
-    CHECK(bytewise_memset, 0);
-    CHECK(bytewise_memset, 1);
-    CHECK(wordwise_32_memset, 0);
-    CHECK(wordwise_memset, 0);
-    CHECK(wordwise_32_unaligned_memset, 0);
-    CHECK(wordwise_32_unaligned_memset, 1);
-    CHECK(wordwise_unaligned_memset, 0);
-    CHECK(wordwise_unaligned_memset, 1);
-
-    return 0;
-}
