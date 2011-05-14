@@ -9,7 +9,7 @@
 #include "../include/dh.h"
 
 int main (int argc, char **argv){
-	puts("datatypes 0.9 2011-05-06");
+	puts("datatypes 0.10 2011-05-14");
 	puts(" ");
 	puts("----- ENVIRONMENT -----");
 	puts(" ");
@@ -41,29 +41,39 @@ int main (int argc, char **argv){
 	puts(" ");
 
 #ifdef WIN32
-	puts("WIN32 defined");
+	puts("WIN32");
 #endif
 #ifdef _WIN32
-	puts("_WIN32 defined");
-#endif
-
-#ifdef __MINGW32__
-	puts("__MINGW32__ defined");
-	printf("__MINGW32_MAJOR_VERSION %i\n", __MINGW32_MAJOR_VERSION);
-	printf("__MINGW32_MINOR_VERSION %i\n", __MINGW32_MINOR_VERSION);
+	puts("_WIN32");
+	#ifdef _WIN64
+		puts("_WIN64");
+	#endif
+	#ifdef _M_IX86
+		puts("_M_IX86");
+	#endif
+	#ifdef _M_IX64
+		puts("_M_IX64");
+	#endif
+	#ifdef __MINGW32__
+		puts("__MINGW32__");
+		printf("__MINGW32_MAJOR_VERSION %i\n", __MINGW32_MAJOR_VERSION);
+		printf("__MINGW32_MINOR_VERSION %i\n", __MINGW32_MINOR_VERSION);
+	#endif
 #endif
 
 #ifdef __GNUC__
 	printf("__GNUC__ %i\n", __GNUC__);
 	printf("__GNUC_MINOR__ %i\n", __GNUC_MINOR__);
 	printf("__GNUC_PATCHLEVEL__ %i\n", __GNUC_PATCHLEVEL__);
+	#ifdef __WORDSIZE
+		printf("__WORDSIZE %i\n", __WORDSIZE);
+	#endif
+	#ifdef __ELF__
+		puts("__ELF__");
+	#endif
 #endif
 
 	puts(" ");
-
-#ifdef __WORDSIZE
-	printf("__WORDSIZE %i\n", __WORDSIZE);
-#endif
 
 #ifdef M_PI
 	printf("M_PI = %f", M_PI);
