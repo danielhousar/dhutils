@@ -71,12 +71,9 @@ int main (int argc, char **argv){
 	#ifdef __ELF__
 		puts("__ELF__");
 	#endif
-#endif
-
-	puts(" ");
-
-#ifdef M_PI
-	printf("M_PI = %f", M_PI);
+	#ifdef __X86__
+		puts("__X86__");
+	#endif
 #endif
 
 	puts(" ");
