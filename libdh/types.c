@@ -70,7 +70,7 @@ long double sdecrep_to_fld_dh(char* s){
 	return retval;
 }
 
-int shexrep_to_li_dh(char *s){
+int shexrep_to_i_dh(char *s){
 	int retval = 0;
 	int i = 2;
 
