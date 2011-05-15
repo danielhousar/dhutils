@@ -81,6 +81,14 @@ int main (int argc, char **argv){
 	#endif
 #endif
 
+#ifdef __linux__
+	puts("__linux__");
+#endif
+
+#ifdef __unix__
+	puts("__unix__");
+#endif
+
 	puts(" ");
 	puts("------- LIBDH -------");
 	puts(" ");
