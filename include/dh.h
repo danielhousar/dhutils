@@ -15,5 +15,5 @@ extern int strlen_dh(char *s);
 
 extern int strcmp_dh(char *s1, char *s2);
 
-extern void print_ui_to_sbinrep_dh(unsigned int a);
+extern void print_ui_to_binrep_dh(unsigned int a);
 

@@ -4,7 +4,7 @@
 
 #include "../include/types.h"
 
-double sdecrep_to_fd_dh(char* s){
+double sdecrep_to_fd_dh(char *s){
 	double retval = 0.0;
 	int i = 0;
 	double divider = 1.0;
@@ -37,7 +37,7 @@ double sdecrep_to_fd_dh(char* s){
 	return retval;
 }
 
-long double sdecrep_to_fld_dh(char* s){
+long double sdecrep_to_fld_dh(char *s){
 	long double retval = 0.0;
 	int i = 0;
 	long double divider = 1.0;

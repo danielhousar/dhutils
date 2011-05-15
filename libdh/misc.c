@@ -4,7 +4,7 @@
 
 # include "../include/dh.h"
 
-void print_ui_to_sbinrep_dh(unsigned int a) {
+void print_ui_to_binrep_dh(unsigned int a) {
 	char retval[64];
 	int pos = 0;
 	unsigned int i = 0;

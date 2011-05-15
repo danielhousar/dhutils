@@ -2,9 +2,9 @@
  * file:	include/types.h
  *************************************************************** */
 
-extern double sdecrep_to_fd_dh(char* s);
+extern double sdecrep_to_fd_dh(char *s);
 
-extern long double sdecrep_to_fld_dh(char* s);
+extern long double sdecrep_to_fld_dh(char *s);
 
 extern int shexrep_to_i_dh(char* s);
 
