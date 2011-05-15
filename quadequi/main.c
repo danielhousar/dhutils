@@ -10,9 +10,9 @@
 
 int main (int argc, char **argv){
 
-	const char* qe_version_str = "0.10 2011-05-09";
+	const char* qe_version_str = "0.10 2011-05-14";
 
-	int i = 0;
+	int i = 1;
 	char var_set = 0;
 	char qe_init = 0;
 	double a = 0.0;
@@ -23,60 +23,57 @@ int main (int argc, char **argv){
 
 
 /* init */
-	while (i < argc){
-		if (argv[i][0] == '-') {
-			if (!strcmp_dh(argv[i], "--help")) { qe_init += 1; }
-			if (!strcmp_dh(argv[i], "--version")) { qe_init += 2; }
-			if (!strcmp_dh(argv[i], "--debug")) { qe_init += 4; }
-		}
-
-		if (s_is_num_dh(argv[i]) == 1) {
-			if (var_set == 0){
-				a = sdecrep_to_fd_dh(argv[i]);
-			}
-			else if (var_set == 1) {
-				b = sdecrep_to_fd_dh(argv[i]);
-			}
-			else if (var_set == 2){
-				c = sdecrep_to_fd_dh(argv[i]);
-			}
-			var_set++;
-		}
-
-		i++;
-	}
-
-/* output */
-	if (qe_init == 1 || argc == 1) {
-		printf("Usage: %s [--help]|[--debug] [--version] a b c", argv[0]);
+	if (argc == 1){
+		printf("Usage: %s [--help]|[--version] a b c\n", argv[0]);
 		return 0;
 	}
+	else {
+		while (i < argc){
+			if (argv[i][0] == '-') {
+				if (!strcmp_dh(argv[i], "--help") || argv[i][1] == 'h') { qe_init += 1; }
+				if (!strcmp_dh(argv[i], "--version") || argv[i][1] == 'v') { qe_init += 2; }
+			}
 
-	if (qe_init > 1) {
-		printf("libdh %i.%i %i\n", dh_version, dh_release, dh_rev);
-		printf("quadequi %s\n", qe_version_str);
+			if (s_is_num_dh(argv[i]) == 1) {
+				switch (var_set){
+					case 0:
+						a = sdecrep_to_fd_dh(argv[i]);
+						break;
+					case 1:
+						b = sdecrep_to_fd_dh(argv[i]);
+						break;
+					case 2:
+						c = sdecrep_to_fd_dh(argv[i]);
+						break;
+				}
+				var_set++;
+			}
+
+			i++;
+		}
+/* output */
+		if (qe_init == 1) {
+			printf("Usage: %s [--help]|[--version] a b c\n", argv[0]);
+			if (var_set < 1) puts("a not set");
+			if (var_set < 2) puts("b not set");
+			if (var_set < 3) puts("c not set");
+		}
+
+		if (qe_init > 1) {
+			printf("libdh %i.%i %i\n", dh_version, dh_release, dh_rev);
+			printf("quadequi %s\n", qe_version_str);
+		}
+
+		if (var_set > 0) {
+			if (var_set < 3) puts("not all required values given - stop processing");
+			else {
+				main_x1 = quadequi_dh(a, b, c, 1);
+				main_x2 = quadequi_dh(a, b, c, 2);
+
+				printf(" x1 = %f\n x2 = %f\n", main_x1, main_x2);
+			}
+		}
 	}
-
-	puts(" ");
-	if (argc > 1 && qe_init < 2) {
-		if (var_set < 1) puts("a not set");
-		if (var_set < 2) puts("b not set");
-		if (var_set < 3) puts("c not set");
-	}
-
-	if (qe_init > 3 && var_set > 0) {
-		printf("a: %lG\n", a);
-		if (var_set >= 2) printf("b: %lG\n", b);
-		if (var_set >= 3) printf("c: %lG\n", c);
-	}
-
-	if (var_set >= 3){
-		main_x1 = quadequi_dh(a, b, c, 1);
-		main_x2 = quadequi_dh(a, b, c, 2);
-
-		printf(" x1 = %f\n x2 = %f\n", main_x1, main_x2);
-	}
-	else if (var_set > 0) puts("not all required values given - stop processing");
 
 	return 0;
 }
