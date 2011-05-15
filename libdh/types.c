@@ -138,7 +138,7 @@ int s_is_num_dh(char* s){
 	if (s[i] == 45) { i++; }
 
 	while (s && s[i] != 0 && err_nu == 0){
-		if (s[i] < 45 || s[i] == 47 || s[i] > 57) { err_nu++; }
+		if (s[i] < 46 || s[i] == 47 || s[i] > 57) { err_nu++; }
 
 		if (s[i] == 46){
 			if (was_point == 0) { was_point = 1; }
