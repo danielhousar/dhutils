@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "../include/dh.h"
 #include "../include/dhmath.h"
-#include "../include/types.h"
+#include "../include/dhstr.h"
 
 int main(int argc, char **argv){
 	printf("%Lf\n", sin_deg_dh(30.0));

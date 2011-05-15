@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "../include/dh.h"
-#include "../include/types.h"
+#include "../include/dhstr.h"
 #include "../include/dhmisc.h"
 
 int main () {

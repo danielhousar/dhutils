@@ -1,8 +1,8 @@
 /*****************************************************************************
- * file:	libdh/types.c
+ * file:	libdh/str.c
  ***************************************************************************** */
 
-#include "../include/types.h"
+#include "../include/dhstr.h"
 
 double sdecrep_to_fd_dh(char *s){
 	double retval = 0.0;

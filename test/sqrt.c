@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "../include/dhmath.h"
 #include "../include/dh.h"
-#include "../include/types.h"
+#include "../include/dhstr.h"
 
 int main (int argc, char **argv){
 	long double x;
