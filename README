@@ -30,7 +30,7 @@ quadequi:
 	Computes roots of equation "ax^2 + bx + c = 0" if a b c values given as command line arguments and prints x1 and x2 values.
 
 datatypes:
-	- version: 0.9
+	- version: 0.10
 	Prints info about programming environment like C preprocessor macros or sizeof() of data-types.
 
 portping:
