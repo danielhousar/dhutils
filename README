@@ -14,7 +14,7 @@ Authors:
 	Daniel Housar (daniel.h.080490.cs@gmail.com)
 	Matthew Fernandez (matthew.fernandez@gmail.com)
 
-DHutils is set of miscelaneous utilities, mostly using Libdanh library.
+DHutils is set of miscelaneous utilities, mostly using LibDH library.
 LibDH is general purpose C library with various functions. LibDH is shipped with DHutils.
 
 
@@ -57,7 +57,7 @@ Windows (MinGW32):
 	- Before running mingw32-make you have to install GCC and make from MinGW package from http://www.mingw.org/
 	- Don't forget add "C:\mingw\bin" to PATH system variable
 
-	> cd C:\Users\user\src\danhutils
+	> cd C:\Users\user\src\dhutils
 	> mingw32-make -f Makefile-win32-mingw
 	> mingw32-make -f Makefile-win32-mingw install
 
