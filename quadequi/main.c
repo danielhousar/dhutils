@@ -53,7 +53,7 @@ int main (int argc, char **argv){
 		}
 /* output */
 		if (qe_init == 1) {
-			printf("Usage: %s [--help]|[--version] a b c\n", argv[0]);
+			printf("Usage: %s [--help|-h]|[--version|-v] a b c\n", argv[0]);
 			if (var_set < 1) puts("a not set");
 			if (var_set < 2) puts("b not set");
 			if (var_set < 3) puts("c not set");
