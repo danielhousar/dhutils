@@ -25,9 +25,9 @@ out:
 libdh:
 	$(CC) $(CFLAGS) $(DEFS) -c libdh/dh.c -o libout/dh.o
 	$(CC) $(CFLAGS) $(DEFS) -c libdh/math.c -o libout/math.o
-	$(CC) $(CFLAGS) $(DEFS) -c libdh/types.c -o libout/types.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/str.c -o libout/str.o
 	$(CC) $(CFLAGS) $(DEFS) -c libdh/misc.c -o libout/misc.o
-	$(CC) -shared -Wl,-soname,libdh.dll libout/dh.o libout/math.o libout/types.o libout/misc.o -o bin/libdh.dll
+	$(CC) -shared -Wl,-soname,libdh.dll libout/dh.o libout/math.o libout/str.o libout/misc.o -o bin/libdh.dll
 
 
 quadequi:
