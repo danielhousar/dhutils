@@ -24,7 +24,7 @@ int main (int argc, char **argv){
 
 /* init */
 	if (argc == 1){
-		printf("Usage: %s [--help]|[--version] a b c\n", argv[0]);
+		printf("Usage: %s [--help|-h]|[--version|-v] a b c\n", argv[0]);
 		return 0;
 	}
 	else {
