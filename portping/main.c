@@ -67,8 +67,7 @@ int ready(int socket) {
 	return select(socket + 1, &readfds, &writefds, (fd_set*)0, &timeout);
 }
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
 	char loop = 0;
 	char udp = 0;
 	char prt_ver = 0;
