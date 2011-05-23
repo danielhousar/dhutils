@@ -18,4 +18,4 @@ objs:
 	$(CC) $(CFLAGS) $(DEFS) -fPIC -c math.c -o ../.out/math.o
 	$(CC) $(CFLAGS) $(DEFS) -fPIC -c str.c -o ../.out/str.o
 	$(CC) $(CFLAGS) $(DEFS) -fPIC -c misc.c -o ../.out/misc.o
-	$(CC) $(CFLAGS) $(DEFS) -fPIC -c memset.c -o ../.out/memset.o
+	$(CC) $(CFLAGS) $(DEFS) -fPIC -c linux/memset.c -o ../.out/memset.o
