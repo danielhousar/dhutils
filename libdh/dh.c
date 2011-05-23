@@ -6,7 +6,7 @@
 
 const int dh_version = 0;
 const int dh_release = 9;
-const int dh_rev = 20110514;
+const int dh_rev = 20110522;
 
 
 int strlen_dh(char *s){
