@@ -4,9 +4,9 @@
 
 #include "../include/dh.h"
 
-const int dh_version = 0;
-const int dh_release = 9;
-const int dh_rev = 20110522;
+const int dh_version = LIBDH_VERSION;
+const int dh_release = LIBDH_RELEASE;
+const int dh_rev = LIBDH_REVISION;
 
 
 int strlen_dh(char *s){
