@@ -93,7 +93,7 @@ int main (int argc, char **argv){
 	puts("------- LIBDH -------");
 	puts(" ");
 #ifdef LIBDH
-	printf("dh.h version: %i %i %i\n", LIBDH_VERSION_MAJOR, LIBDH_RELEASE, LIBDH_REVISION);
+	printf("dh.h version: %i %i %i\n", LIBDH_VERSION, LIBDH_RELEASE, LIBDH_REVISION);
 	printf("libdh version: %i %i %i\n", dh_version, dh_release, dh_rev);
 #endif
 	puts(" ");
