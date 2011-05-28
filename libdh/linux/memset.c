@@ -25,7 +25,7 @@
  * Matthew Fernandez, 2011
  */
 
-#include "../include/dhmemset.h"
+#include "../../include/dhmemset.h"
 
 /* Just for convenience let's setup a type for bytes. */
 
