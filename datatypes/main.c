@@ -20,7 +20,7 @@ int main (int argc, char **argv){
 	puts(" ");
 	puts("sizeof()");
 	puts(" ");
-#if _WIN32 || __WORDSIZE == 32
+#if defined _WIN32 || __WORDSIZE == 32
 	printf("char: %u\n", sizeof(char));
 	printf("short: %u\n", sizeof(short));
 	printf("int: %u\n", sizeof(int));
