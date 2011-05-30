@@ -2,6 +2,7 @@
  * file:	libdh/str.c
  ***************************************************************************** */
 
+#include "../include/dh.h"
 #include "../include/dhstr.h"
 
 double sdecrep_to_fd_dh(char *s){
