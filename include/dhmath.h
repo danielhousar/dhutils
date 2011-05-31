@@ -2,6 +2,10 @@
  * file:	include/dhmath.h
  ****************************************************** */
 
+#ifndef DHMATH
+
+#define DHMATH_H
+
 extern const long double PI_dh;
 
 extern const long double E_dh;
@@ -29,4 +33,6 @@ extern long double degtorad_dh(long double a);
 extern long double degtorad_spec_dh(long double a);
 
 extern long double pow_dh(long double a, long double exp);
+
+#endif /* if not DHMATH */
 
