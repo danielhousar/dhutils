@@ -2,9 +2,7 @@
 # file:	libdh/Makefile
 ########################################################
 
-CC=gcc
-CFLAGS=-march=native -mtune=native -O3 -Wall
-DEFS=
+include ../MCONFIG
 
 all: library
 
@@ -14,8 +12,8 @@ library: objs
 	$(CC) -shared -Wl,-soname,libdh.so ../.out/dh.o ../.out/math.o ../.out/str.o ../.out/misc.o ../.out/memset.o -o ../.lib/libdh.so -lc
 
 objs:
-	$(CC) $(CFLAGS) $(DEFS) -fPIC -c dh.c -o ../.out/dh.o
-	$(CC) $(CFLAGS) $(DEFS) -fPIC -c math.c -o ../.out/math.o
-	$(CC) $(CFLAGS) $(DEFS) -fPIC -c str.c -o ../.out/str.o
-	$(CC) $(CFLAGS) $(DEFS) -fPIC -c misc.c -o ../.out/misc.o
-	$(CC) $(CFLAGS) $(DEFS) -fPIC -c linux/memset.c -o ../.out/memset.o
+	$(CC) $(CFLAGS) $(LIBDEFS) -fPIC -c dh.c -o ../.out/dh.o
+	$(CC) $(CFLAGS) $(LIBDEFS) -fPIC -c math.c -o ../.out/math.o
+	$(CC) $(CFLAGS) $(LIBDEFS) -fPIC -c str.c -o ../.out/str.o
+	$(CC) $(CFLAGS) $(LIBDEFS) -fPIC -c misc.c -o ../.out/misc.o
+	$(CC) $(CFLAGS) $(LIBDEFS) -fPIC -c linux/memset.c -o ../.out/memset.o

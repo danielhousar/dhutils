@@ -1,0 +1,17 @@
+DESTDIR=
+PREFIX=/usr
+BINDIR=$(PREFIX)/bin
+LIBDIR=$(PREFIX)/lib
+INCLUDEDIR=$(PREFIX)/include
+SYSCONFDIR=/etc
+
+CC=gcc
+CFLAGS=-march=native -mtune=native -O3 -Wall
+DEFS=
+LIBDEFS=
+LDFLAGS=
+
+
+# HERE you can modify, what will be built
+SUBDIRS=libdh quadequi datatypes portping
+

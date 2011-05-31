@@ -2,9 +2,7 @@
 # file:	quadequi/Makefile
 ########################################
 
-CC=gcc
-CFLAGS=-march=native -mtune=native -O3 -Wall
-DEFS=
+include ../MCONFIG
 
 all: binary
 
