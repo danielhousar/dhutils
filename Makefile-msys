@@ -17,17 +17,18 @@ all: out $(SUBDIRS)
 .PHONY: $(SUBDIRS) window win-name clean install uninstall
 
 out:
+	mkdir libout
 	mkdir out
 	mkdir bin
 
 
 libdh:
-	$(CC) $(CFLAGS) $(DEFS) -c libdh/dh.c -o out/dh.o
-	$(CC) $(CFLAGS) $(DEFS) -c libdh/math.c -o out/math.o
-	$(CC) $(CFLAGS) $(DEFS) -c libdh/str.c -o out/str.o
-	$(CC) $(CFLAGS) $(DEFS) -c libdh/misc.c -o out/misc.o
-	$(CC) $(CFLAGS) $(DEFS) -c libdh/memset.c -o out/memset.o
-	$(CC) -shared -Wl,-soname,libdh.dll out/dh.o out/math.o out/str.o out/misc.o out/memset.o -o bin/libdh.dll
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/dh.c -o libout/dh.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/math.c -o libout/math.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/str.c -o libout/str.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/misc.c -o libout/misc.o
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/memset.c -o libout/memset.o
+	$(CC) -shared -Wl,-soname,libdh.dll libout/dh.o libout/math.o libout/str.o libout/misc.o libout/memset.o -o bin/libdh.dll
 
 
 quadequi:
@@ -50,6 +51,7 @@ win-name:
 	$(CC) $(CFLAGS) -D UNICODE win32/win-name/main.c -o bin/win-name.exe -lgdi32
 
 clean:
+	rm -rf libout/
 	rm -rf out/
 	rm -rf bin/
 
