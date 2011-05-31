@@ -86,6 +86,8 @@ void* wordwise_32_memset(void* s, int c, size_t sz) {
  * useful thought exercise. Note that GCC defines the handy constant __WORDSIZE
  * that tells us the size (in bits) of words on this architecture.
  */
+
+#ifdef __WORDSIZE
 void* wordwise_memset(void* s, int c, size_t sz) {
     uintptr_t* p = (uintptr_t*)s;
     uintptr_t x = c & 0xff;
@@ -110,6 +112,7 @@ void* wordwise_memset(void* s, int c, size_t sz) {
         *p++ = x;
     return s;
 }
+#endif
 
 /* Let's return to the 32-bit word-wise version briefly to implement a version
  * that handles unaligned (with respect to word size) pointers and size. To
@@ -184,6 +187,7 @@ void* wordwise_32_unaligned_memset(void* s, int c, size_t sz) {
  * caveat as for wordwise_memset applies; you wouldn't write code like this in
  * real life.
  */
+#ifdef __WORDSIZE
 void* wordwise_unaligned_memset(void* s, int c, size_t sz) {
     uintptr_t* p;
     uintptr_t x = c & 0xff;
@@ -215,6 +219,7 @@ void* wordwise_unaligned_memset(void* s, int c, size_t sz) {
 
     return s;
 }
+#endif
 
 /* Finally, just for fun, let's look at memset using Duff's Device
  * (http://www.lysator.liu.se/c/duffs-device.html). The original Duff's Device
