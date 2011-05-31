@@ -26,7 +26,8 @@ libdh:
 	$(CC) $(CFLAGS) $(DEFS) -c libdh/math.c -o out/math.o
 	$(CC) $(CFLAGS) $(DEFS) -c libdh/str.c -o out/str.o
 	$(CC) $(CFLAGS) $(DEFS) -c libdh/misc.c -o out/misc.o
-	$(CC) -shared -Wl,-soname,libdh.dll out/dh.o out/math.o out/str.o out/misc.o -o bin/libdh.dll
+	$(CC) $(CFLAGS) $(DEFS) -c libdh/memset.c -o out/memset.o
+	$(CC) -shared -Wl,-soname,libdh.dll out/dh.o out/math.o out/str.o out/misc.o out/memset.o -o bin/libdh.dll
 
 
 quadequi:
