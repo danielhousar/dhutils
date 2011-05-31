@@ -6,6 +6,7 @@ LIBDIR=$(PREFIX)/lib
 INCLUDEDIR=$(PREFIX)/include
 SYSCONFDIR=/etc
 
+# HERE you can modify, what will be built
 SUBDIRS=libdh quadequi datatypes portping
 
 all: outdirs $(SUBDIRS)
