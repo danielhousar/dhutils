@@ -65,7 +65,7 @@ int main (int argc, char **argv){
 		puts("_WIN64");
 	#endif
 	#ifdef _M_IX86
-	puts("_M_IX86");
+	printf("_M_IX86 %i\n", _M_IX86);
 	#endif
 	#ifdef _M_IX64
 	puts("_M_IX64");
