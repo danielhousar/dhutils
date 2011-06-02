@@ -14,7 +14,7 @@
 #include "../include/dh.h"
 
 int main (int argc, char **argv){
-	puts("datatypes 0.10 2011-05-14");
+	puts("datatypes 0.11 2011-06-02");
 	puts(" ");
 	puts("----- ENVIRONMENT -----");
 	puts(" ");
@@ -44,7 +44,18 @@ int main (int argc, char **argv){
 	puts(" ");
 	puts("------- MACROS --------");
 	puts(" ");
-
+#ifdef BIG_ENDIAN
+	puts("arch has BIG_ENDIAN");
+#endif
+#ifdef LITTLE_ENDIAN
+	puts("arch has LITTLE_ENDIAN");
+#endif
+#if defined _X86 || defined __X86__ || defined __X86 || defined _X86_ || defined X86
+	puts("arch is x86");
+#endif
+#ifdef CHAR_BIT
+	printf("char (byte) has %i bits\n", CHAR_BIT);
+#endif
 #ifdef WIN32
 	puts("WIN32");
 #endif
