@@ -54,15 +54,15 @@ int main (int argc, char **argv){
 		puts("_WIN64");
 	#endif
 	#ifdef _M_IX86
-		puts("_M_IX86");
+	puts("_M_IX86");
 	#endif
 	#ifdef _M_IX64
-		puts("_M_IX64");
+	puts("_M_IX64");
 	#endif
 	#ifdef __MINGW32__
-		puts("__MINGW32__");
-		printf("__MINGW32_MAJOR_VERSION %i\n", __MINGW32_MAJOR_VERSION);
-		printf("__MINGW32_MINOR_VERSION %i\n", __MINGW32_MINOR_VERSION);
+	puts("__MINGW32__");
+	printf("__MINGW32_MAJOR_VERSION %i\n", __MINGW32_MAJOR_VERSION);
+	printf("__MINGW32_MINOR_VERSION %i\n", __MINGW32_MINOR_VERSION);
 	#endif
 #endif
 
