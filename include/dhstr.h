@@ -21,5 +21,7 @@ extern int s_is_num_dh(char* s);
 
 extern int s_is_hex_dh(char *s);
 
+extern int e2fsck_strnlen(const char * s, int count);
+
 #endif
 

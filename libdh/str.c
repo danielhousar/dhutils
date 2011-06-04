@@ -188,3 +188,11 @@ int s_is_hex_dh(char *s) {
 	else return 0;
 }
 
+int e2fsck_strnlen(const char * s, int count){
+	const char *cp = s;
+
+	while (count-- && *cp)
+		cp++;
+	return cp - s;
+}
+
