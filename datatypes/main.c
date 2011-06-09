@@ -30,7 +30,7 @@ int main (int argc, char **argv){
 	printf("double: %u\n", sizeof(double));
 	printf("long double: %u\n", sizeof(long double));
 	printf("size_t: %u\n", sizeof(size_t));
-	printf("size_t: %u\n", sizeof(void *));
+	printf("void *: %u\n", sizeof(void *));
 #else
 	printf("char: %lu\n", sizeof(char));
 	printf("short: %lu\n", sizeof(short));
@@ -41,7 +41,7 @@ int main (int argc, char **argv){
 	printf("double: %lu\n", sizeof(double));
 	printf("long double: %lu\n", sizeof(long double));
 	printf("size_t: %lu\n", sizeof(size_t));
-	printf("size_t: %lu\n", sizeof(void *));
+	printf("void *: %lu\n", sizeof(void *));
 #endif
 	puts(" ");
 	puts("------- MACROS --------");
