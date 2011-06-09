@@ -14,7 +14,7 @@
 #include "../include/dh.h"
 
 int main (int argc, char **argv){
-	puts("datatypes 0.11 2011-06-02");
+	puts("datatypes 0.12 2011-06-09");
 	puts(" ");
 	puts("----- ENVIRONMENT -----");
 	puts(" ");
