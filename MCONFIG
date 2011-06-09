@@ -15,5 +15,5 @@ LDFLAGS=
 # HERE you can modify, what will be built
 SUBDIRS=libdh quadequi datatypes portping
 
-LIBDHPARTS= dh str math misc memset
+LIBDHPARTS= str math misc memset
 

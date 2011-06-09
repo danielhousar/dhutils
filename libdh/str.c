@@ -5,6 +5,29 @@
 #include "../include/dh.h"
 #include "../include/dhstr.h"
 
+int strlen_dh(char *s){
+	int i = 0;
+	while(s[i] != 0){
+		i++;
+	}
+	return i;
+}
+
+int strcmp_dh(char *s1, char *s2) {
+	int i = 0;
+	int retval = 0;
+	if (strlen_dh(s1) != strlen_dh(s2)) {
+		retval++;
+	}
+	else {
+		while (s1[i] != 0 && s2[i] != 0) {
+			if (s1[i] != s2[i]) retval++;
+			i++;
+		}
+	}
+	return retval;
+}
+
 double sdecrep_to_fd_dh(char *s){
 	double retval = 0.0;
 	int i = 0;
