@@ -63,8 +63,9 @@ int main (int argc, char **argv){
 #endif
 
 #if defined _WIN32 || defined WIN32
+	#ifndef _WIN64
 	puts("system is WIN32");
-	#ifdef _WIN64
+	#else
 		puts("system is MS Windows x64");
 	#endif
 	#ifdef _M_IX86
