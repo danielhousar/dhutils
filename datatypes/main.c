@@ -70,8 +70,8 @@ int main (int argc, char **argv){
 	#ifdef _M_IX86
 	printf("_M_IX86 %i\n", _M_IX86);
 	#endif
-	#ifdef _M_IX64
-	puts("_M_IX64");
+	#ifdef _M_X64
+	puts("_M_X64");
 	#endif
 	#ifdef _MSC_VER
 	printf("compiller is MSVC %i", _MSC_VER);
