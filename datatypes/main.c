@@ -14,7 +14,7 @@
 #include "../include/dh.h"
 
 int main (int argc, char **argv){
-	puts("datatypes 0.12 2011-06-09");
+	puts("datatypes 0.13 2011-06-10");
 	puts(" ");
 	puts("----- ENVIRONMENT -----");
 	puts(" ");
@@ -31,6 +31,7 @@ int main (int argc, char **argv){
 	printf("long double: %u\n", sizeof(long double));
 	printf("size_t: %u\n", sizeof(size_t));
 	printf("void *: %u\n", sizeof(void *));
+	printf("int *: %u\n", sizeof(int *));
 #else
 	printf("char: %lu\n", sizeof(char));
 	printf("short: %lu\n", sizeof(short));
@@ -42,6 +43,7 @@ int main (int argc, char **argv){
 	printf("long double: %lu\n", sizeof(long double));
 	printf("size_t: %lu\n", sizeof(size_t));
 	printf("void *: %lu\n", sizeof(void *));
+	printf("int *: %lu\n", sizeof(int *));
 #endif
 	puts(" ");
 	puts("------- MACROS --------");
@@ -52,8 +54,11 @@ int main (int argc, char **argv){
 #ifdef LITTLE_ENDIAN
 	puts("arch has LITTLE_ENDIAN");
 #endif
-#if defined _X86 || defined __X86__ || defined __X86 || defined _X86_ || defined X86
+#if defined _X86 || defined __X86__ || defined __X86 || defined _X86_ || defined X86 || defined x86 || defined __x86__
 	puts("arch is x86");
+#endif
+#if defined _X86_64 || defined __X86_64__ || defined __X86_64 || defined _X86_64_ || defined X86_64 || defined x86_64 ||defined __x86_64__
+	puts("arch is x86_64");
 #endif
 #ifdef CHAR_BIT
 	printf("char (byte) has %i bits\n", CHAR_BIT);
