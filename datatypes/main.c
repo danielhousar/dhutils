@@ -44,10 +44,10 @@ int main (int argc, char **argv){
 
 	puts(" ");
 
-#ifdef BIG_ENDIAN
+#if defined BIG_ENDIAN || defined __BIG_ENDIAN || defined _BIG_ENDIAN || defined __BIG_ENDIAN__
 	puts("arch has BIG_ENDIAN");
 #endif
-#ifdef LITTLE_ENDIAN
+#if defined LITTLE_ENDIAN || defined __LITTLE_ENDIAN || defined _LITTLE_ENDIAN || defined __BIG_ENDIAN__
 	puts("arch has LITTLE_ENDIAN");
 #endif
 #if defined _X86 || defined __X86__ || defined __X86 || defined _X86_ || defined X86 || defined x86 || defined __x86__
@@ -91,8 +91,7 @@ int main (int argc, char **argv){
 #endif
 
 #ifdef __GNUC__
-	printf("GNU C: %i %i %i\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
-	printf("GCC %s\n", __VERSION__);
+	printf("compiller is GCC %s\n", __VERSION__);
 	#ifdef __WORDSIZE
 	printf("__WORDSIZE %i\n", __WORDSIZE);
 	#endif
