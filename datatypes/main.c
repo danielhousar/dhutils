@@ -14,12 +14,8 @@
 #include "../include/dh.h"
 
 int main (int argc, char **argv){
-	puts("datatypes 0.13 2011-06-10");
-	puts(" ");
-	puts("----- ENVIRONMENT -----");
-	puts(" ");
-	puts("sizeof()");
-	puts(" ");
+	printf("datatypes 0.14 2011-06-10\n\n");
+
 #if defined _WIN32 || __WORDSIZE == 32
 	printf("char: %u\n", sizeof(char));
 	printf("short: %u\n", sizeof(short));
@@ -45,9 +41,9 @@ int main (int argc, char **argv){
 	printf("void *: %lu\n", sizeof(void *));
 	printf("int *: %lu\n", sizeof(int *));
 #endif
+
 	puts(" ");
-	puts("------- MACROS --------");
-	puts(" ");
+
 #ifdef BIG_ENDIAN
 	puts("arch has BIG_ENDIAN");
 #endif
@@ -60,8 +56,10 @@ int main (int argc, char **argv){
 #if defined _X86_64 || defined __X86_64__ || defined __X86_64 || defined _X86_64_ || defined X86_64 || defined x86_64 ||defined __x86_64__
 	puts("arch is x86_64");
 #endif
-#ifdef CHAR_BIT
-	printf("char (byte) has %i bits\n", CHAR_BIT);
+#if defined CHAR_BIT
+	printf("char (byte) bits: %i\n", CHAR_BIT);
+#elif defined __CHAR_BIT__
+	printf("char (byte) bits: %i\n", __CHAR_BIT__);
 #endif
 #ifdef WIN32
 	puts("WIN32");
@@ -78,45 +76,39 @@ int main (int argc, char **argv){
 	puts("_M_IX64");
 	#endif
 	#ifdef __MINGW32__
-	puts("__MINGW32__");
-	printf("__MINGW32_MAJOR_VERSION %i\n", __MINGW32_MAJOR_VERSION);
-	printf("__MINGW32_MINOR_VERSION %i\n", __MINGW32_MINOR_VERSION);
+	printf("MinGW32 %i %i\n", __MINGW32_MAJOR_VERSION, __MINGW32_MINOR_VERSION);
 	#endif
 #endif
 
 #ifdef __GNUC__
-	printf("__GNUC__ %i\n", __GNUC__);
-	printf("__GNUC_MINOR__ %i\n", __GNUC_MINOR__);
-	printf("__GNUC_PATCHLEVEL__ %i\n", __GNUC_PATCHLEVEL__);
+	printf("GNU C: %i %i %i\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
+	printf("GCC %s\n", __VERSION__);
 	#ifdef __WORDSIZE
-		printf("__WORDSIZE %i\n", __WORDSIZE);
+	printf("__WORDSIZE %i\n", __WORDSIZE);
 	#endif
 	#ifdef __ELF__
-		puts("__ELF__");
-	#endif
-	#ifdef __X86__
-		puts("__X86__");
+	puts("ELF binary");
 	#endif
 #endif
 
-#ifdef __linux__
-	puts("__linux__");
+#if defined GLIBC || defined _GLIBC_
+	puts("C library is GNU C Library - GLIBC");
 #endif
 
-#ifdef __unix__
-	puts("__unix__");
+#if defined __unix__ || defined __unix || defined unix || defined _unix || defined _unix_
+	puts("system is UNIX");
 #endif
 
-	puts(" ");
-	puts("------- LIBDH -------");
+#if defined __linux__ || defined __linux || defined linux || defined _linux || defined _linux_
+	puts("system is Linux");
+#endif
+
 	puts(" ");
 #ifdef LIBDH
 	printf("dh.h version: %i %i %i\n", LIBDH_VERSION, LIBDH_RELEASE, LIBDH_REVISION);
 	printf("libdh version: %i %i %i\n", dh_version, dh_release, dh_rev);
 #endif
 	puts(" ");
-	puts("-----------------------");
 
-	puts(" ");
 	return 0;
 }
