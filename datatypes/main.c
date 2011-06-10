@@ -73,6 +73,9 @@ int main (int argc, char **argv){
 	#ifdef _M_IX64
 	puts("_M_IX64");
 	#endif
+	#ifdef _MSC_VER
+	printf("compiller is MSVC %i", _MSC_VER);
+	#endif
 	#ifdef __MINGW32__
 	printf("MinGW32 %i %i\n", __MINGW32_MAJOR_VERSION, __MINGW32_MINOR_VERSION);
 	#endif
