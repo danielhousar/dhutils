@@ -61,13 +61,11 @@ int main (int argc, char **argv){
 #elif defined __CHAR_BIT__
 	printf("char (byte) bits: %i\n", __CHAR_BIT__);
 #endif
-#ifdef WIN32
-	puts("WIN32");
-#endif
-#ifdef _WIN32
-	puts("_WIN32");
+
+#if defined _WIN32 || defined WIN32
+	puts("system is WIN32");
 	#ifdef _WIN64
-		puts("_WIN64");
+		puts("system is MS Windows x64");
 	#endif
 	#ifdef _M_IX86
 	printf("_M_IX86 %i\n", _M_IX86);
@@ -80,6 +78,18 @@ int main (int argc, char **argv){
 	#endif
 #endif
 
+#if defined __unix__ || defined __unix || defined unix || defined _unix || defined _unix_
+	puts("system is UNIX");
+#endif
+
+#if defined __linux__ || defined __linux || defined linux || defined _linux || defined _linux_
+	puts("system is Linux");
+#endif
+
+#if defined GLIBC || defined _GLIBC_ || defined __GLIBC__
+	puts("C library is GLIBC");
+#endif
+
 #ifdef __GNUC__
 	printf("GNU C: %i %i %i\n", __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__);
 	printf("GCC %s\n", __VERSION__);
@@ -89,18 +99,6 @@ int main (int argc, char **argv){
 	#ifdef __ELF__
 	puts("ELF binary");
 	#endif
-#endif
-
-#if defined GLIBC || defined _GLIBC_
-	puts("C library is GNU C Library - GLIBC");
-#endif
-
-#if defined __unix__ || defined __unix || defined unix || defined _unix || defined _unix_
-	puts("system is UNIX");
-#endif
-
-#if defined __linux__ || defined __linux || defined linux || defined _linux || defined _linux_
-	puts("system is Linux");
 #endif
 
 	puts(" ");
