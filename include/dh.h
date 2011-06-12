@@ -8,7 +8,7 @@
 #define LIBDH
 #define LIBDH_VERSION 0
 #define LIBDH_RELEASE 9
-#define LIBDH_REVISION 20110522
+#define LIBDH_REVISION 20110612
 
 extern const int dh_version;
 extern const int dh_release;

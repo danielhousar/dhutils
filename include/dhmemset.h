@@ -15,9 +15,7 @@
 typedef unsigned char byte;
 
 extern void* bytewise_memset(void* s, int c, size_t sz);
-
 extern void* wordwise_32_memset(void* s, int c, size_t sz);
-
 extern void* wordwise_32_unaligned_memset(void* s, int c, size_t sz);
 
 #ifdef __WORDSIZE
