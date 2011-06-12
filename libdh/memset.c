@@ -27,8 +27,6 @@
 
 #include "../include/dhmemset.h"
 
-/* Just for convenience let's setup a type for bytes. */
-
 /* Let's start off with a fairly naive implementation of memset. This sets
  * memory byte-by-byte. While not being particularly efficient and being
  * slightly braindead, it does have the advantage of being readily
