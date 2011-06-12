@@ -11,6 +11,9 @@ DEFS=
 LIBDEFS=
 LDFLAGS=
 
+E = @echo
+Q = @
+
 OUTOBJDIR=../.out
 
 # HERE you can modify, what will be built
