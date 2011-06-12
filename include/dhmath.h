@@ -2,7 +2,7 @@
  * file:	include/dhmath.h
  ****************************************************** */
 
-#ifndef DHMATH
+#ifndef DHMATH_H
 
 #define DHMATH_H
 
