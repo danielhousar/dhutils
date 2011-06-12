@@ -7,7 +7,7 @@
 char binrep_chars[64];
 
 char *ui_to_binrep_dh(unsigned int a) {
-	char *retval = &binrep_chars;
+	char *retval = binrep_chars;
 	int pos = 0;
 	unsigned int i = 0;
 	unsigned int helpval = 0;
