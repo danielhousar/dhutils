@@ -11,9 +11,14 @@ DEFS=
 LIBDEFS=
 LDFLAGS=
 
+OUTOBJDIR=../.out
 
 # HERE you can modify, what will be built
 SUBDIRS=libdh quadequi datatypes portping
 
-LIBDHPARTS= str math misc memset
+LIBDHPARTS=math str misc memset
 
+LIBDHOBJS=$(OUTOBJDIR)/math.o \
+	$(OUTOBJDIR)/str.o \
+	$(OUTOBJDIR)/misc.o \
+	$(OUTOBJDIR)/memset.o \
