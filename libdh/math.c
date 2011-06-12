@@ -4,9 +4,6 @@
 
 #include "../include/dhmath.h"
 
-const long double PI_dh = 3.14159265358979323846;
-const long double E_dh = 2.7182818284590452354;
-
 long double factorial_dh(long double a){
 	long double retval = 1.0;
 	long double i = 1.0;

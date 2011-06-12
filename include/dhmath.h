@@ -3,11 +3,11 @@
  ****************************************************** */
 
 #ifndef DHMATH_H
-
 #define DHMATH_H
 
-extern const long double PI_dh;
-extern const long double E_dh;
+#define PI_dh 3.14159265358979323846
+#define E_dh 2.7182818284590452354
+
 extern long double factorial_dh(long double a);
 extern float sqrtf_dh(float a);
 extern double sqrt_dh(double a);
