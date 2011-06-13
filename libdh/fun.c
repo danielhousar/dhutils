@@ -17,8 +17,9 @@ double mad_d_dh(double a){
 	double retval = a;
 	double helper1 = a;
 	double helper2 = 0;
-	int counter = 0;
-	while (counter < 30){
+	char count = 48;
+	char counter = 0;
+	while (counter < count){
 		retval = (helper1 + helper2) / 2.00;
 		helper2 = retval;
 		helper1 = (helper1 + helper2) / 2.00;
