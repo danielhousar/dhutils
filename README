@@ -53,14 +53,3 @@ GNU Linux:
 	- installs libdh.so to '/usr/lib' by default
 	- installs headers to '/usr/include/libdh' by default
 
-Windows (MinGW32):
-	- Before running mingw32-make you have to install GCC and make from MinGW package from http://www.mingw.org/
-	- Don't forget add "C:\mingw\bin" to PATH system variable
-
-	> cd C:\Users\user\src\dhutils
-	> mingw32-make -f Makefile-win32-mingw
-	> mingw32-make -f Makefile-win32-mingw install
-
-	- installs utils and libdh.dll to 'C:\bin' by default
-	- installs headers to 'C:\include\libdh' by default
-

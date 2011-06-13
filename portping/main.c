@@ -7,17 +7,11 @@
  *
  ***************************************************************/
 
-#ifdef _WIN32
-	/* You'll need to pass the switch -lws2_32 to GCC for the Winsock components to compile. */
-	#include <winsock2.h>
-	#include <ws2tcpip.h>
-	#include <windows.h>
-#else
-	#include <netinet/in.h>
-	#include <netdb.h>
-	#include <sys/types.h>
-	#include <sys/socket.h>
-#endif
+
+#include <netinet/in.h>
+#include <netdb.h>
+#include <sys/types.h>
+#include <sys/socket.h>
 
 #include <string.h>
 #include <unistd.h>
@@ -33,30 +27,10 @@
 
 const char* pp_version_string = "0.7 2011-05-06";
 
-static inline int init(void) {
-#ifdef _WIN32
-	WORD wVersionRequested;
-	WSADATA wsaData;
-
-	/* Initialise Winsock. */
-	wVersionRequested = MAKEWORD(1, 0);
-	return WSAStartup(wVersionRequested, &wsaData);
-#else
-	return 0;
-#endif
-}
-
-static inline void cleanup(void) {
-#ifdef _WIN32
-	/* Unload Winsock resources. */
-	WSACleanup();
-#endif
-}
-
 /* Return 1 if the socket becomes ready for reading or writing during the
  * defined timeout value.
  */
-int ready(int socket) {
+int pp_ready(int socket) {
 	fd_set readfds, writefds;
 	struct timeval timeout = { .tv_sec = SOCKET_TIMEOUT, .tv_usec = 0 };
 
@@ -81,9 +55,6 @@ int main(int argc, char **argv) {
 	long elapsed;
 	int protocol;
 	int i = 0;
-#ifdef _WIN32
-	unsigned long imode = 1; //non-blocking mode, set to 0 for blocking mode
-#endif
 
 /* init */
 	while (i < argc) {
@@ -114,11 +85,6 @@ int main(int argc, char **argv) {
 		return 0;
 	}
 
-	if (init()) {
-		perror("Error during initialisation");
-		return 1;
-	}
-
 	if (udp == 1)
 		protocol = SOCK_DGRAM;
 	else
@@ -130,19 +96,14 @@ int main(int argc, char **argv) {
 
 		if (sockfd < 0) {
 			perror("Error opening socket");
-			cleanup();
 			return 1;
 		}
 
 		/* Set the socket to non-blocking. */
-#ifdef _WIN32
-		result = ioctlsocket(sockfd, FIONBIO, &imode);
-#else
 		result = fcntl(sockfd, F_SETFL, fcntl(sockfd, F_GETFL, 0) | O_NONBLOCK);
-#endif
+
 		if (result < 0) {
 			perror("Error setting socket to non-blocking");
-			cleanup();
 			return 1;
         }
 
@@ -151,7 +112,6 @@ int main(int argc, char **argv) {
 		server = gethostbyname(argv[1]);
 		if (!server) {
             perror("DNS lookup failed");
-            cleanup();
             return 1;
         }
 
@@ -165,7 +125,7 @@ int main(int argc, char **argv) {
             connect(sockfd, &serv_addr, sizeof(serv_addr));
 
             /* The socket will only become ready if the connection succeeds. */
-            result = ready(sockfd) - 1;
+            result = pp_ready(sockfd) - 1;
         } else { /* UDP */
             connect(sockfd, &serv_addr, sizeof(serv_addr));
 
@@ -176,11 +136,8 @@ int main(int argc, char **argv) {
              */
             sendto(sockfd, 0, 0, 0, &serv_addr, sizeof(serv_addr));
             result = sendto(sockfd, 0, 0, 0, &serv_addr, sizeof(serv_addr));
-#ifdef _WIN32
-			if (errno == WSAECONNREFUSED) { result = 1; } // This will happen on ICMP error indicating a blocked port.
-#else
+
 			if (errno == ECONNREFUSED) { result = 1; }
-#endif
         }
 
         gettimeofday(&tock, 0);
@@ -199,17 +156,11 @@ int main(int argc, char **argv) {
         }
         printf(" %s:%s (time=%lums)\n", argv[1], argv[2], elapsed);
 
-#ifdef _WIN32
-        closesocket(sockfd);
-        Sleep(1);
-#else
         close(sockfd);
         sleep(1);
-#endif
 
     } while (loop == 1);
 
-    cleanup();
     return 0;
 }
 
