@@ -9,5 +9,6 @@ all: binary
 .PHONY: binary
 
 binary:
-	$(CC) $(CFLAGS) $(DEFS) main.c -o ../.bin/portping -L../.lib -ldh
+	$(E) "	CCLD portping"
+	$(Q) $(CC) $(CFLAGS) $(DEFS) main.c -o ../.bin/portping -L../.lib -ldh
 

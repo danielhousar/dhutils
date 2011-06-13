@@ -1,5 +1,5 @@
 ########################################
-# file:	quadequi/Makefile
+# file:	initmount/Makefile
 ########################################
 
 include ../MCONFIG
@@ -9,6 +9,6 @@ all: binary
 .PHONY: binary
 
 binary:
-	$(E) "	CCLD quadequi"
-	$(Q) $(CC) $(CFLAGS) $(DEFS) main.c -o ../.bin/quadequi -L../.lib -ldh
+	$(E) "	CCLD initmount"
+	$(Q) $(CC) $(CFLAGS) $(DEFS) main.c -o ../.bin/initmount -L../.lib -ldh
 
