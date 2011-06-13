@@ -2,3 +2,7 @@
  * file:	initmount/config.h
  ***************************************************************************** */
 
+#define USE_SYSFS
+#define USE_PROC
+#define USE_DEVPTS
+
