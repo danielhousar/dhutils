@@ -59,12 +59,16 @@ long double sqrt_fld_dh(long double a){
 	return var3;
 }
 
+/* mad_d_dh()
+ * returns ((2 * a) / 3)
+ * do you know more stupid algorithm?
+ */
 double mad_d_dh(double a){
 	double retval = a;
 	double helper1 = a;
 	double helper2 = 0;
 	int counter = 0;
-	while (counter < 10){
+	while (counter < 30){
 		retval = (helper1 + helper2) / 2.00;
 		helper2 = retval;
 		helper1 = (helper1 + helper2) / 2.00;
