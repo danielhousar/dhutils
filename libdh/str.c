@@ -96,7 +96,9 @@ long double sdecrep_to_fld_dh(char *s){
 
 int shexrep_to_i_dh(char *s){
 	int retval = 0;
-	int i = 2;
+	int i = 0;
+
+	if (s[0] == 48 && s[1] == 'x') i = 2;
 
 	while (s[i] != 0) {
 		retval *= 16;
@@ -106,15 +108,15 @@ int shexrep_to_i_dh(char *s){
 
 		i++;
 	}
-
-	if (s[0] == 49) retval *= -1;
 
 	return retval;
 }
 
 long shexrep_to_li_dh(char *s){
 	long retval = 0;
-	int i = 2;
+	int i = 0;
+
+	if (s[0] == 48 && s[1] == 'x') i = 2;
 
 	while (s[i] != 0) {
 		retval *= 16;
@@ -124,8 +126,6 @@ long shexrep_to_li_dh(char *s){
 
 		i++;
 	}
-
-	if (s[0] == 49) retval *= -1;
 
 	return retval;
 }
