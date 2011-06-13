@@ -2,8 +2,7 @@
  * file:	initmount/main.c
  ***************************************************************************** */
 
- #include <stdio.h>
- #include <stdlib.h>
+#include "initmount.h"
 
 int main (int argc, char **argv) {
 	printf("mounting initial filesystems");
