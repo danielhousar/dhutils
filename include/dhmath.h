@@ -18,7 +18,7 @@ extern long double sin_rad_dh(long double a);
 extern long double radtodeg_dh(long double a);
 extern long double degtorad_dh(long double a);
 extern long double degtorad_spec_dh(long double a);
-extern long double pow_dh(long double a, long double exp);
+extern long double pow_dh(long double a, long long exp);
 
 #endif
 

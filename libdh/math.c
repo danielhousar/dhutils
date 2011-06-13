@@ -119,7 +119,7 @@ long double degtorad_spec_dh(long double a){
 	return (a / 180.0);
 }
 
-long double pow_dh(long double a, long double exp) {
+long double pow_dh(long double a, long long exp) {
 	long double retval = a;
 	long long i = 1;
 
