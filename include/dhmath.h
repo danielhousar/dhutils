@@ -12,7 +12,6 @@ extern long double factorial_dh(long double a);
 extern float sqrtf_dh(float a);
 extern double sqrt_dh(double a);
 extern long double sqrt_fld_dh(long double a);
-extern double mad_d_dh(double a);
 extern double quadequi_dh(double a, double b, double c, int x);
 extern long double sin_deg_dh(long double a);
 extern long double sin_rad_dh(long double a);
