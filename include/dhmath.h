@@ -21,5 +21,5 @@ extern long double degtorad_dh(long double a);
 extern long double degtorad_spec_dh(long double a);
 extern long double pow_dh(long double a, long double exp);
 
-#endif /* if not DHMATH */
+#endif
 
