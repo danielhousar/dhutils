@@ -42,9 +42,9 @@ portping:
 	If host and port given as command-line args, it pings once the port on given host if accessible and opened.
 
 initmount:
-	- version 0.1
-	noninteractive, nonconfigurable utility for mounting filesystems from initscripts.
-	Mounts SYSFS on /sys, PROC on /proc and ramfs on /tmp. Used in initscripts.
+	- version 0.2
+	noninteractive, nonconfigurable utility for mounting initial filesystems from initscripts.
+	Mounts SYSFS on /sys, PROC on /proc, ramfs on /tmp and devpts on /dev/pts. Used in initscripts.
 
 
 	-------------------- BUILD & INSTALL ---------------------------

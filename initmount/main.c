@@ -29,8 +29,9 @@ int main (int argc, char **argv) {
 	result += mount ("none", "/proc", "proc", MS_RELATIME, "");
 	result += mount ("none", "/sys", "sysfs", MS_RELATIME, "");
 	result += mount ("none", "/tmp", "ramfs", MS_RELATIME, "");
+	result += mount ("devpts", "/dev/pts", "devpts", MS_RELATIME, "");
 
-	printf("result %i\n", result);
+	printf("initmount result %i\n", result);
 
 /* end */
 	return result;
