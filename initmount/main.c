@@ -1,28 +1,24 @@
 /*****************************************************************************
  * file:	initmount/main.c
  ***************************************************************************** */
-#include "config.h"
 
 #include <unistd.h>
-#include <ctype.h>
 #include <stdio.h>
 #include <errno.h>
 #include <fcntl.h>
 
 #include <sys/types.h>
-#include <sys/ioctl.h>
 #include <sys/stat.h>
-#include <sys/wait.h>
 #include <sys/mount.h>
 
 #include <mntent.h>
 
-#include "initmount.h"
+#ifndef MS_RELATIME
+#define MS_RELATIME 0x200000
+#endif
 
 int main (int argc, char **argv) {
 	int result = 0;
-
-/* init */
 
 	umask(022);
 
@@ -33,7 +29,6 @@ int main (int argc, char **argv) {
 
 	printf("initmount result %i\n", result);
 
-/* end */
 	return result;
 }
 
