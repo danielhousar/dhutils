@@ -15,9 +15,11 @@ E = @echo
 Q = @
 
 OUTOBJDIR=../.out
+OUTBINDIR=../.bin
+OUTLIBDIR=../.lib
 
 # HERE you can modify, what will be built
-SUBDIRS=libdh quadequi datatypes portping
+SUBDIRS=libdh quadequi datatypes portping initmount
 
 LIBDHPARTS=math str misc memset fun
 
@@ -26,3 +28,4 @@ LIBDHOBJS=$(OUTOBJDIR)/math.o \
 	$(OUTOBJDIR)/misc.o \
 	$(OUTOBJDIR)/memset.o \
 	$(OUTOBJDIR)/fun.o
+

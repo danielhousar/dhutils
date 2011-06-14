@@ -41,6 +41,11 @@ portping:
 	TCP/UDP connectivity diagnostic tool.
 	If host and port given as command-line args, it pings once the port on given host if accessible and opened.
 
+initmount:
+	- version 0.1
+	noninteractive, nonconfigurable utility for mounting filesystems from initscripts.
+	Mounts SYSFS on /sys, PROC on /proc and ramfs on /tmp. Used in initscripts.
+
 
 	-------------------- BUILD & INSTALL ---------------------------
 

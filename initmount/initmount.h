@@ -2,14 +2,23 @@
  * file:	initmount/initmount.h
  ***************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
-#include "config.h"
-
 #ifndef DHIM_H
 #define DHIM_H
 
-extern const char *im_version_str = "0.1";
+#ifndef MS_RELATIME
+#define MS_RELATIME	0x200000
+#endif
+
+const char *im_version_str = "0.1";
+
+/* mount(2) options */
+struct mountargs {
+       const char *spec;
+       const char *node;
+       const char *type;
+       int flags;
+       void *data;
+};
 
 #endif
 
