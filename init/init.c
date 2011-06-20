@@ -33,9 +33,7 @@
 #include <sys/stat.h>
 #include <sys/ioctl.h>
 #include <sys/wait.h>
-#ifdef __linux__
 #include <sys/kd.h>
-#endif
 #include <sys/resource.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -51,14 +49,6 @@
 #include <stdarg.h>
 #include <sys/syslog.h>
 #include <sys/time.h>
-
-#ifdef WITH_SELINUX
-#  include <selinux/selinux.h>
-#  include <sys/mount.h>
-#  ifndef MNT_DETACH /* present in glibc 2.10, missing in 2.7 */
-#    define MNT_DETACH 2
-#  endif
-#endif
 
 #ifdef __i386__
 #  ifdef __GLIBC__
@@ -135,7 +125,6 @@ struct utmp utproto;		/* Only used for sizeof(utproto.ut_id) */
 char *console_dev;		/* Console device. */
 int pipe_fd = -1;		/* /dev/initctl */
 int did_boot = 0;		/* Did we already do BOOT* stuff? */
-/* int main(int, char **); */
 
 /*	Used by re-exec part */
 int reload = 0;			/* Should we do initialization stuff? */
@@ -1653,16 +1642,6 @@ static void start_if_needed(void)
 }
 
 /*
- *	Search the INITTAB file for the 'initdefault' field, with the default
- *	runlevel. If this fails, ask the user to supply a runlevel.
- */
-static int get_init_default(void)
-{
-	return INIT_DEFAULT;
-}
-
-
-/*
  *	We got signaled.
  *
  *	Do actions for the new level. If we are compatible with
@@ -2266,7 +2245,7 @@ static void boot_transitions()
 			write_utmp_wtmp("reboot", "~~", 0, BOOT_TIME, "~");
 
   			/* Get our run level */
-  			newlevel = dfl_level ? dfl_level : get_init_default();
+  			newlevel = dfl_level ? dfl_level : INIT_DEFAULT;
 			if (newlevel == 'S') {
 				runlevel = newlevel;
 				/* Not really 'S' but show anyway. */
@@ -2285,7 +2264,7 @@ static void boot_transitions()
 		case 'S': /* Ended SU mode */
 		case 's':
 			INITDBG(L_VB, "END SU MODE");
-			newlevel = get_init_default();
+			newlevel = INIT_DEFAULT;
 			if (!did_boot && newlevel != 'S')
 				runlevel = '*';
 			else {
