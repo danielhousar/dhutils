@@ -26,6 +26,8 @@ int main (int argc, char **argv) {
 	result += mount ("none", "/sys", "sysfs", MS_RELATIME, "");
 	result += mount ("none", "/tmp", "ramfs", MS_RELATIME, "");
 	result += mount ("devpts", "/dev/pts", "devpts", MS_RELATIME, "");
+	result += mount ("/dev/sda4", "/", "ext4", MS_REMOUNT|MS_RDONLY, "");
+	result += mount ("/dev/sda4", "/", "ext4", MS_REMOUNT, "");
 
 	printf("initmount result %i\n", result);
 
