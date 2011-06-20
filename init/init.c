@@ -2844,7 +2844,7 @@ int main(int argc, char **argv)
   	/* Check command line arguments */
 	maxproclen = strlen(argv[0]) + 1;
   	for(f = 1; f < argc; f++) {
-		if (!strcmp(argv[f], "single") || !strcmp(argv[f], "-s"))
+		if (!strcmp(argv[f], "-s") || !strcmp(argv[f], "single"))
 			dfl_level = 'S';
 		else if (!strcmp(argv[f], "-a") || !strcmp(argv[f], "auto"))
 			putenv("AUTOBOOT=YES");
