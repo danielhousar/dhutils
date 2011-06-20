@@ -1610,8 +1610,7 @@ void read_inittab(void)
  *	The entries that do not belong here at all are removed
  *	from the list.
  */
-static
-void start_if_needed(void)
+static void start_if_needed(void)
 {
 	CHILD *ch;		/* Pointer to child */
 	int delete;		/* Delete this entry from list? */
@@ -1685,16 +1684,15 @@ int ask_runlevel(void)
  *	Search the INITTAB file for the 'initdefault' field, with the default
  *	runlevel. If this fails, ask the user to supply a runlevel.
  */
-static
-int get_init_default(void)
+static int get_init_default(void)
 {
+/*
 	CHILD *ch;
 	int lvl = -1;
 	char *p;
 
-	/*
-	 *	Look for initdefault.
-	 */
+
+	//Look for initdefault.
 	for(ch = family; ch; ch = ch->next)
 		if (ch->action == INITDEFAULT) {
 			p = ch->rlevel;
@@ -1704,26 +1702,20 @@ int get_init_default(void)
 			}
 			break;
 		}
-	/*
-	 *	See if level is valid
-	 */
+
+	//See if level is valid
 	if (lvl > 0) {
 		if (islower(lvl)) lvl = toupper(lvl);
 		if (strchr("0123456789S", lvl) == NULL) {
-			initlog(L_VB,
-				"Initdefault level '%c' is invalid", lvl);
+			initlog(L_VB, "Initdefault level '%c' is invalid", lvl);
 			lvl = 0;
 		}
 	}
-	/*
-	 *	Ask for runlevel on console if needed.
-	 */
-	if (lvl <= 0) lvl = ask_runlevel();
 
-	/*
-	 *	Log the fact that we have a runlevel now.
-	 */
-	return lvl;
+	//Ask for runlevel on console if needed.
+	if (lvl <= 0) lvl = ask_runlevel();
+*/
+	return 53;
 }
 
 
@@ -1734,8 +1726,7 @@ int get_init_default(void)
  *	the "old" INITLVL and arg == 0, try to read the new
  *	runlevel from that file first.
  */
-static
-int read_level(int arg)
+static int read_level(int arg)
 {
 	CHILD		*ch;			/* Walk through list */
 	unsigned char	foo = 'X';		/* Contents of INITLVL */
