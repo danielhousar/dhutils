@@ -2757,6 +2757,7 @@ int telinit(char *progname, int argc, char **argv)
 	}
 
 #ifdef TELINIT_USES_INITLVL
+#warning "have TELINIT_USES_INITLVL"
 	if (request.cmd == INIT_CMD_RUNLVL) {
 		/* Fallthrough to the old method. */
 

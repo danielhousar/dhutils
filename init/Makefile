@@ -4,15 +4,15 @@
 
 include ../MCONFIG
 
-IMOBJS=../.out/initmount.o
-
 all: binary
 
 .PHONY: binary
 
 binary:
-	$(E) "	CC initmount.o"
-	$(Q) $(CC) $(CFLAGS) $(DEFS) -fPIC -c main.c -o ../.out/initmount.o
-	$(E) "	LD initmount"
-	$(Q) $(CC) $(IMOBJS) -o ../.bin/initmount -lc
+	$(E) "	CC init.o"
+	$(Q) $(CC) $(INITCFLAGS) $(INITDEFS) -fPIC -c init.c -o $(OBJ-OUTDIR)/init.o
+	$(E) "	CC utmp.o"
+	$(Q) $(CC) $(INITCFLAGS) $(INITDEFS) -fPIC -c utmp.c -o $(OBJ-OUTDIR)/utmp.o
+	$(E) "	LD init"
+	$(Q) $(CC) $(INITOBJS) -o $(BIN-OUTDIR)/init -lc
 

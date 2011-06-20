@@ -16,12 +16,15 @@ E = @echo
 Q = @
 
 OUTOBJDIR=../.out
+OBJ-OUTDIR=../.out
 OUTBINDIR=../.bin
+BIN-OUTDIR=../.bin
 OUTLIBDIR=../.lib
 
 # HERE you can modify, what will be built
-SUBDIRS=libdh quadequi datatypes portping initmount
+SUBDIRS=libdh quadequi datatypes portping initmount init
 
+# LIBDH
 LIBDHPARTS=math str misc memset fun
 
 LIBDHOBJS=$(OUTOBJDIR)/math.o \
@@ -30,3 +33,9 @@ LIBDHOBJS=$(OUTOBJDIR)/math.o \
 	$(OUTOBJDIR)/memset.o \
 	$(OUTOBJDIR)/fun.o
 
+# INIT
+
+INITOBJS=../.out/init.o ../.out/utmp.o
+
+INITCFLAGS=-ansi $(CFLAGS) -fomit-frame-pointer
+INITDEFS=-D_GNU_SOURCE
