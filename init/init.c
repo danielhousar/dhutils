@@ -135,7 +135,7 @@ struct utmp utproto;		/* Only used for sizeof(utproto.ut_id) */
 char *console_dev;		/* Console device. */
 int pipe_fd = -1;		/* /dev/initctl */
 int did_boot = 0;		/* Did we already do BOOT* stuff? */
-int main(int, char **);
+/* int main(int, char **); */
 
 /*	Used by re-exec part */
 int reload = 0;			/* Should we do initialization stuff? */
@@ -1653,69 +1653,12 @@ static void start_if_needed(void)
 }
 
 /*
- *	Ask the user on the console for a runlevel
- */
-static
-int ask_runlevel(void)
-{
-	const char	prompt[] = "\nEnter runlevel: ";
-	char		buf[8];
-	int		lvl = -1;
-	int		fd;
-
-	console_stty();
-	fd = console_open(O_RDWR|O_NOCTTY);
-
-	if (fd < 0) return('S');
-
-	while(!strchr("0123456789S", lvl)) {
-  		write(fd, prompt, sizeof(prompt) - 1);
-		buf[0] = 0;
-  		read(fd, buf, sizeof(buf));
-  		if (buf[0] != 0 && (buf[1] == '\r' || buf[1] == '\n'))
-			lvl = buf[0];
-		if (islower(lvl)) lvl = toupper(lvl);
-	}
-	close(fd);
-	return lvl;
-}
-
-/*
  *	Search the INITTAB file for the 'initdefault' field, with the default
  *	runlevel. If this fails, ask the user to supply a runlevel.
  */
 static int get_init_default(void)
 {
-/*
-	CHILD *ch;
-	int lvl = -1;
-	char *p;
-
-
-	//Look for initdefault.
-	for(ch = family; ch; ch = ch->next)
-		if (ch->action == INITDEFAULT) {
-			p = ch->rlevel;
-			while(*p) {
-				if (*p > lvl) lvl = *p;
-				p++;
-			}
-			break;
-		}
-
-	//See if level is valid
-	if (lvl > 0) {
-		if (islower(lvl)) lvl = toupper(lvl);
-		if (strchr("0123456789S", lvl) == NULL) {
-			initlog(L_VB, "Initdefault level '%c' is invalid", lvl);
-			lvl = 0;
-		}
-	}
-
-	//Ask for runlevel on console if needed.
-	if (lvl <= 0) lvl = ask_runlevel();
-*/
-	return 53;
+	return INIT_DEFAULT;
 }
 
 

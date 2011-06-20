@@ -38,5 +38,5 @@ LIBDHOBJS=$(OUTOBJDIR)/math.o \
 INITOBJS=../.out/init.o \
 		../.out/utmp.o
 
-INITCFLAGS=-ansi $(CFLAGS) -fomit-frame-pointer
+INITCFLAGS=$(CFLAGS) -fomit-frame-pointer
 INITDEFS=-D_GNU_SOURCE

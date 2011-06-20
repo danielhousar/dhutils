@@ -7,11 +7,11 @@
  * Copyright (C) 1999 Miquel van Smoorenburg.
  *
  * This program is free software; you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by 
- * the Free Software Foundation; either version 2 of the License, or 
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 2 of the License, or
  * (at your option) any later version.
  *
- * This program is distributed in the hope that it will be useful, 
+ * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -38,17 +38,7 @@
 #include "initreq.h"
 #include "paths.h"
 
-
-#if defined(__GLIBC__)
-#  if (__GLIBC__ == 2) && (__GLIBC_MINOR__ == 0) && defined(__powerpc__)
-#    define HAVE_UPDWTMP 0
-#  else
-#    define HAVE_UPDWTMP 1
-#  endif
-#else
-#  define HAVE_UPDWTMP 0
-#endif
-
+#define HAVE_UPDWTMP 1
 
 /*
  *	Log an event in the wtmp file (reboot, runlevel)
@@ -64,7 +54,7 @@ char *line)			/* Which line is this */
 	struct utmp utmp;
 	struct utsname uname_buf;
 	struct timeval tv;
-	
+
 	/*
 	 *	Can't do much if WTMP_FILE is not present or not writable.
 	 */
@@ -127,7 +117,7 @@ char *line)			/* Which line is this */
 	strncpy(utmp.ut_name, user, sizeof(utmp.ut_name));
 	strncpy(utmp.ut_id  , id  , sizeof(utmp.ut_id  ));
 	strncpy(utmp.ut_line, line, sizeof(utmp.ut_line));
-        
+
         /* Put the OS version in place of the hostname */
         if (uname(&uname_buf) == 0)
 		strncpy(utmp.ut_host, uname_buf.release, sizeof(utmp.ut_host));
@@ -212,7 +202,7 @@ char *oldline)			/* Line of old utmp entry. */
 #endif
 	strncpy(utmp.ut_user, user, UT_NAMESIZE);
 	if (line) strncpy(utmp.ut_line, line, UT_LINESIZE);
-	
+
 	/*
 	 *	We might need to find the existing entry first, to
 	 *	find the tty of the process (for wtmp accounting).
