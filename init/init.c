@@ -232,7 +232,7 @@ void *imalloc(size_t size)
 	void	*m;
 
 	while ((m = malloc(size)) == NULL) {
-		initlog(L_VB, "out of memory");
+		printf("out of memory\n");
 		do_sleep(5);
 	}
 	memset(m, 0, size);
@@ -594,9 +594,7 @@ void chld_handler(int sig)
 		if (errno == ECHILD) break;
 		for( ch = family; ch; ch = ch->next )
 			if ( ch->pid == pid && (ch->flags & RUNNING) ) {
-				INITDBG(L_VB,
-					"chld_handler: marked %d as zombie",
-					ch->pid);
+				printf("chld_handler: marked %d as zombie\n", ch->pid);
 				ADDSET(got_signals, SIGCHLD);
 				ch->exstat = st;
 				ch->flags |= ZOMBIE;
@@ -607,8 +605,7 @@ void chld_handler(int sig)
 				break;
 			}
 		if (ch == NULL) {
-			INITDBG(L_VB, "chld_handler: unknown child %d exited.",
-				pid);
+			printf("chld_handler: unknown child %d exited.\n", pid);
 		}
 	}
 	errno = saved_errno;
@@ -682,8 +679,7 @@ void segv_handler(int sig, struct sigcontext ctx)
 	if ((void *)ctx.eip >= (void *)do_sleep &&
 	    (void *)ctx.eip < (void *)main)
 		p = " (code)";
-	initlog(L_VB, "PANIC: segmentation violation at %p%s! "
-		  "sleeping for 30 seconds.", (void *)ctx.eip, p);
+	printf("PANIC: segmentation violation at %p%s! sleeping for 30 seconds.\n", (void *)ctx.eip, p);
 	coredump();
 	do_sleep(30);
 	errno = saved_errno;
@@ -697,8 +693,7 @@ void segv_handler(int sig)
 {
 	int	saved_errno = errno;
 
-	initlog(L_VB,
-		"PANIC: segmentation violation! sleeping for 30 seconds.");
+	printf("PANIC: segmentation violation! sleeping for 30 seconds.\n");
 	coredump();
 	do_sleep(30);
 	errno = saved_errno;
@@ -733,19 +728,9 @@ void console_stty(void)
 	int fd;
 
 	if ((fd = console_open(O_RDWR|O_NOCTTY)) < 0) {
-		initlog(L_VB, "can't open %s", console_dev);
+		printf("can't open %s\n", console_dev);
 		return;
 	}
-
-#ifdef __FreeBSD_kernel__
-	/*
-	 * The kernel of FreeBSD expects userland to set TERM.  Usually, we want
-	 * "cons25".  Later, gettys might disagree on this (i.e. we're not using
-	 * syscons) but some boot scripts, like /etc/init.d/xserver-xorg, still
-	 * need a non-dumb terminal.
-	 */
-	putenv ("TERM=cons25");
-#endif
 
 	(void) tcgetattr(fd, &tty);
 
@@ -811,46 +796,6 @@ void print(char *s)
 		close(fd);
 	}
 }
-
-/*
- *	Log something to a logfile and the console.
- */
-#ifdef __GNUC__
-__attribute__ ((format (printf, 2, 3)))
-#endif
-void initlog(int loglevel, char *s, ...)
-{
-	va_list va_alist;
-	char buf[256];
-	sigset_t nmask, omask;
-
-	va_start(va_alist, s);
-	vsnprintf(buf, sizeof(buf), s, va_alist);
-	va_end(va_alist);
-
-	if (loglevel & L_SY) {
-		/*
-		 *	Re-establish connection with syslogd every time.
-		 *	Block signals while talking to syslog.
-		 */
-		sigfillset(&nmask);
-		sigprocmask(SIG_BLOCK, &nmask, &omask);
-		openlog("init", 0, LOG_DAEMON);
-		syslog(LOG_INFO, "%s", buf);
-		closelog();
-		sigprocmask(SIG_SETMASK, &omask, NULL);
-	}
-
-	/*
-	 *	And log to the console.
-	 */
-	if (loglevel & L_CO) {
-		print("\rINIT: ");
-		print(buf);
-		print("\r\n");
-	}
-}
-
 
 /*
  *	Build a new environment for execve().
@@ -947,9 +892,7 @@ pid_t spawn(CHILD *ch, int *res)
 	/* Do we try to respawn too fast? */
 	if (ch->count >= MAXSPAWN) {
 
-	  initlog(L_VB,
-		"Id \"%s\" respawning too fast: disabled for %d minutes",
-		ch->id, SLEEPTIME / 60);
+	  printf("Id \"%s\" respawning too fast: disabled for %d minutes", ch->id, SLEEPTIME / 60);
 	  ch->flags &= ~RUNNING;
 	  ch->flags |= FAILING;
 
@@ -1063,8 +1006,7 @@ pid_t spawn(CHILD *ch, int *res)
 			 */
 			SETSIG(sa, SIGCHLD, SIG_DFL, SA_RESTART);
 			if ((pid = fork()) < 0) {
-  				initlog(L_VB, "cannot fork: %s",
-					strerror(errno));
+  				printf("cannot fork: %s", strerror(errno));
 				exit(1);
 			}
 			if (pid > 0) {
@@ -1094,8 +1036,7 @@ pid_t spawn(CHILD *ch, int *res)
 				 *	this with a temporary process.
 				 */
 				if ((pid = fork()) < 0) {
-  					initlog(L_VB, "cannot fork: %s",
-						strerror(errno));
+  					printf("cannot fork: %s", strerror(errno));
 					exit(1);
 				}
 				if (pid == 0) {
@@ -1115,8 +1056,7 @@ pid_t spawn(CHILD *ch, int *res)
   		} else {
 			setsid();
 			if ((f = console_open(O_RDWR|O_NOCTTY)) < 0) {
-				initlog(L_VB, "open(%s): %s", console_dev,
-					strerror(errno));
+				printf("open(%s): %s", console_dev, strerror(errno));
 				f = open("/dev/null", O_RDWR);
 			}
 			dup(f);
@@ -1160,7 +1100,7 @@ pid_t spawn(CHILD *ch, int *res)
   			args[4] = NULL;
 			execvp(args[1], args + 1);
 		}
-  		initlog(L_VB, "cannot execute \"%s\"", args[1]);
+  		printf("cannot execute \"%s\"", args[1]);
 
 		if (ch->process[0] != '+')
 			write_utmp_wtmp("", ch->id, getpid(), DEAD_PROCESS, NULL);
@@ -1169,10 +1109,10 @@ pid_t spawn(CHILD *ch, int *res)
 	*res = pid;
   	sigprocmask(SIG_SETMASK, &omask, NULL);
 
-	INITDBG(L_VB, "Started id %s (pid %d)", ch->id, pid);
+	printf("Started id %s (pid %d)\n", ch->id, pid);
 
 	if (pid == -1) {
-		initlog(L_VB, "cannot fork, retry..");
+		printf("cannot fork, retry..");
 		do_sleep(5);
 		continue;
 	}
@@ -1243,17 +1183,17 @@ void read_inittab(void)
 
 #if DEBUG
   if (newFamily != NULL) {
-	INITDBG(L_VB, "PANIC newFamily != NULL");
+	printf("PANIC newFamily != NULL\n");
 	exit(1);
   }
-  INITDBG(L_VB, "Reading inittab");
+  printf("Reading inittab\n");
 #endif
 
   /*
    *	Open INITTAB and real line by line.
    */
   if ((fp = fopen(INITTAB, "r")) == NULL)
-	initlog(L_VB, "No inittab file found");
+	printf("No inittab file found\n");
 
   while(!done) {
 	/*
@@ -1307,8 +1247,8 @@ void read_inittab(void)
 	if (action && strlen(action) > 32)
 		strcpy(err, "action field too long");
 	if (err[0] != 0) {
-		initlog(L_VB, "%s[%d]: %s", INITTAB, lineNo, err);
-		INITDBG(L_VB, "%s:%s:%s:%s", id, rlevel, action, process);
+		printf("%s[%d]: %s", INITTAB, lineNo, err);
+		printf("%s:%s:%s:%s", id, rlevel, action, process);
 		continue;
 	}
 
@@ -1322,8 +1262,7 @@ void read_inittab(void)
 			break;
 		}
 	if (actionNo == -1) {
-		initlog(L_VB, "%s[%d]: %s: unknown action field",
-			INITTAB, lineNo, action);
+		printf("%s[%d]: %s: unknown action field", INITTAB, lineNo, action);
 		continue;
 	}
 
@@ -1332,8 +1271,7 @@ void read_inittab(void)
 	 */
 	for(old = newFamily; old; old = old->next) {
 		if(strcmp(old->id, id) == 0 && strcmp(id, "~~")) {
-			initlog(L_VB, "%s[%d]: duplicate ID field \"%s\"",
-				INITTAB, lineNo, id);
+			printf("%s[%d]: duplicate ID field \"%s\"\n", INITTAB, lineNo, id);
 			break;
 		}
 	}
@@ -1431,7 +1369,7 @@ void read_inittab(void)
    *	be killed.
    */
 
-  INITDBG(L_VB, "Checking for children to kill");
+  printf("Checking for children to kill\n");
   for(round = 0; round < 2; round++) {
     talk = 1;
     for(ch = family; ch; ch = ch->next) {
@@ -1482,19 +1420,17 @@ void read_inittab(void)
 		ch->flags &= ~KILLME;
 		continue;
 	}
-	INITDBG(L_VB, "Killing \"%s\"", ch->process);
+	printf("Killing \"%s\"\n", ch->process);
 	switch(round) {
 		case 0: /* Send TERM signal */
 			if (talk)
-				initlog(L_CO,
-					"Sending processes the TERM signal");
+				printf("Sending processes the TERM signal\n");
 			kill(-(ch->pid), SIGTERM);
 			foundOne = 1;
 			break;
 		case 1: /* Send KILL signal and collect status */
 			if (talk)
-				initlog(L_CO,
-					"Sending processes the KILL signal");
+				printf("Sending processes the KILL signal\n");
 			kill(-(ch->pid), SIGKILL);
 			break;
 	}
@@ -1534,13 +1470,11 @@ void read_inittab(void)
   for(ch = family; ch; ch = ch->next)
 	if (ch->flags & KILLME) {
 		if (!(ch->flags & ZOMBIE))
-		    initlog(L_CO, "Pid %d [id %s] seems to hang", ch->pid,
-				ch->id);
+		    printf("Pid %d [id %s] seems to hang\n", ch->pid, ch->id);
 		else {
-		    INITDBG(L_VB, "Updating utmp for pid %d [id %s]",
-				ch->pid, ch->id);
-		    ch->flags &= ~RUNNING;
-		    if (ch->process[0] != '+')
+			printf("Updating utmp for pid %d [id %s]\n", ch->pid, ch->id);
+			ch->flags &= ~RUNNING;
+			if (ch->process[0] != '+')
 		    	write_utmp_wtmp("", ch->id, ch->pid, DEAD_PROCESS, NULL);
 		}
 	}
@@ -1604,13 +1538,13 @@ static void start_if_needed(void)
 	CHILD *ch;		/* Pointer to child */
 	int delete;		/* Delete this entry from list? */
 
-	INITDBG(L_VB, "Checking for children to start");
+	printf("Checking for children to start\n");
 
 	for(ch = family; ch; ch = ch->next) {
 
 #if DEBUG
 		if (ch->rlevel[0] == 'C') {
-			INITDBG(L_VB, "%s: flags %d", ch->process, ch->flags);
+			printf("%s: flags %d\n", ch->process, ch->flags);
 		}
 #endif
 
@@ -1675,7 +1609,7 @@ static int read_level(int arg)
 #endif
 		if (fp == NULL) {
 			/* INITLVL file empty or not there - act as 'init q' */
-			initlog(L_SY, "Re-reading inittab");
+			printf("Re-reading inittab\n");
   			return(runlevel);
 		}
 		ok = fscanf(fp, "%c %d", &foo, &st);
@@ -1691,29 +1625,28 @@ static int read_level(int arg)
 
 	if (islower(foo)) foo = toupper(foo);
 	if (ok < 1 || ok > 2 || strchr("QS0123456789ABCU", foo) == NULL) {
- 		initlog(L_VB, "bad runlevel: %c", foo);
+ 		printf("bad runlevel: %c\n", foo);
   		return runlevel;
 	}
 
 	/* Log this action */
 	switch(foo) {
 		case 'S':
-  			initlog(L_VB, "Going single user");
+  			printf("Going single user\n");
 			break;
 		case 'Q':
-			initlog(L_SY, "Re-reading inittab");
+			printf("Re-reading inittab\n");
 			break;
 		case 'A':
 		case 'B':
 		case 'C':
-			initlog(L_SY,
-				"Activating demand-procedures for '%c'", foo);
+			printf("Activating demand-procedures for '%c'\n", foo);
 			break;
 		case 'U':
-			initlog(L_SY, "Trying to re-exec init");
+			printf("Trying to re-exec init\n");
 			return 'U';
 		default:
-		  	initlog(L_VB, "Switching to runlevel: %c", foo);
+		  	printf("Switching to runlevel: %c\n", foo);
 	}
 
 	if (foo == 'Q') {
@@ -1738,9 +1671,7 @@ static int read_level(int arg)
 			    strchr(ch->rlevel, tolower(foo)) != NULL) {
 				ch->flags |= DEMAND;
 				ch->flags &= ~XECUTED;
-				INITDBG(L_VB,
-					"Marking (%s) as ondemand, flags %d",
-					ch->id, ch->flags);
+				printf("Marking (%s) as ondemand, flags %d\n", ch->id, ch->flags);
 			}
   		return runlevel;
 	}
@@ -1923,7 +1854,7 @@ void re_exec(void)
 	 */
 	for(ch = family; ch; ch = ch->next)
 	    if (ch->flags & ZOMBIE) {
-		INITDBG(L_VB, "Child died, PID= %d", ch->pid);
+		printf("Child died, PID= %d\n", ch->pid);
 		ch->flags &= ~(RUNNING|ZOMBIE|WAITING);
 		if (ch->process[0] != '+')
 			write_utmp_wtmp("", ch->id, ch->pid, DEAD_PROCESS, NULL);
@@ -1951,7 +1882,7 @@ void re_exec(void)
 	close(STATE_PIPE);
 	sigprocmask(SIG_SETMASK, &oldset, NULL);
 	init_freeenv(env);
-	initlog(L_CO, "Attempt to re-exec failed");
+	printf("Attempt to re-exec failed\n");
 }
 
 /*
@@ -2037,7 +1968,7 @@ void initcmd_setenv(char *data, int size)
 
 		sz = eq ? (eq - env) : (p - env);
 
-		/*initlog(L_SY, "init_setenv: %s, %s, %d", env, eq, sz);*/
+		/*printf("init_setenv: %s, %s, %d\n", env, eq, sz);*/
 
 		/*
 		 *	We only allow INIT_* to be set.
@@ -2113,7 +2044,7 @@ static void check_init_fifo(void)
 	if ((pipe_fd = open(INIT_FIFO, O_RDWR|O_NONBLOCK)) >= 0) {
 		fstat(pipe_fd, &st);
 		if (!S_ISFIFO(st.st_mode)) {
-			initlog(L_VB, "%s is not a fifo", INIT_FIFO);
+			printf("%s is not a fifo\n", INIT_FIFO);
 			close(pipe_fd);
 			pipe_fd = -1;
 		}
@@ -2160,7 +2091,7 @@ static void check_init_fifo(void)
 	}
 	if (n <= 0) {
 		if (errno == EINTR) return;
-		initlog(L_VB, "error reading initrequest");
+		printf("error reading initrequest\n");
 		continue;
 	}
 
@@ -2174,7 +2105,7 @@ static void check_init_fifo(void)
 	 *	Process request.
 	 */
 	if (request.magic != INIT_MAGIC || n != sizeof(request)) {
-		initlog(L_VB, "got bogus initrequest");
+		printf("got bogus initrequest\n");
 		continue;
 	}
 	switch(request.cmd) {
@@ -2202,7 +2133,7 @@ static void check_init_fifo(void)
 			initcmd_setenv(request.i.data, sizeof(request.i.data));
 			break;
 		default:
-			initlog(L_VB, "got unimplemented initrequest.");
+			printf("got unimplemented initrequest.\n");
 			break;
 	}
   }
@@ -2237,7 +2168,7 @@ static void boot_transitions()
 	oldlevel = 'N';
 	switch(runlevel) {
 		case '#': /* SYSINIT -> BOOT */
-			INITDBG(L_VB, "SYSINIT -> BOOT");
+			printf("SYSINIT -> BOOT\n");
 
 			/* Write a boot record. */
 			wrote_utmp_reboot = 0;
@@ -2254,7 +2185,7 @@ static void boot_transitions()
 				runlevel = '*';
 			break;
 		case '*': /* BOOT -> NORMAL */
-			INITDBG(L_VB, "BOOT -> NORMAL");
+			printf("BOOT -> NORMAL\n");
 			if (runlevel != newlevel)
 				loglevel = newlevel;
 			runlevel = newlevel;
@@ -2263,7 +2194,7 @@ static void boot_transitions()
 			break;
 		case 'S': /* Ended SU mode */
 		case 's':
-			INITDBG(L_VB, "END SU MODE");
+			printf("END SU MODE\n");
 			newlevel = INIT_DEFAULT;
 			if (!did_boot && newlevel != 'S')
 				runlevel = '*';
@@ -2275,13 +2206,12 @@ static void boot_transitions()
 			}
 			warn = 1;
 			for(ch = family; ch; ch = ch->next)
-			    if (strcmp(ch->rlevel, "S") == 0)
+				if (strcmp(ch->rlevel, "S") == 0)
 				ch->flags &= ~(FAILING|WAITING|XECUTED);
 			break;
 		default:
 			if (warn)
-			  initlog(L_VB,
-				"no more processes left in this runlevel");
+				printf("no more processes left in this runlevel\n");
 			warn = 0;
 			loglevel = -1;
 			if (got_signals == 0)
@@ -2289,7 +2219,7 @@ static void boot_transitions()
 			break;
 	}
 	if (loglevel > 0) {
-		initlog(L_VB, "Entering runlevel: %c", runlevel);
+		printf("Entering runlevel: %c\n", runlevel);
 		wrote_utmp_rlevel = 0;
 		wrote_wtmp_rlevel = 0;
 		write_utmp_wtmp("runlevel", "~~", runlevel + 256 * oldlevel, RUN_LVL, "~");
@@ -2313,7 +2243,7 @@ static void process_signals()
   char		c;
 
   if (ISMEMBER(got_signals, SIGPWR)) {
-	INITDBG(L_VB, "got SIGPWR");
+	printf("got SIGPWR\n");
 	/* See _what_ kind of SIGPWR this is. */
 	pwrstat = 0;
 	if ((fd = open(PWRSTAT, O_RDONLY)) >= 0) {
@@ -2324,8 +2254,7 @@ static void process_signals()
 		unlink(PWRSTAT);
 	} else if ((fd = open(PWRSTAT_OLD, O_RDONLY)) >= 0) {
 		/* Path changed 2010-03-20.  Look for the old path for a while. */
-		initlog(L_VB, "warning: found obsolete path %s, use %s instead",
-			PWRSTAT_OLD, PWRSTAT);
+		printf("warning: found obsolete path %s, use %s instead\n", PWRSTAT_OLD, PWRSTAT);
 		c = 0;
 		read(fd, &c, 1);
 		pwrstat = c;
@@ -2342,7 +2271,7 @@ static void process_signals()
 	struct sigaction sa;
 	SETSIG(sa, SIGINT, SIG_IGN, SA_RESTART);
 #endif
-	INITDBG(L_VB, "got SIGINT");
+	printf("got SIGINT\n");
 	/* Tell ctrlaltdel entry to start up */
 	for(ch = family; ch; ch = ch->next)
 		if (ch->action == CTRLALTDEL)
@@ -2351,7 +2280,7 @@ static void process_signals()
   }
 
   if (ISMEMBER(got_signals, SIGWINCH)) {
-	INITDBG(L_VB, "got SIGWINCH");
+	printf("got SIGWINCH\n");
 	/* Tell kbrequest entry to start up */
 	for(ch = family; ch; ch = ch->next)
 		if (ch->action == KBREQUEST)
@@ -2360,20 +2289,20 @@ static void process_signals()
   }
 
   if (ISMEMBER(got_signals, SIGALRM)) {
-	INITDBG(L_VB, "got SIGALRM");
+	printf("got SIGALRM\n");
 	/* The timer went off: check it out */
 	DELSET(got_signals, SIGALRM);
   }
 
   if (ISMEMBER(got_signals, SIGCHLD)) {
-	INITDBG(L_VB, "got SIGCHLD");
+	printf("got SIGCHLD\n");
 	/* First set flag to 0 */
 	DELSET(got_signals, SIGCHLD);
 
 	/* See which child this was */
 	for(ch = family; ch; ch = ch->next)
 	    if (ch->flags & ZOMBIE) {
-		INITDBG(L_VB, "Child died, PID= %d", ch->pid);
+		printf("Child died, PID= %d\n", ch->pid);
 		ch->flags &= ~(RUNNING|ZOMBIE|WAITING);
 		if (ch->process[0] != '+')
 			write_utmp_wtmp("", ch->id, ch->pid, DEAD_PROCESS, NULL);
@@ -2382,7 +2311,7 @@ static void process_signals()
   }
 
   if (ISMEMBER(got_signals, SIGHUP)) {
-	INITDBG(L_VB, "got SIGHUP");
+	printf("got SIGHUP\n");
 #if CHANGE_WAIT
 	/* Are we waiting for a child? */
 	for(ch = family; ch; ch = ch->next)
@@ -2413,7 +2342,7 @@ static void process_signals()
 	/*
 	 *	SIGUSR1 means close and reopen /dev/initctl
 	 */
-	INITDBG(L_VB, "got SIGUSR1");
+	printf("got SIGUSR1\n");
 	close(pipe_fd);
 	pipe_fd = -1;
 	DELSET(got_signals, SIGUSR1);
@@ -2507,7 +2436,7 @@ static void init_main(void)
   	/*
 	 *	Say hello to the world
 	 */
-  	initlog(L_CO, bootmsg, "booting");
+  	printf(bootmsg, "booting");
 
   	/*
 	 *	See if we have to start an emergency shell.
@@ -2533,7 +2462,7 @@ static void init_main(void)
 	/*
 	 *	Restart: unblock signals and let the show go on
 	 */
-	initlog(L_CO, bootmsg, "reloading");
+	printf(bootmsg, "reloading\n");
 	sigfillset(&sgt);
 	sigprocmask(SIG_UNBLOCK, &sgt, NULL);
 
@@ -2548,7 +2477,7 @@ static void init_main(void)
 
      /* See if we need to make the boot transitions. */
      boot_transitions();
-     INITDBG(L_VB, "init_main: waiting..");
+     printf("init_main: waiting..\n");
 
      /* Check if there are processes to be waited on. */
      for(ch = family; ch; ch = ch->next)
