@@ -2164,8 +2164,7 @@ void initcmd_setenv(char *data, int size)
  *		the 2.2 kernel credential stuff to see who we're talking to.
  *
  */
-static
-void check_init_fifo(void)
+static void check_init_fifo(void)
 {
   struct init_request	request;
   struct timeval	tv;
@@ -2307,8 +2306,7 @@ void check_init_fifo(void)
  *	This function is used in the transition
  *	sysinit (-> single user) boot -> multi-user.
  */
-static
-void boot_transitions()
+static void boot_transitions()
 {
   CHILD		*ch;
   static int	newlevel = 0;
@@ -2393,8 +2391,7 @@ void boot_transitions()
  *	Init got hit by a signal. See which signal it is,
  *	and act accordingly.
  */
-static
-void process_signals()
+static void process_signals()
 {
   CHILD		*ch;
   int		pwrstat;
@@ -2513,8 +2510,7 @@ void process_signals()
 /*
  *	The main loop
  */
-static
-void init_main(void)
+static void init_main(void)
 {
   CHILD			*ch;
   struct sigaction	sa;
@@ -2856,34 +2852,13 @@ int main(int argc, char **argv)
 		else if (!strcmp(argv[f], "-z")) {
 			/* Ignore -z xxx */
 			if (argv[f + 1]) f++;
-		} else if (strchr("0123456789sS", argv[f][0])
-			&& strlen(argv[f]) == 1)
+		} else if (strchr("0123456789sS", argv[f][0]) && strlen(argv[f]) == 1)
 			dfl_level = argv[f][0];
 		/* "init u" in the very beginning makes no sense */
 		if (dfl_level == 's') dfl_level = 'S';
 		maxproclen += strlen(argv[f]) + 1;
 	}
 
-#ifdef WITH_SELINUX
-	if (getenv("SELINUX_INIT") == NULL) {
-	  const int rc = mount("proc", "/proc", "proc", 0, 0);
-	  if (is_selinux_enabled() > 0) {
-	    putenv("SELINUX_INIT=YES");
-	    if (rc == 0) umount2("/proc", MNT_DETACH);
-	    if (selinux_init_load_policy(&enforce) == 0) {
-	      execv(myname, argv);
-	    } else {
-	      if (enforce > 0) {
-		/* SELinux in enforcing mode but load_policy failed */
-		/* At this point, we probably can't open /dev/console, so log() won't work */
-		fprintf(stderr,"Unable to load SELinux Policy. Machine is in enforcing mode. Halting now.\n");
-		exit(1);
-	      }
-	    }
-	  }
-	  if (rc == 0) umount2("/proc", MNT_DETACH);
-	}
-#endif
 	/* Start booting. */
 	argv0 = argv[0];
 	argv[1] = NULL;
