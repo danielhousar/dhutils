@@ -9,5 +9,6 @@ all: binary
 .PHONY: binary
 
 binary:
-	$(CC) $(CFLAGS) $(DEFS) main.c -o ../.bin/datatypes -L../.lib -ldh
+	$(E) "	CCLD datatypes"
+	$(Q) $(CC) $(CFLAGS) $(DEFS) main.c -o ../.bin/datatypes -L../.lib -ldh
 
