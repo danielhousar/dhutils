@@ -17,13 +17,13 @@ int main () {
 
 	umask(022);
 
-	mount ("none", "/proc", "proc", MS_RELATIME, "");
-	mount ("none", "/sys", "sysfs", MS_RELATIME, "");
-	mount ("none", "/tmp", "ramfs", MS_RELATIME, "");
-	mount ("devpts", "/dev/pts", "devpts", MS_RELATIME, "");
-	mount ("/dev/sda4", "/", "ext4", MS_REMOUNT|MS_RDONLY, "");
-	mount ("/dev/sda4", "/", "ext4", MS_REMOUNT, "");
-	system("/bin/mount -a");
+	mount("none", "/proc", "proc", MS_RELATIME, "");
+	mount("none", "/sys", "sysfs", MS_RELATIME, "");
+	mount("none", "/tmp", "ramfs", MS_RELATIME, "");
+	mount("devpts", "/dev/pts", "devpts", MS_RELATIME, "");
+	mount("/dev/sda4", "/", "ext4", MS_REMOUNT|MS_RDONLY, "");
+	mount("/dev/sda4", "/", "ext4", MS_REMOUNT, "");
+	//mount("/dev/sda4", "/", "ext4", MS_RELATIME, "");
 	sethostname("pc-athlon64", 11);
 
 	return 0;
