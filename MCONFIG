@@ -39,4 +39,4 @@ INITOBJS=../.out/init.o \
 		../.out/utmp.o
 
 INITCFLAGS=$(CFLAGS) -fomit-frame-pointer
-INITDEFS=-D_GNU_SOURCE
+INITDEFS=-D_GNU_SOURCE -DINIT_MAIN -DHAVE_UPDWTMP

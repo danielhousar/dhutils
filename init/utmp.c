@@ -38,8 +38,6 @@
 #include "initreq.h"
 #include "paths.h"
 
-#define HAVE_UPDWTMP 1
-
 /*
  *	Log an event in the wtmp file (reboot, runlevel)
  */
@@ -68,7 +66,7 @@ char *line)			/* Which line is this */
 	 */
 	if ((fd = open(WTMP_FILE, O_WRONLY|O_APPEND)) < 0) return;
 
-#ifdef INIT_MAIN
+
 	/*
 	 *	Note if we are going to write a boot record.
 	 */
@@ -99,19 +97,15 @@ char *line)			/* Which line is this */
 		int oldlevel = prevlevel;
 		write_wtmp("runlevel", "~~", runlevel + 256 * oldlevel, RUN_LVL, "~");
 	}
-#endif
 
 	/*
 	 *	Zero the fields and enter new fields.
 	 */
 	memset(&utmp, 0, sizeof(utmp));
-#if defined(__GLIBC__)
+
 	gettimeofday(&tv, NULL);
 	utmp.ut_tv.tv_sec = tv.tv_sec;
 	utmp.ut_tv.tv_usec = tv.tv_usec;
-#else
-	time(&utmp.ut_time);
-#endif
 	utmp.ut_pid  = pid;
 	utmp.ut_type = type;
 	strncpy(utmp.ut_name, user, sizeof(utmp.ut_name));
@@ -119,14 +113,10 @@ char *line)			/* Which line is this */
 	strncpy(utmp.ut_line, line, sizeof(utmp.ut_line));
 
         /* Put the OS version in place of the hostname */
-        if (uname(&uname_buf) == 0)
+	if (uname(&uname_buf) == 0)
 		strncpy(utmp.ut_host, uname_buf.release, sizeof(utmp.ut_host));
 
-#if HAVE_UPDWTMP
 	updwtmp(WTMP_FILE, &utmp);
-#else
-	write(fd, (char *)&utmp, sizeof(utmp));
-#endif
 	close(fd);
 }
 
@@ -153,7 +143,6 @@ char *oldline)			/* Line of old utmp entry. */
 	if (access(UTMP_FILE, W_OK) < 0)
 		return;
 
-#ifdef INIT_MAIN
 	/*
 	 *	Note if we are going to write a boot record.
 	 */
@@ -184,7 +173,6 @@ char *oldline)			/* Line of old utmp entry. */
 		int oldlevel = prevlevel;
 		write_utmp("runlevel", "~~", runlevel + 256 * oldlevel, RUN_LVL, "~", NULL);
 	}
-#endif
 
 	/*
 	 *	Fill out an utmp struct.
@@ -193,13 +181,11 @@ char *oldline)			/* Line of old utmp entry. */
 	utmp.ut_type = type;
 	utmp.ut_pid = pid;
 	strncpy(utmp.ut_id, id, sizeof(utmp.ut_id));
-#if defined(__GLIBC__)
+
 	gettimeofday(&tv, NULL);
 	utmp.ut_tv.tv_sec = tv.tv_sec;
 	utmp.ut_tv.tv_usec = tv.tv_usec;
-#else
-	time(&utmp.ut_time);
-#endif
+
 	strncpy(utmp.ut_user, user, UT_NAMESIZE);
 	if (line) strncpy(utmp.ut_line, line, UT_LINESIZE);
 

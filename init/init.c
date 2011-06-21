@@ -47,7 +47,6 @@
 #include <utmp.h>
 #include <ctype.h>
 #include <stdarg.h>
-#include <sys/syslog.h>
 #include <sys/time.h>
 
 #ifdef __i386__
