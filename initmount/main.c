@@ -3,6 +3,8 @@
  ***************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
+#include <stdlib.h>
 #include <sys/stat.h>
 #include <sys/mount.h>
 #include <mntent.h>
@@ -21,6 +23,7 @@ int main () {
 	mount ("devpts", "/dev/pts", "devpts", MS_RELATIME, "");
 	mount ("/dev/sda4", "/", "ext4", MS_REMOUNT|MS_RDONLY, "");
 	mount ("/dev/sda4", "/", "ext4", MS_REMOUNT, "");
+	system("/bin/mount -a");
 	sethostname("pc-athlon64", 11);
 
 	return 0;
