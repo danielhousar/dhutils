@@ -33,30 +33,30 @@ double sdecrep_to_fd_dh(char *s){
 	int i = 0;
 	double divider = 1.0;
 	double sign = 1.0;
-	int was_point = 0;
 
 	if (s[0] == 45) { i = 1; sign = -1.0; }
 
-	while (s[i] != 0 && i < 64) {
+	while (s[i] != 0 && i < 64 && s[i] != 46) {
 		if (s[i] >= 48 && s[i] <= 57){
-			if (was_point == 0) {
-				retval *= 10.0;
-				retval += (s[i] - 48);
-			}
-			else {
-				divider *= 10.0;
-				retval += ((s[i] - 48) / divider);
-			}
+			retval *= 10.0;
+			retval += (s[i] - 48);
 		}
+		i++;
+	}
 
-		if (s[i] == 46){
-			was_point = 1;
+	i++;
+
+	while (s[i] != 0 && i < 64 && s[i]) {
+		if (s[i] >= 48 && s[i] <= 57){
+			divider *= 10.0;
+			retval += ((s[i] - 48) / divider);
 		}
-
 		i++;
 	}
 
 	retval *= sign;
+
+	//printf("%s returned as %f\n", s, retval);
 
 	return retval;
 }
