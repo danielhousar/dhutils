@@ -34,7 +34,7 @@ install_headers:
 install_utils:
 	mkdir -p $(DESTDIR)$(BINDIR)/
 	cp -f .bin/* $(DESTDIR)$(BINDIR)/
-	cp -f .bin/initmount $DESTDIR/bin/
+	cp -f .bin/initmount $(DESTDIR)/bin/
 
 
 uninstall:
