@@ -14,9 +14,9 @@ library: libobj $(LIBDHPARTS)
 
 $(LIBDHPARTS):
 	$(E) "	CC $@.o"
-	$(Q) $(CC) $(CFLAGS) $(LIBDEFS) -fPIC -c $@.c -o $(OUTOBJDIR)/$@.o
+	$(Q) $(CC) $(CFLAGS) $(LIBCFLAGS) $(LIBDEFS) -c $@.c -o $(OUTOBJDIR)/$@.o
 
 libobj:
 	$(E) "	CC dh.o"
-	$(Q) $(CC) $(CFLAGS) $(LIBDEFS) -fPIC -c dh.c -o $(OUTOBJDIR)/dh.o
+	$(Q) $(CC) $(CFLAGS) $(LIBCFLAGS) $(LIBDEFS) -c dh.c -o $(OUTOBJDIR)/dh.o
 
