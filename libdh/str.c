@@ -44,14 +44,16 @@ double sdecrep_to_fd_dh(char *s){
 		i++;
 	}
 
-	i++;
-
-	while (s[i] != 0 && i < 64 && s[i]) {
-		if (s[i] >= 48 && s[i] <= 57){
-			divider *= 10.0;
-			retval += ((s[i] - 48) / divider);
-		}
+	if (s[i] != 0) {
 		i++;
+
+		while (s[i] != 0 && i < 64 && s[i]) {
+			if (s[i] >= 48 && s[i] <= 57){
+				divider *= 10.0;
+				retval += ((s[i] - 48) / divider);
+			}
+			i++;
+		}
 	}
 
 	retval *= sign;
