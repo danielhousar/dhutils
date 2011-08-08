@@ -15,7 +15,7 @@ LDFLAGS=
 LIBLDFLAGS=-lc
 
 SOEXT=.so
-EXEEXT=
+EXEXT=
 
 E = @echo
 Q = @
