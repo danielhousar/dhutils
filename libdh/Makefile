@@ -10,7 +10,7 @@ all: library
 
 library: libobj $(LIBDHPARTS)
 	$(E) "	LD libdh$(SOEXT)"
-	$(Q) $(CC) -shared -Wl,-soname,libdh$(SOEXT) ../.out/dh.o $(LIBDHOBJS) -o ../.lib/libdh$(SOEXT)
+	$(Q) $(CC) -shared -Wl,-soname,libdh$(SOEXT) ../.out/dh.o $(LIBDHOBJS) -o ../.lib/libdh$(SOEXT) $(LIBLDFLAGS)
 
 $(LIBDHPARTS):
 	$(E) "	CC $@.o"
