@@ -13,6 +13,9 @@ DEFS=
 LIBDEFS=
 LDFLAGS=
 
+SOEXT=.so
+EXEEXT=
+
 E = @echo
 Q = @
 

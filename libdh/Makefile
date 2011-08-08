@@ -9,8 +9,8 @@ all: library
 .PHONY: library libobj $(LIBDHPARTS)
 
 library: libobj $(LIBDHPARTS)
-	$(E) "	LD libdh.so"
-	$(Q) $(CC) -shared -Wl,-soname,libdh.so ../.out/dh.o $(LIBDHOBJS) -o ../.lib/libdh.so -lc
+	$(E) "	LD libdh$(SOEXT)"
+	$(Q) $(CC) -shared -Wl,-soname,libdh$(SOEXT) ../.out/dh.o $(LIBDHOBJS) -o ../.lib/libdh$(SOEXT)
 
 $(LIBDHPARTS):
 	$(E) "	CC $@.o"
