@@ -59,25 +59,30 @@ long double sqrt_fld_dh(long double a){
 	return var3;
 }
 
-double quadequi_dh (double a, double b, double c, int x){
+double quadequi_1_dh (double a, double b, double c){
 	double d, discr;
-	double x1, x2;
+	double root = 0.0;
 	discr = (b * b) - (4.0 * a * c);
 
-	if (discr < 0.0) {
-		x1 = 0.0;
-		x2 = 0.0;
-	}
-
-	else {
+	if (discr >= 0.0) {
 		d = sqrt_dh(discr);
-		x1 = (-b - d) / (2.0 * a);
-		x2 = (-b + d) / (2.0 * a);
+		root = (-b - d) / (2.0 * a);
 	}
 
-	if (x == 2)
-		return x2;
-	else return x1;
+	return root;
+}
+
+double quadequi_2_dh (double a, double b, double c){
+	double d, discr;
+	double root = 0.0;
+	discr = (b * b) - (4.0 * a * c);
+
+	if (discr >= 0.0) {
+		d = sqrt_dh(discr);
+		root = (-b + d) / (2.0 * a);
+	}
+
+	return root;
 }
 
 long double sin_deg_dh(long double a){
