@@ -51,6 +51,7 @@ int main (int argc, char **argv){
 
 			i++;
 		}
+
 /* output */
 		if (qe_init == 1) {
 			printf("Usage: %s [--help|-h]|[--version|-v] a b c\n", argv[0]);
@@ -64,17 +65,19 @@ int main (int argc, char **argv){
 			printf("quadequi %s\n", qe_version_str);
 		}
 
+/* core */
 		if (var_set > 0) {
 			if (var_set < 3) puts("not all required values given - stop processing");
 			else {
-				main_x1 = quadequi_dh(a, b, c, 1);
-				main_x2 = quadequi_dh(a, b, c, 2);
+				main_x1 = quadequi_1_dh(a, b, c);
+				main_x2 = quadequi_2_dh(a, b, c);
 
 				printf(" x1 = %f\n x2 = %f\n", main_x1, main_x2);
 			}
 		}
 	}
 
+/* end */
 	return 0;
 }
 
