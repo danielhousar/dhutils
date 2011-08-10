@@ -4,6 +4,8 @@
 
 #include "../include/dhmath.h"
 
+double qe_roots[2];
+
 long double factorial_dh(long double a){
 	long double retval = 1.0;
 	long double i = 1.0;
@@ -57,6 +59,20 @@ long double sqrt_fld_dh(long double a){
 		i++;
 	}
 	return var3;
+}
+double *quadequi_dh (double a, double b, double c) {
+	double *qe_retval = qe_roots;
+	double d, discr;
+
+	discr = (b * b) - (4.0 * a * c);
+
+	if (discr >= 0.0) {
+		d = sqrt_dh(discr);
+		qe_roots[0] = (-b - d) / (2.0 * a);
+		qe_roots[1] = (-b + d) / (2.0 * a);
+	}
+
+	return qe_retval;
 }
 
 double quadequi_1_dh (double a, double b, double c){
