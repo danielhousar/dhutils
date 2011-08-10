@@ -20,23 +20,23 @@ EXEXT=
 E = @echo
 Q = @
 
-OUTOBJDIR=../.out
 OBJ-OUTDIR=../.out
-OUTBINDIR=../.bin
 BIN-OUTDIR=../.bin
-OUTLIBDIR=../.lib
+UBIN-OUTDIR=../.ubin
+LIB-OUTDIR=../.lib
 
 # HERE you can modify, what will be built
-SUBDIRS=libdh quadequi datatypes portping initmount init
+#SUBDIRS=libdh quadequi portping initmount
+SUBDIRS=libdh
 
 # LIBDH
 LIBDHPARTS=math str misc memset fun
 
-LIBDHOBJS=$(OUTOBJDIR)/math.o \
-	$(OUTOBJDIR)/str.o \
-	$(OUTOBJDIR)/misc.o \
-	$(OUTOBJDIR)/memset.o \
-	$(OUTOBJDIR)/fun.o
+LIBDHOBJS=$(OBJ-OUTDIR)/math.o \
+	$(OBJ-OUTDIR)/str.o \
+	$(OBJ-OUTDIR)/misc.o \
+	$(OBJ-OUTDIR)/memset.o \
+	$(OBJ-OUTDIR)/fun.o
 
 # INIT
 

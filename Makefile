@@ -6,6 +6,7 @@ all: outdirs $(SUBDIRS)
 .PHONY: outdirs $(SUBDIRS) clean install install_lib install_headers install_utils uninstall
 
 outdirs:
+	mkdir -p .ubin/
 	mkdir -p .bin/
 	mkdir -p .lib/
 	mkdir -p .out/
@@ -16,6 +17,7 @@ $(SUBDIRS):
 
 
 clean:
+	rm -rf .ubin/
 	rm -rf .bin/
 	rm -rf .lib/
 	rm -rf .out/
@@ -33,13 +35,13 @@ install_headers:
 
 install_utils:
 	mkdir -p $(DESTDIR)$(BINDIR)/
-	cp -f .bin/* $(DESTDIR)$(BINDIR)/
-	cp -f .bin/initmount $(DESTDIR)/bin/
+	cp -f .ubin/* $(DESTDIR)$(BINDIR)/
+	cp -f .bin/* $(DESTDIR)/bin/
 
 
 uninstall:
-	rm -f $(DESTDIR)$(LIBDIR)/libdh.so
-	rm -rf $(DESTDIR)$(INCLUDEDIR)/libdh
+#	rm -f $(DESTDIR)$(LIBDIR)/libdh.so
+#	rm -rf $(DESTDIR)$(INCLUDEDIR)/libdh
 	rm -f $(DESTDIR)$(BINDIR)/datatypes
 	rm -f $(DESTDIR)$(BINDIR)/quadequi
 	rm -f $(DESTDIR)$(BINDIR)/portping

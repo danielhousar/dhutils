@@ -10,5 +10,5 @@ all: binary
 
 binary:
 	$(E) "	CCLD quadequi"
-	$(Q) $(CC) $(CFLAGS) $(DEFS) main.c -o ../.bin/quadequi -L../.lib -ldh
+	$(Q) $(CC) $(CFLAGS) $(DEFS) main.c -o $(UBIN-OUTDIR)/quadequi -L$(LIB-OUTDIR) -ldh
 

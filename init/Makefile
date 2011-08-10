@@ -14,5 +14,5 @@ binary:
 	$(E) "	CC utmp.o"
 	$(Q) $(CC) $(INITCFLAGS) $(INITDEFS) -fPIC -c utmp.c -o $(OBJ-OUTDIR)/utmp.o
 	$(E) "	LD init"
-	$(Q) $(CC) $(INITOBJS) -o $(BIN-OUTDIR)/init -lc
+	$(Q) $(CC) $(INITOBJS) -o $(BIN-OUTDIR)/dhinit -lc
 
