@@ -17,9 +17,9 @@ int main () {
 	mount("none", "/sys", "sysfs", MS_RELATIME, "");
 	mount("none", "/tmp", "ramfs", MS_RELATIME, "");
 	mount("devpts", "/dev/pts", "devpts", MS_RELATIME, "");
-	mount("/dev/sda4", "/", "ext4", MS_REMOUNT|MS_RDONLY, "");
-	mount("/dev/sda4", "/", "ext4", MS_REMOUNT, "");
-	sethostname("pc-athlon64", 11);
+	mount("/dev/sda2", "/", "ext4", MS_REMOUNT|MS_RDONLY, "");
+	mount("/dev/sda2", "/", "ext4", MS_REMOUNT, "");
+	sethostname("pc-sempron", 10);
 
 	return 0;
 }
