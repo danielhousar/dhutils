@@ -5,17 +5,21 @@ LIBDIR=$(PREFIX)/lib
 INCLUDEDIR=$(PREFIX)/include
 SYSCONFDIR=/etc
 
+SOEXT=.so
+EXEXT=
+
 CC=gcc
-CFLAGS=-march=native -mtune=native -O3 -Wall
-LIBCFLAGS=-fPIC
+CFLAGS=
+WARN_CFLAGS=-Wall
+OPT_CFLAGS=-O3 -march=native -mtune=native
+LIB_CFLAGS=-fPIC
 INCLUDES=
 DEFS=
 LIBDEFS=
 LDFLAGS=
-LIBLDFLAGS=-lc
 
-SOEXT=.so
-EXEXT=
+SO_LDFLAGS=-lc
+SO_CFLAGS=-shared -Wl,-soname,libdh$(SOEXT)
 
 E = @echo
 Q = @

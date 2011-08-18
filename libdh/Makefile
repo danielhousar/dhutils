@@ -10,13 +10,13 @@ all: library
 
 library: libobj $(LIBDHPARTS)
 	$(E) "	LD libdh$(SOEXT)"
-	$(Q) $(CC) -shared -Wl,-soname,libdh$(SOEXT) ../.out/dh.o $(LIBDHOBJS) -o ../.lib/libdh$(SOEXT) $(LIBLDFLAGS)
+	$(Q) $(CC) $(SO_CFLAGS) ../.out/dh.o $(LIBDHOBJS) -o ../.lib/libdh$(SOEXT) $(SO_LDFLAGS)
 
 $(LIBDHPARTS):
 	$(E) "	CC $@.o"
-	$(Q) $(CC) $(CFLAGS) $(LIBCFLAGS) $(LIBDEFS) -c $@.c -o $(OBJ-OUTDIR)/$@.o
+	$(Q) $(CC) $(OPT_CFLAGS) $(LIB_CFLAGS) $(LIBDEFS) -c $@.c -o $(OBJ-OUTDIR)/$@.o
 
 libobj:
 	$(E) "	CC dh.o"
-	$(Q) $(CC) $(CFLAGS) $(LIBCFLAGS) $(LIBDEFS) -c dh.c -o $(OBJ-OUTDIR)/dh.o
+	$(Q) $(CC) $(OPT_CFLAGS) $(LIB_CFLAGS) $(LIBDEFS) -c dh.c -o $(OBJ-OUTDIR)/dh.o
 
