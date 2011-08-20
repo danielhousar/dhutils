@@ -122,20 +122,20 @@ int main(int argc, char **argv) {
 		serv_addr.sin_port = htons(portno);
 
         if (protocol == SOCK_STREAM) { /* TCP */
-            connect(sockfd, &serv_addr, sizeof(serv_addr));
+            connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
 
             /* The socket will only become ready if the connection succeeds. */
             result = pp_ready(sockfd) - 1;
         } else { /* UDP */
-            connect(sockfd, &serv_addr, sizeof(serv_addr));
+            connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
 
             /* Sending to a closed UDP socket generates an error condition that
              * triggers on the next syscall with the socket. The error code
              * after this allows us to determine the status of the socket. This
              * method can generate false positives.
              */
-            sendto(sockfd, 0, 0, 0, &serv_addr, sizeof(serv_addr));
-            result = sendto(sockfd, 0, 0, 0, &serv_addr, sizeof(serv_addr));
+            sendto(sockfd, 0, 0, 0, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
+            result = sendto(sockfd, 0, 0, 0, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
 
 			if (errno == ECONNREFUSED) { result = 1; }
         }
