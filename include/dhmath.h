@@ -5,6 +5,10 @@
 #ifndef DHMATH_H
 #define DHMATH_H
 
+#ifdef HAVE_MATH_H
+# include <math.h>
+#endif
+
 #define PI_dh 3.14159265358979323846
 #define E_dh 2.7182818284590452354
 
