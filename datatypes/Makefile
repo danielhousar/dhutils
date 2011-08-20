@@ -10,5 +10,5 @@ all: binary
 
 binary:
 	$(E) "	CCLD datatypes"
-	$(Q) $(CC) $(CFLAGS) $(DEFS) main.c -o ../.bin/datatypes -L../.lib -ldh
+	$(Q) $(CC) $(CFLAGS) $(DEFS) main.c -o $(UBIN-OUTDIR)/datatypes -L$(LIB-OUTDIR) -ldh
 

@@ -11,7 +11,7 @@ EXEXT=
 CC=gcc
 CFLAGS=
 WARN_CFLAGS=-Wall
-OPT_CFLAGS=-O3 -march=native -mtune=native
+OPT_CFLAGS=-pedantic -std=c99 -O3 -march=native -mtune=native
 LIB_CFLAGS=-fPIC
 INCLUDES=
 DEFS=
