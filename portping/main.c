@@ -127,6 +127,7 @@ int main(int argc, char **argv) {
             /* The socket will only become ready if the connection succeeds. */
             result = pp_ready(sockfd) - 1;
         } else { /* UDP */
+            //connect(sockfd, &serv_addr, sizeof(serv_addr));
             connect(sockfd, (struct sockaddr *)&serv_addr, sizeof(serv_addr));
 
             /* Sending to a closed UDP socket generates an error condition that
