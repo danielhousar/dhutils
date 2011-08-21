@@ -21,7 +21,7 @@ LibDH is general purpose C library with various functions. LibDH is shipped with
 	---------------------------- UTILS -----------------------------
 
 libdh:
-	- version: 0.9 20110808
+	- version: 0.9 20110822.293
 	C library with various functions
 
 quadequi:
@@ -43,8 +43,8 @@ portping:
 
 initmount:
 	- version 0.2
-	noninteractive, nonconfigurable utility for mounting initial filesystems from initscripts.
-	Mounts SYSFS on /sys, PROC on /proc, ramfs on /tmp and devpts on /dev/pts. Used in initscripts.
+	Noninteractive, nonconfigurable utility which does some work during init like mounting initial filesystems.
+	Mounts SYSFS on /sys, PROC on /proc, ramfs on /tmp and devpts on /dev/pts. Remounts / as read-only and back to read-write. Sets hostname of host to curently given hostname in sources Used in initscripts.
 
 
 	-------------------- BUILD & INSTALL ---------------------------
