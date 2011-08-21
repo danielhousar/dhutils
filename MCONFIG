@@ -27,10 +27,11 @@ Q = @
 OBJ-OUTDIR=../.out
 BIN-OUTDIR=../.bin
 UBIN-OUTDIR=../.ubin
+TESTBIN-OUTDIR=../.testbin
 LIB-OUTDIR=../.lib
 
 # HERE you can modify, what will be built
-#SUBDIRS=libdh quadequi portping initmount
+#SUBDIRS=libdh quadequi portping initmount dhcalc
 SUBDIRS=libdh
 
 # LIBDH
@@ -49,3 +50,9 @@ INITOBJS=../.out/init.o \
 
 INITCFLAGS=$(CFLAGS) -fomit-frame-pointer
 INITDEFS=-D_GNU_SOURCE -DINIT_MAIN -DHAVE_UPDWTMP
+
+# DHCALC
+
+DHCALC_OBJS=$(OBJ-OUTDIR)/dhcalc/main.o
+
+
