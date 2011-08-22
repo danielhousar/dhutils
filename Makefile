@@ -8,6 +8,7 @@ all: outdirs $(SUBDIRS)
 outdirs:
 	mkdir -p .ubin/
 	mkdir -p .bin/
+	mkdir -p .testbin/
 	mkdir -p .lib/
 	mkdir -p .out/
 
