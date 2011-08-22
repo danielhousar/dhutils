@@ -4,19 +4,22 @@
 
 include ../MCONFIG
 
-all: library
+all: dir library
 
-.PHONY: library libobj $(LIBDHPARTS)
+.PHONY: dir library libobj $(LIBDHPARTS)
+
+dir:
+	mkdir -p $(OBJ-OUTDIR)/libdh
 
 library: libobj $(LIBDHPARTS)
 	$(E) "	LD libdh$(SOEXT)"
-	$(Q) $(CC) $(SO_CFLAGS) ../.out/dh.o $(LIBDHOBJS) -o ../.lib/libdh$(SOEXT) $(SO_LDFLAGS)
+	$(Q) $(CC) $(SO_CFLAGS) $(WARN_CFLAGS) $(OBJ-OUTDIR)/libdh/dh.o $(LIBDHOBJS) -o ../.lib/libdh$(SOEXT) $(SO_LDFLAGS)
 
 $(LIBDHPARTS):
 	$(E) "	CC $@.o"
-	$(Q) $(CC) $(OPT_CFLAGS) $(LIB_CFLAGS) $(LIBDEFS) -c $@.c -o $(OBJ-OUTDIR)/$@.o
+	$(Q) $(CC) $(OPT_CFLAGS) $(LIB_CFLAGS) $(DEFS) -c $@.c -o $(OBJ-OUTDIR)/libdh/$@.o
 
 libobj:
 	$(E) "	CC dh.o"
-	$(Q) $(CC) $(OPT_CFLAGS) $(LIB_CFLAGS) $(LIBDEFS) -c dh.c -o $(OBJ-OUTDIR)/dh.o
+	$(Q) $(CC) $(OPT_CFLAGS) $(LIB_CFLAGS) $(DEFS) -c dh.c -o $(OBJ-OUTDIR)/libdh/dh.o
 

@@ -9,9 +9,11 @@ SOEXT=.so
 EXEXT=
 
 CC=gcc
+CXX=g++
 CFLAGS=
-WARN_CFLAGS=-Wall
-OPT_CFLAGS=-pedantic -std=c99 -O3 -march=native -mtune=native
+WARN_CFLAGS=-Wall -Werror
+OPT_CFLAGS=-O3 -march=native -mtune=native
+STD_CFLAGS=-pedantic -c99
 LIB_CFLAGS=-fPIC
 INCLUDES=
 DEFS=
@@ -38,10 +40,10 @@ SUBDIRS=libdh
 LIBDHPARTS=math str misc memset fun
 
 LIBDHOBJS=$(OBJ-OUTDIR)/math.o \
-	$(OBJ-OUTDIR)/str.o \
-	$(OBJ-OUTDIR)/misc.o \
-	$(OBJ-OUTDIR)/memset.o \
-	$(OBJ-OUTDIR)/fun.o
+	$(OBJ-OUTDIR)/libdh/str.o \
+	$(OBJ-OUTDIR)/libdh/misc.o \
+	$(OBJ-OUTDIR)/libdh/memset.o \
+	$(OBJ-OUTDIR)/libdh/fun.o
 
 # INIT
 
