@@ -213,6 +213,30 @@ int s_is_hex_dh(char *s) {
 	else return 0;
 }
 
+int s_is_n_dh(char* s){
+	int i = 0;
+	int err_nu = 0;
+
+	while (s && s[i] != 0 && !err_nu) {
+		if (s[i] < 48 || s[i] > 57) { err_nu++; }
+		i++;
+	}
+	return err_nu;
+}
+
+int s_is_z_dh(char* s){
+	int i = 0;
+	int err_nu = 0;
+
+	if (s[i] == 45) { i++; }
+
+	while (s && s[i] != 0 && !err_nu) {
+		if (s[i] < 48 || s[i] > 57) { err_nu++; }
+		i++;
+	}
+	return err_nu;
+}
+
 int e2fsck_strnlen(const char *s, int count){
 	const char *cp = s;
 
