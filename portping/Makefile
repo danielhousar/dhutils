@@ -10,5 +10,5 @@ all: binary
 
 binary:
 	$(E) "	CCLD portping"
-	$(Q) $(CC) $(CFLAGS) $(DEFS) main.c -o $(UBIN-OUTDIR)/portping -L$(LIB-OUTDIR) -ldh
+	$(Q) $(CC) $(OPT_CFLAGS) $(WARN_CFLAGS) $(STD_CFLAGS) $(DEFS) main.c -o $(UBIN-OUTDIR)/portping -L$(LIB-OUTDIR)
 
