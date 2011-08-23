@@ -13,7 +13,7 @@ CXX=g++
 CFLAGS=
 WARN_CFLAGS=-Wall -Werror
 OPT_CFLAGS=-O3 -march=native -mtune=native
-STD_CFLAGS=-pedantic -c99
+STD_CFLAGS=
 LIB_CFLAGS=-fPIC
 INCLUDES=
 DEFS=
