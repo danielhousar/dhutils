@@ -57,9 +57,9 @@ double sdecrep_to_fd_dh(char *s){
 	}
 
 	retval *= sign;
-
-	//printf("%s returned as %f\n", s, retval);
-
+/*
+	printf("%s returned as %f\n", s, retval);
+*/
 	return retval;
 }
 
