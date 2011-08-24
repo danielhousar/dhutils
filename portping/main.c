@@ -20,14 +20,23 @@
 #include <stdlib.h>
 #include <fcntl.h>
 #include <errno.h>
-#include "../include/dh.h"
-#include "../include/dhstr.h"
 
 #define SOCKET_TIMEOUT 10 // seconds
 
 const char* pp_version_string = "0.7 2011-05-06";
 
-/* Return 1 if the socket becomes ready for reading or writing during the
+int s_is_portno_pp(char* s){
+	int i = 0;
+	int err_nu = 0;
+
+	while (s && s[i] != 0 && !err_nu) {
+		if (s[i] < 48 || s[i] > 57) { err_nu++; }
+		i++;
+	}
+	return err_nu;
+}
+
+/* Returns 1 if the socket becomes ready for reading or writing during the
  * defined timeout value.
  */
 int pp_ready(int socket) {
@@ -59,10 +68,10 @@ int main(int argc, char **argv) {
 /* init */
 	while (i < argc) {
 		// controls each command-line arg
-		if (!strcmp_dh(argv[i], "-t")) { loop = 1; }
-		if (s_is_num_dh(argv[i]) == 1) { portno = atoi(argv[i]); }
-		if (!strcmp_dh(argv[i], "udp")) { udp = 1; }
-		if (!strcmp_dh(argv[i], "-v")) { prt_ver = 1; }
+		if (!strcmp(argv[i], "-t")) { loop = 1; }
+		if (!s_is_portno_pp(argv[i])) { portno = atoi(argv[i]); }
+		if (!strcmp(argv[i], "udp")) { udp = 1; }
+		if (!strcmp(argv[i], "-v")) { prt_ver = 1; }
 		i++;
 	}
 
@@ -72,16 +81,15 @@ int main(int argc, char **argv) {
 	}
 
 	if (argc < 3) {
-		printf("Usage: %s [-v] | hostname port [-t] [udp]\n", argv[0]);
-		puts(" ");
-		printf("\t-v \tPrints out version info\n");
-		printf("\t-t \tLoop ping given host and port\n");
-		printf("\tudp \tSwitch to UDP (TCP is by default)\n");
+		printf("Usage: %s [-v] | hostname port [-t] [udp]\n\n", argv[0]);
+		printf("\t-v \tPrints out version info\n"
+		"\t-t \tLoop ping given host and port\n"
+		"\tudp \tSwitch to UDP (TCP is by default)\n\n");
         return 0;
     }
 
 	if (!portno) {
-		fprintf(stderr, "Invalid port number.\n");
+		fprintf(stderr, "Port number not given.\n");
 		return 0;
 	}
 
@@ -160,7 +168,7 @@ int main(int argc, char **argv) {
         close(sockfd);
         sleep(1);
 
-    } while (loop == 1);
+    } while (loop);
 
     return 0;
 }
