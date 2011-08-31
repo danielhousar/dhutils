@@ -12,8 +12,8 @@ dir:
 	mkdir -p $(OBJ-OUTDIR)/libdh++
 
 library: libobj
-	$(E) "	LD libdh$(SOEXT)"
-	$(Q) $(CXX) $(SO_CFLAGS) ../.out/libdh++/dh.o -o ../.lib/libdh$(SOEXT) $(SO_LDFLAGS)
+	$(E) "	LD  libdh++$(SOEXT)"
+	$(Q) $(CXX) $(SO_CFLAGS) ../.out/libdh++/dh.o -o ../.lib/libdh++$(SOEXT) $(SO_LDFLAGS)
 
 $(LIBDHPARTS):
 	$(E) "	CXX $@.o"
