@@ -33,13 +33,13 @@ TESTBIN-OUTDIR=../.testbin
 LIB-OUTDIR=../.lib
 
 # HERE you can modify, what will be built
-#SUBDIRS=libdh quadequi portping initmount dhcalc
-SUBDIRS=libdh
+#SUBDIRS=libdh libdh++ quadequi portping initmount dhcalc
+SUBDIRS=libdh libdh++
 
 # LIBDH
 LIBDHPARTS=math str misc memset fun
 
-LIBDHOBJS=$(OBJ-OUTDIR)/math.o \
+LIBDHOBJS=$(OBJ-OUTDIR)/libdh/math.o \
 	$(OBJ-OUTDIR)/libdh/str.o \
 	$(OBJ-OUTDIR)/libdh/misc.o \
 	$(OBJ-OUTDIR)/libdh/memset.o \

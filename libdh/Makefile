@@ -13,7 +13,7 @@ dir:
 
 library: libobj $(LIBDHPARTS)
 	$(E) "	LD libdh$(SOEXT)"
-	$(Q) $(CC) $(SO_CFLAGS) $(WARN_CFLAGS) $(OBJ-OUTDIR)/libdh/dh.o $(LIBDHOBJS) -o ../.lib/libdh$(SOEXT) $(SO_LDFLAGS)
+	$(Q) $(CC) $(SO_CFLAGS) $(WARN_CFLAGS) $(OBJ-OUTDIR)/libdh/dh.o $(LIBDHOBJS) -o $(LIB-OUTDIR)/libdh$(SOEXT) $(SO_LDFLAGS)
 
 $(LIBDHPARTS):
 	$(E) "	CC $@.o"
