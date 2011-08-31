@@ -24,6 +24,10 @@ libdh:
 	- version: 0.9 20110826.298
 	C library with various functions
 
+libdh++:
+	- version: 0.1 20110826.298
+	C++ library with various functions
+
 quadequi:
 	- version: 0.10
 	Frontend for quadequi_fd_dh() function from libdh library.
@@ -44,7 +48,8 @@ portping:
 initmount:
 	- version 0.2
 	Noninteractive, nonconfigurable utility which does some work during init like mounting initial filesystems.
-	Mounts SYSFS on /sys, PROC on /proc, ramfs on /tmp and devpts on /dev/pts. Remounts / as read-only and back to read-write. Sets hostname of host to curently given hostname in sources Used in initscripts.
+	Mounts SYSFS on /sys, PROC on /proc, ramfs on /tmp and devpts on /dev/pts. Remounts / as read-only and back to read-write. Sets hostname of host to curently given hostname in sources.
+	Used in initscripts.
 
 
 	-------------------- BUILD & INSTALL ---------------------------
