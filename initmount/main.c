@@ -6,13 +6,26 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include <sys/types.h>
 #include <sys/mount.h>
 #include <mntent.h>
+
+/*
+
+int lo_iface_up() {
+	char *lo_addr = "127.0.0.1";
+	char *lo_iface = "lo";
+	return 0;
+}
+
+*/
 
 int main () {
 
 	umask(022);
 
+	mkdir("/dev/pts", 0666);
+	mkdir("/dev/shm", 0666);
 	mount("none", "/proc", "proc", MS_RELATIME, "");
 	mount("none", "/sys", "sysfs", MS_RELATIME, "");
 	mount("none", "/tmp", "ramfs", MS_RELATIME, "");
@@ -20,6 +33,8 @@ int main () {
 	mount("/dev/sda2", "/", "ext4", MS_REMOUNT|MS_RDONLY, "");
 	mount("/dev/sda2", "/", "ext4", MS_REMOUNT, "");
 	sethostname("pc-sempron", 10);
+
+	//lo_iface_up();
 
 	return 0;
 }
