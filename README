@@ -46,7 +46,7 @@ portping:
 	If host and port given as command-line args, it pings once the port on given host if accessible and opened.
 
 initmount:
-	- version 0.2
+	- version 0.3
 	Noninteractive, nonconfigurable utility which does some work during init like mounting initial filesystems.
 	Mounts SYSFS on /sys, PROC on /proc, ramfs on /tmp and devpts on /dev/pts. Remounts / as read-only and back to read-write. Sets hostname of host to curently given hostname in sources.
 	Used in initscripts.

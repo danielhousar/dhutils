@@ -23,7 +23,7 @@ int lo_iface_up() {
 int main () {
 
 	umask(022);
-
+	printf("Initmount 0.3 start\n");
 	mkdir("/dev/pts", 0666);
 	mkdir("/dev/shm", 0666);
 	mount("none", "/proc", "proc", MS_RELATIME, "");
@@ -35,6 +35,8 @@ int main () {
 	sethostname("pc-sempron", 10);
 
 	//lo_iface_up();
+
+	printf("Initmount done\n");
 
 	return 0;
 }
