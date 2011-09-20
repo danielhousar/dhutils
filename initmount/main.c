@@ -9,6 +9,7 @@
 #include <sys/types.h>
 #include <sys/mount.h>
 #include <mntent.h>
+#include <errno.h>
 
 /*
 
@@ -29,6 +30,7 @@ int main () {
 	mount("none", "/proc", "proc", MS_RELATIME, "");
 	mount("none", "/sys", "sysfs", MS_RELATIME, "");
 	mount("none", "/tmp", "ramfs", MS_RELATIME, "");
+	perror("initmount: ");
 	mount("devpts", "/dev/pts", "devpts", MS_RELATIME, "");
 	mount("/dev/sda2", "/", "ext4", MS_REMOUNT|MS_RDONLY, "");
 	mount("/dev/sda2", "/", "ext4", MS_REMOUNT, "");
