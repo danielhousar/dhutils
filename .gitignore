@@ -1,5 +1,6 @@
 .ubin
 .bin/
+.sbin
 .testbin
 .out/
 .lib/
