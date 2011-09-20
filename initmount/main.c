@@ -29,8 +29,8 @@ int main () {
 	mkdir("/dev/shm", 0666);
 	mount("none", "/proc", "proc", MS_RELATIME, "");
 	mount("none", "/sys", "sysfs", MS_RELATIME, "");
-	mount("none", "/tmp", "ramfs", NULL, "");
-	perror("initmount");
+	mount("none", "/tmp", "ramfs", 0, "");
+	//perror("initmount");
 	mount("devpts", "/dev/pts", "devpts", MS_RELATIME, "");
 	mount("/dev/sda2", "/", "ext4", MS_REMOUNT|MS_RDONLY, "");
 	mount("/dev/sda2", "/", "ext4", MS_REMOUNT, "");
