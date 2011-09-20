@@ -8,6 +8,7 @@ all: outdirs $(SUBDIRS)
 outdirs:
 	mkdir -p .ubin/
 	mkdir -p .bin/
+	mkdir -p .sbin/
 	mkdir -p .testbin/
 	mkdir -p .lib/
 	mkdir -p .out/
@@ -20,6 +21,7 @@ $(SUBDIRS):
 clean:
 	rm -rf .ubin/
 	rm -rf .bin/
+	rm -rf .sbin/
 	rm -rf .lib/
 	rm -rf .out/
 
@@ -38,7 +40,7 @@ install_headers:
 install_utils:
 	mkdir -p $(DESTDIR)$(BINDIR)/
 	cp -f .ubin/* $(DESTDIR)$(BINDIR)/
-	cp -f .bin/* $(DESTDIR)/bin/
+#	cp -f .bin/* $(DESTDIR)/bin/
 
 
 uninstall:

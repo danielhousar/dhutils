@@ -28,6 +28,7 @@ Q = @
 
 OBJ-OUTDIR=../.out
 BIN-OUTDIR=../.bin
+SBIN-OUTDIR=../.sbin
 UBIN-OUTDIR=../.ubin
 TESTBIN-OUTDIR=../.testbin
 LIB-OUTDIR=../.lib
