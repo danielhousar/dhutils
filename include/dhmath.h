@@ -14,6 +14,12 @@
 
 extern double qe_roots[2];
 
+/*
+#ifdef HAVE_MATH_H
+extern __float128 factorial_f128_dh(__float128 a);
+#endif
+*/
+
 extern long double factorial_dh(long double a);
 extern float sqrtf_dh(float a);
 extern double sqrt_dh(double a);

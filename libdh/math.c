@@ -6,10 +6,28 @@
 
 double qe_roots[2];
 
+/*
+#ifdef HAVE_MATH_H
+__float128 factorial_f128_dh(__float128 a) {
+	__float128 retval_fq = 1.0Q;
+	float i = 1.0;
+
+	if (a <= 0.0Q || a > 1755.0Q) { retval_fq = 0.0Q; }
+	else {
+		while (i <= a){
+			retval_fq *= i;
+			i += 1.0;
+		}
+	}
+	return retval_fq;
+}
+#endif
+*/
+
 long double factorial_dh(long double a){
 	long double retval = 1.0;
-	long double i = 1.0;
-	if (a <= 0 || a > 170) { retval = 0.0; }
+	float i = 1.0;
+	if (a <= 0.0 || a > 1754.0) { retval = 0.0; }
 	else {
 		while (i <= a){
 			retval *= i;
