@@ -106,8 +106,8 @@ int main (int argc, char **argv){
 
 	puts(" ");
 #ifdef LIBDH
-	printf("dh.h version: %i %i %i\n", LIBDH_VERSION, LIBDH_RELEASE, LIBDH_REVISION);
-	printf("libdh version: %i %i %i\n", dh_version, dh_release, dh_rev);
+	printf("dh.h version: %i %i %i\n", LIBDH_VERSION, LIBDH_RELEASE, LIBDH_REV_DATE);
+	printf("libdh version: %i %i %i\n", dh_version, dh_release, dh_rev_date);
 #endif
 	puts(" ");
 
