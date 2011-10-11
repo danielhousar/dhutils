@@ -16,11 +16,11 @@ OPT_CFLAGS=-O2 -march=native -mtune=native
 STD_CFLAGS=
 LIB_CFLAGS=-fPIC
 INCLUDES=
-DEFS=
+DEFS=-DHAVE_MATH_H
 LIBDEFS=
 LDFLAGS=
 
-SO_LDFLAGS=-lc
+SO_LDFLAGS=-lc -lm
 SO_CFLAGS=-shared -Wl,-soname,libdh$(SOEXT)
 
 E = @echo
