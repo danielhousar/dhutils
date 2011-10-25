@@ -37,6 +37,19 @@ long double factorial_dh(long double a){
 	return retval;
 }
 
+double factorial_fd_dh(double a){
+	double retval = 1.0;
+	float i = 1.0;
+	if (a <= 0.0 || a > 170.0) { retval = 0.0; }
+	else {
+		while (i <= a){
+			retval *= i;
+			i += 1.0;
+		}
+	}
+	return retval;
+}
+
 float sqrtf_dh(float a){
 	int i = 0;
 	float var1 = a;
