@@ -146,7 +146,7 @@ long double sin_deg_dh(long double a){
 	return retval;
 }
 
-long double sin_rad_dh(long double a){
+long double sin_dh(long double a){
 	long double retval = a;
 	long double n = 1.0;
 	long double exp;
@@ -154,6 +154,19 @@ long double sin_rad_dh(long double a){
 	while (n < 60.0) {
 		exp = (2 * n) + 1;
 		retval += ((pow_dh(-1, n) * pow_dh(a, exp)) / factorial_dh(exp));
+		n += 1.0;
+	}
+	return retval;
+}
+
+long double cos_dh (long double ang){
+	long double retval = ang;
+	long double n = 1.0;
+	long double exp;
+
+	while (n < 60.0) {
+		exp = (2 * n);
+		retval += ((pow_dh(-1, n) * pow_dh(ang, exp)) / factorial_dh(exp));
 		n += 1.0;
 	}
 	return retval;
