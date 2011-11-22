@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <math.h>
-#include "../include/dh.h"
-#include "../include/dhmath.h"
-#include "../include/dhstr.h"
+
+#include <libdh/dh.h>
+#include <libdh/dhmath.h>
+#include <libdh/dhstr.h>
 
 int main(int argc, char **argv) {
 	long double x = 0.0;

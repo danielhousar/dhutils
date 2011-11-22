@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "../include/dh.h"
-#include "../include/dhstr.h"
-#include "../include/dhmisc.h"
+#include <libdh/dh.h>
+#include <libdh/dhstr.h>
+#include <libdh/dhmisc.h>
 
 int main () {
 	printf("li = %li\n", shexrep_to_li_dh("0xaf"));

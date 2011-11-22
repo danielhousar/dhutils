@@ -2,8 +2,8 @@
  * file:	libdh/str.c
  ***************************************************************************** */
 
-#include "../include/dh.h"
-#include "../include/dhstr.h"
+#include "dh.h"
+#include "dhstr.h"
 
 int strlen_dh(char *s){
 	int i = 0;

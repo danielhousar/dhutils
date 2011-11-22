@@ -25,7 +25,7 @@
  * Matthew Fernandez, 2011
  */
 
-#include "../include/dhmemset.h"
+#include "dhmemset.h"
 
 /* Let's start off with a fairly naive implementation of memset. This sets
  * memory byte-by-byte. While not being particularly efficient and being

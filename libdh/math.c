@@ -2,7 +2,7 @@
  * file:	libdh/math.c
  ****************************************************** */
 
-#include "../include/dhmath.h"
+#include "dhmath.h"
 
 double qe_roots[2];
 
@@ -173,15 +173,15 @@ long double cos_dh (long double ang){
 	return retval;
 }
 
-long double radtodeg_dh(long double a){
+inline long double radtodeg_dh(long double a){
 	return ((a / PI_dh) * 180.0);
 }
 
-long double degtorad_dh(long double a){
+inline long double degtorad_dh(long double a){
 	return (PI_dh * (a / 180.0));
 }
 
-long double degtorad_spec_dh(long double a){
+inline long double degtorad_spec_dh(long double a){
 	return (a / 180.0);
 }
 

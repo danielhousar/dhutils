@@ -2,7 +2,7 @@
  * file:	libdh/dh.c
  ***************************************************************************** */
 
-#include "../include/dh.h"
+#include "dh.h"
 
 const int dh_version = LIBDH_VERSION;
 const int dh_release = LIBDH_RELEASE;

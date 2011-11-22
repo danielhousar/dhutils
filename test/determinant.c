@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include <math.h>
 #include <complex.h>
-#include "../include/dh.h"
-#include "../include/dhmath.h"
-#include "../include/dhstr.h"
+
+#include <libdh/dh.h>
+#include <libdh/dhmath.h>
+#include <libdh/dhstr.h>
 
 //typedef double[2] complex
 

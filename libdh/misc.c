@@ -2,7 +2,7 @@
  * file:	libdh/misc.c
  ***************************************************************************** */
 
-# include "../include/dhmisc.h"
+# include "dhmisc.h"
 
 char binrep_chars[64];
 

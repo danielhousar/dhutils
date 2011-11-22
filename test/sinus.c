@@ -1,7 +1,7 @@
 #include <stdio.h>
-#include "../include/dh.h"
-#include "../include/dhmath.h"
-#include "../include/dhstr.h"
+
+#include <libdh/dh.h>
+#include <libdh/dhmath.h>
 
 int main(int argc, char **argv){
 	printf("%.*Lf\n", 20, sin_dh(PI_dh / 3.0));
