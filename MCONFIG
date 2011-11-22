@@ -35,7 +35,7 @@ LIB-OUTDIR=../.lib
 
 # HERE you can modify, what will be built
 #SUBDIRS=libdh libdh++ quadequi portping initmount dhcalc
-SUBDIRS=libdh libdh++
+SUBDIRS=libdh
 
 # LIBDH
 LIBDHPARTS=math str misc memset fun
