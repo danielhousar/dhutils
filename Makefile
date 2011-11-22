@@ -36,7 +36,7 @@ install_lib:
 
 install_headers:
 	mkdir -p $(DESTDIR)$(INCLUDEDIR)/libdh
-	cp -f include/* $(DESTDIR)$(INCLUDEDIR)/libdh/
+	cp -f include/libdh/* $(DESTDIR)$(INCLUDEDIR)/libdh/
 
 install_utils:
 	mkdir -p $(DESTDIR)$(BINDIR)/
