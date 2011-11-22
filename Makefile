@@ -31,12 +31,12 @@ install: install_lib install_headers
 
 install_lib:
 	mkdir -p $(DESTDIR)$(LIBDIR)/
-	cp -a .lib/libdh.so $(DESTDIR)$(LIBDIR)/
-	cp -a .lib/libdh++.so $(DESTDIR)$(LIBDIR)/
+	cp -av .lib/libdh.so $(DESTDIR)$(LIBDIR)/
+	cp -av .lib/libdh++.so $(DESTDIR)$(LIBDIR)/
 
 install_headers:
 	mkdir -p $(DESTDIR)$(INCLUDEDIR)/libdh
-	cp -f include/libdh/* $(DESTDIR)$(INCLUDEDIR)/libdh/
+	cp -rfv include/libdh $(DESTDIR)$(INCLUDEDIR)/
 
 install_utils:
 	mkdir -p $(DESTDIR)$(BINDIR)/
