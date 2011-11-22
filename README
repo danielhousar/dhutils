@@ -21,7 +21,7 @@ LibDH is general purpose C library with various functions. LibDH is shipped with
 	---------------------------- UTILS -----------------------------
 
 libdh:
-	- version: 1.0 20111122.311
+	- version: 1.0 20111123.314
 	C library with various functions
 
 libdh++:

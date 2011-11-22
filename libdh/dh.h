@@ -10,8 +10,8 @@
 #define LIBDH
 #define LIBDH_VERSION 1
 #define LIBDH_RELEASE 0
-#define LIBDH_REV_DATE 20111122
-#define LIBDH_REV_NUM 311
+#define LIBDH_REV_DATE 20111123
+#define LIBDH_REV_NUM 314
 
  const int dh_version;
  const int dh_release;
