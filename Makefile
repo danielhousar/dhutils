@@ -26,7 +26,8 @@ clean:
 	rm -rf .out/
 
 
-install: install_lib install_headers install_utils
+#install: install_lib install_headers install_utils
+install: install_lib install_headers
 
 install_lib:
 	mkdir -p $(DESTDIR)$(LIBDIR)/
