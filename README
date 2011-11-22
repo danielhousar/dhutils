@@ -8,7 +8,7 @@ There are no terms, no conditions for using code of DHutils.
 
 	-------------------------- DESCRIPTION -------------------------
 
-Version: 0.0.9
+Version: 0.1.0
 
 Authors:
 	Daniel Housar (daniel.h.080490.cs@gmail.com)
@@ -21,7 +21,7 @@ LibDH is general purpose C library with various functions. LibDH is shipped with
 	---------------------------- UTILS -----------------------------
 
 libdh:
-	- version: 0.9 20111011.305
+	- version: 1.0 20111122.311
 	C library with various functions
 
 libdh++:
