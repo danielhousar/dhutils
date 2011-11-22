@@ -186,22 +186,19 @@ inline long double degtorad_spec_dh(long double a){
 }
 
 long double pow_dh(long double a, long long exp) {
-	long double retval = a;
+	long double retval = 1.0;
 	long long i = 1;
 
 	if (exp < 0){
 		exp *= -1;
-		while (i < exp) {
+		while (i <= exp) {
 			retval *= a;
 			i++;
 		}
 		retval = 1.0 / retval;
 	}
-	else if (exp == 0){
-		retval = 1.0;
-	}
 	else {
-		while (i < exp) {
+		while (i <= exp) {
 			retval *= a;
 			i++;
 		}
