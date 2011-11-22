@@ -27,7 +27,8 @@ __float128 factorial_f128_dh(__float128 a) {
 long double factorial_dh(long double a){
 	long double retval = 1.0;
 	float i = 1.0;
-	if (a <= 0.0 || a > 1754.0) { retval = 0.0; }
+	if (a < 0.0 || a > 1754.0) { retval = 0.0; }
+	else if (a == 0.0) { retval = 1.0; }
 	else {
 		while (i <= a){
 			retval *= i;
@@ -151,7 +152,7 @@ long double sin_dh(long double a){
 	long double n = 1.0;
 	long double exp;
 
-	while (n < 60.0) {
+	while (n < 200.0) {
 		exp = (2 * n) + 1;
 		retval += ((pow_dh(-1, n) * pow_dh(a, exp)) / factorial_dh(exp));
 		n += 1.0;
@@ -160,11 +161,11 @@ long double sin_dh(long double a){
 }
 
 long double cos_dh (long double ang){
-	long double retval = ang;
-	long double n = 1.0;
+	long double retval = 0;
+	long double n = 0;
 	long double exp;
 
-	while (n < 60.0) {
+	while (n < 200.0) {
 		exp = (2 * n);
 		retval += ((pow_dh(-1, n) * pow_dh(ang, exp)) / factorial_dh(exp));
 		n += 1.0;
@@ -195,6 +196,9 @@ long double pow_dh(long double a, long long exp) {
 			i++;
 		}
 		retval = 1.0 / retval;
+	}
+	else if (exp == 0){
+		retval = 1.0;
 	}
 	else {
 		while (i < exp) {

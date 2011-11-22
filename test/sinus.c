@@ -4,7 +4,7 @@
 #include "../include/dhstr.h"
 
 int main(int argc, char **argv){
-	printf("%Lf\n", sin_deg_dh(30.0));
-	printf("%Lf\n", sin_rad_dh(PI_dh / 3.0));
+	printf("%.*Lf\n", 20, sin_dh(PI_dh / 3.0));
+	printf("%.*Lf\n", 20, cos_dh(PI_dh / 3.0));
 	return 0;
 }
