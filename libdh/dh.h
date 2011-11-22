@@ -4,6 +4,8 @@
 
 #ifndef DH_H
 
+#include <stdio.h>
+
 #define DH_H
 #define LIBDH
 #define LIBDH_VERSION 1
