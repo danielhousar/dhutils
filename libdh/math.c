@@ -28,7 +28,6 @@ long double factorial_dh(long double a){
 	long double retval = 1.0;
 	float i = 1.0;
 	if (a < 0.0 || a > 1754.0) { retval = 0.0; }
-	else if (a == 0.0) { retval = 1.0; }
 	else {
 		while (i <= a){
 			retval *= i;
@@ -41,7 +40,7 @@ long double factorial_dh(long double a){
 double factorial_fd_dh(double a){
 	double retval = 1.0;
 	float i = 1.0;
-	if (a <= 0.0 || a > 170.0) { retval = 0.0; }
+	if (a < 0.0 || a > 170.0) { retval = 0.0; }
 	else {
 		while (i <= a){
 			retval *= i;
