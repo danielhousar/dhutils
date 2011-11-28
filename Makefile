@@ -6,10 +6,7 @@ all: outdirs $(SUBDIRS)
 .PHONY: outdirs $(SUBDIRS) clean install install_lib install_headers install_utils uninstall
 
 outdirs:
-	mkdir -p .ubin/
 	mkdir -p .bin/
-	mkdir -p .sbin/
-	mkdir -p .testbin/
 	mkdir -p .lib/
 	mkdir -p .out/
 
@@ -19,9 +16,7 @@ $(SUBDIRS):
 
 
 clean:
-	rm -rf .ubin/
 	rm -rf .bin/
-	rm -rf .sbin/
 	rm -rf .lib/
 	rm -rf .out/
 
