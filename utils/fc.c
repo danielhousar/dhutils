@@ -1,18 +1,20 @@
 /***************************************************************
- * file:	utils/shq.c
+ * file:	utils/fc.c
  *************************************************************** */
 #include <stdio.h>
 #include <stdlib.h>
 
+void func_fc ( void (*f)(int), int a );
+
+void func_fc ( void (*f)(int), int a ) {
+	(*f)(a);
+}
+
 int main (int argc, char **argv) {
-	int i = 0;
-	if (argc > 1) {
-		printf("do: %s ?\n", argv[1]);
-		scanf("%c", &i);
-		if (i==49 || i==121 || i==89)
-			system(argv[1]);
-		return 0;
-	}
-	else return 1;
+	void *i = 0;
+
+	scanf("%p", &i);
+	printf("%p\n", printf("debil"));
+	return 0;
 }
 

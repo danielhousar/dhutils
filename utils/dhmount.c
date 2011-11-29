@@ -17,8 +17,8 @@
 int main (int argc, char **argv) {
 	switch (argc) {
 	case 4:
-		/* mount(dev,dir,fs,mflags,data) */
-		mount( argv[1], argv[2], argv[3], MS_RELATIME, "");
+		/* mount(dev, dir, fs, mflags, data) */
+		mount(argv[1], argv[2], argv[3], MS_RELATIME, "");
 		perror("dhmount");
 		break;
 	case 3:
