@@ -29,6 +29,5 @@ int main (int argc, char **argv) {
 		printf("no action\n");
 	}
 
-
 	return 0;
 }
