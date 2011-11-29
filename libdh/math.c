@@ -190,19 +190,13 @@ long double pow_dh(long double a, long long exp) {
 
 	if (exp < 0){
 		exp *= -1;
-		while (i <= exp) {
-			retval *= a;
-			i++;
-		}
-		retval = 1.0 / retval;
+		a = 1.0 / a;
 	}
-	else {
-		while (i <= exp) {
-			retval *= a;
-			i++;
-		}
+
+	while (i <= exp) {
+		retval *= a;
+		i++;
 	}
 
 	return retval;
 }
-
