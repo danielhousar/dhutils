@@ -8,6 +8,7 @@
  char binrep_chars[64];
 
  char *ui_to_binrep_dh(unsigned int a);
+ unsigned long rand_dh();
 
 #endif
 
