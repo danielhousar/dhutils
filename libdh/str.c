@@ -150,8 +150,8 @@ int snumrep_to_i_dh(char *s){
 	return retval;
 }
 
-unsigned int sbinrep_to_ui_dh(char *s){
-	unsigned int retval = 0;
+unsigned long sbinrep_to_ul_dh(char *s){
+	unsigned long retval = 0;
 	int i = 0;
 	int len = strlen_dh(s);
 

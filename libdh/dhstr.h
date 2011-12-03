@@ -12,7 +12,7 @@ long double sdecrep_to_fld_dh(char *s);
 int shexrep_to_i_dh(char* s);
 long shexrep_to_li_dh(char* s);
 int snumrep_to_i_dh(char *s);
-unsigned int sbinrep_to_ui_dh(char *s);
+unsigned long sbinrep_to_ul_dh(char *s);
 int s_is_num_dh(char* s);
 int s_is_float_dh(char* s);
 int s_is_hex_dh(char *s);
