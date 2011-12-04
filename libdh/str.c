@@ -179,7 +179,7 @@ int s_is_num_dh(char* s){
 		if (s[i] < 46 || s[i] == 47 || s[i] > 57) { err_nu++; }
 
 		if (s[i] == 46){
-			if (!was_point) { was_point = 1; }
+			if (!was_point && s[i+1]) { was_point = 1; }
 			else { err_nu++; }
 		}
 		i++;
@@ -203,7 +203,7 @@ int s_is_float_dh(char* s){
 		if (s[i] < 46 || s[i] == 47 || s[i] > 57) { err_nu++; }
 
 		if (s[i] == 46){
-			if (!was_point) { was_point = 1; }
+			if (!was_point && s[i+1]) { was_point = 1; }
 			else { err_nu++; }
 		}
 		i++;
