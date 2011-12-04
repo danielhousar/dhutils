@@ -33,10 +33,6 @@ quadequi:
 	Frontend for quadequi_fd_dh() function from libdh library.
 	Computes roots of equation "ax^2 + bx + c = 0" if a b c values given as command line arguments and prints x1 and x2 values.
 
-datatypes:
-	- version: 0.14
-	Prints info about programming environment like C preprocessor macros or sizeof() of data-types.
-
 portping:
 	- version 0.7
 	- License: Creative Commons Attribution 3.0
@@ -59,7 +55,7 @@ GNU Linux:
 	$ make
 	$ make install
 
-	- installs utils to '/usr/bin' by default
 	- installs libdh.so to '/usr/lib' by default
 	- installs headers to '/usr/include/libdh' by default
+	(doesn't install utils)
 
