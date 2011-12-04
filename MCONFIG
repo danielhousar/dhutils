@@ -28,9 +28,9 @@ Q = @
 
 OBJ-OUTDIR=../.out
 BIN-OUTDIR=../.bin
-SBIN-OUTDIR=../.sbin
-UBIN-OUTDIR=../.ubin
-TESTBIN-OUTDIR=../.testbin
+SBIN-OUTDIR=../.bin
+UBIN-OUTDIR=../.bin
+TESTBIN-OUTDIR=../.bin
 LIB-OUTDIR=../.lib
 
 # HERE you can modify, what will be built
