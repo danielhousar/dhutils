@@ -5,10 +5,9 @@
 #ifndef DHMISC_H
 #define DHMISC_H
 
-extern char binrep_chars[64];
-
-extern char *ui_to_binrep_dh(unsigned int a);
-extern unsigned long rand_dh();
+ extern void ui2bins_t_dh(char *p, unsigned int a);
+ extern char *ui2bins_dh(char *p, unsigned int a);
+ extern unsigned long rand_dh();
 
 #endif
 
