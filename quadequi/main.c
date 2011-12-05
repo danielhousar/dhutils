@@ -10,7 +10,7 @@
 
 int main (int argc, char **argv){
 
-	const char* qe_version_str = "0.10 2011-08-24";
+	const char* qe_version_str = "1.0 2011-12-07";
 
 	int i = 1;
 	char var_set = 0;
@@ -18,7 +18,7 @@ int main (int argc, char **argv){
 	double a = 0.0;
 	double b = 0.0;
 	double c = 0.0;
-	double *main_roots;
+	double qe_roots[4];
 
 /* init */
 	if (argc == 1){
@@ -67,9 +67,8 @@ int main (int argc, char **argv){
 		if (var_set > 0) {
 			if (var_set < 3) puts("not all required values given - stop processing");
 			else {
-				main_roots = quadequi_dh(a, b, c);
-
-				printf(" x1 = %f\n x2 = %f\n", main_roots[0], main_roots[1]);
+				quadequi_c_dh(a, b, c, qe_roots);
+				printf(" x1 = %f + %fi\n x2 = %f + %fi\n", qe_roots[0], qe_roots[1], qe_roots[2], qe_roots[3]);
 			}
 		}
 	}
