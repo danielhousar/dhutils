@@ -91,6 +91,7 @@ long double sqrt_fld_dh(long double a){
 	}
 	return var3;
 }
+
 double *quadequi_dh (double a, double b, double c) {
 	double *qe_retval = qe_roots;
 	double d, discr;
@@ -102,6 +103,29 @@ double *quadequi_dh (double a, double b, double c) {
 		qe_roots[0] = (-b - d) / (2.0 * a);
 		qe_roots[1] = (-b + d) / (2.0 * a);
 	}
+
+	return qe_retval;
+}
+
+double *quadequi_c_dh (double a, double b, double c, double *pf) {
+	double *qe_retval = pf;
+	double d, discr;
+	double i = 0.0;
+	double r = 1.0;
+
+	discr = (b * b) - (4.0 * a * c);
+
+	if (discr < 0.0) {
+		discr *= -1.0;
+		i = 1.0;
+		r = 0.0;
+	}
+	d = sqrt_dh(discr);
+
+	qe_retval[0] = ((-b - (r*d)) / (2.0 * a));
+	qe_retval[1] = (-d*i) / (2.0 * a);
+	qe_retval[2] = ((-b + (r*d)) / (2.0 * a));
+	qe_retval[3] = (d*i) / (2.0 * a);
 
 	return qe_retval;
 }

@@ -23,6 +23,7 @@
  float sqrtf_dh(float a);
  double sqrt_dh(double a);
  long double sqrt_fld_dh(long double a);
+ double *quadequi_c_dh (double a, double b, double c, double *pf);
  double *quadequi_dh(double a, double b, double c);
  double quadequi_1_dh(double a, double b, double c);
  double quadequi_2_dh(double a, double b, double c);
