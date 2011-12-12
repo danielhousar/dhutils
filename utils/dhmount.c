@@ -21,7 +21,7 @@ int main (int argc, char **argv) {
 		mount(argv[1], argv[2], argv[3], MS_RELATIME, "");
 		perror("dhmount");
 		break;
-	case 3:
+	case 2:
 		umount(argv[1]);
 		perror("dhmount");
 		break;
