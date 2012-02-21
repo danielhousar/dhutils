@@ -3,7 +3,7 @@
  ***************************************************************************** */
 
 #include <sys/time.h>
-# include "dhmisc.h"
+#include "dhmisc.h"
 
 void ui2bins_t_dh(char *p, unsigned int a) {
 	int pos = 0;
@@ -72,3 +72,8 @@ unsigned long rand_dh() {
 	return ret_rand;
 }
 
+void wait (int seconds) {
+  clock_t endwait;
+  endwait = clock () + seconds * CLOCKS_PER_SEC ;
+  while (clock() < endwait) {}
+}
