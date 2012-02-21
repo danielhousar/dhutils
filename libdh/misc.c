@@ -3,6 +3,7 @@
  ***************************************************************************** */
 
 #include <sys/time.h>
+#include <time.h>
 #include "dhmisc.h"
 
 void ui2bins_t_dh(char *p, unsigned int a) {
