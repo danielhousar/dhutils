@@ -58,17 +58,10 @@ unsigned long rand_dh() {
 	unsigned long time;
 
 	gettimeofday(&tod, 0);
-	time = tod.tv_usec;
-	time = time >> 1;
-	gettimeofday(&tod, 0);
-	time -= (tod.tv_usec >> 2);
-	time /= 100;
-	gettimeofday(&tod, 0);
-	time += (tod.tv_usec / 100);
-	time /= 100;
-	if (time >= 100)
-		time = time >> 1;
-	ret_rand = time;
+	ret_rand = tod.tv_usec;
+	while (ret_rand > 127) {
+		ret_rand = ret_rand / 10;
+	}
 
 	return ret_rand;
 }
