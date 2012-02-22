@@ -68,6 +68,6 @@ unsigned long rand_dh() {
 
 void wait (int seconds) {
   clock_t endwait;
-  endwait = clock () + seconds * CLOCKS_PER_SEC ;
+  endwait = clock() + seconds * CLOCKS_PER_SEC;
   while (clock() < endwait) {}
 }
